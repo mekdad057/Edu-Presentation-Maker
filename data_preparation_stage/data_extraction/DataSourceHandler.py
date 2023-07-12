@@ -1,6 +1,6 @@
 from data_objects.Document import Document
 from data_objects.Topic import Topic
-from data_preparation_stage.data_extraction.DataSourceExtractor import DataSourceExtractor
+from .DataSourceExtractor import DataSourceExtractor
 
 
 class DataSourceHandler:
