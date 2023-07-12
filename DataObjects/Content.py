@@ -1,0 +1,2 @@
+class Content:
+    data: object
