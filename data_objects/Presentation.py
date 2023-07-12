@@ -1,6 +1,6 @@
-from DataObjects.KeyPoint import KeyPoint
-from DataObjects.Script import Script
-from DataObjects.Slide import Slide
+from data_objects.KeyPoint import KeyPoint
+from data_objects.Script import Script
+from data_objects.Slide import Slide
 
 
 class Presentation:

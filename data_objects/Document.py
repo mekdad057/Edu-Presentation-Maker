@@ -1,4 +1,4 @@
-from DataObjects.Paragraph import Paragraph
+from data_objects.Paragraph import Paragraph
 
 
 class Document:

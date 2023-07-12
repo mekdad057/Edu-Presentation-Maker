@@ -1,4 +1,4 @@
-from DataObjects.Document import Document
+from data_objects.Document import Document
 
 
 class Topic:
