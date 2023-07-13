@@ -1,5 +1,6 @@
-from data_objects.Document import Document
 from abc import ABC, abstractmethod
+
+from data_objects import Document
 
 
 class DataSourceExtractor(ABC):

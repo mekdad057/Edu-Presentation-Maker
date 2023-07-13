@@ -1,1 +1,2 @@
 from .PreprocessingHandler import PreprocessingHandler
+from .DocumentProcessor import DocumentProcessor

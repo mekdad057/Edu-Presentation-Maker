@@ -1,7 +1,7 @@
 from data_objects import Presentation, Topic
 
 
-class GeneratorHandler:
+class GenerationHandler:
     language: str
     # first key is the name of the generator and the second key is the
     # parameter value

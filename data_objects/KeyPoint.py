@@ -1,5 +1,4 @@
-from data_objects.Content import Content
-from data_objects.Document import Document
+from data_objects import Content, Document
 
 
 class KeyPoint(Content):
