@@ -1,9 +1,14 @@
-from data_objects import Paragraph
+from data_objects.Paragraph import Paragraph
 
 
 class Document:
-    _size: int
     name: str
     path: str
     language: str
     paragraphs: list[Paragraph]
+
+    def __init__(self, name: str, path: str, language: str = 'english'):
+        self.name = name
+        self.path = path
+        self.language = language
+        self.paragraphs = list()

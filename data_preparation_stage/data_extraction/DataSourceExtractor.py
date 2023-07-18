@@ -17,5 +17,5 @@ class DataSourceExtractor(ABC):
         return self._language_handler
 
     @abstractmethod
-    def get_text(self, path: str) -> Document:
+    def get_text(self, path: str) -> str:
         pass

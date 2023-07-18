@@ -1,5 +1,10 @@
-from data_objects import Content, Document
+from data_objects.Content import Content
+from data_objects.Document import Document
 
 
 class Script(Content):
-    reference: Document
+    reference: str
+
+    def __init__(self, text: str, path: str):
+        super().__init__(text, path)
+
