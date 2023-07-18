@@ -8,15 +8,25 @@ class TopicHandler:
     _datasource_handler: DataSourceHandler
     _processing_handler: PreprocessingHandler
 
-    def get_processing_handler(self):
-        if self._processing_handler is None:
-            self._processing_handler = PreprocessingHandler()
+    def __init__(self):
+        self._topic = Topic()
+        self._datasource_handler = DataSourceHandler()
+        self._processing_handler = PreprocessingHandler()
+
+    @property
+    def topic(self):
+        return self._topic
+
+    @property
+    def datasource_handler(self):
+        return self._datasource_handler
+
+    @property
+    def processing_handler(self):
         return self._processing_handler
 
-    def get_data_handler(self):
-        if self._datasource_handler is None:
-            self._datasource_handler = DataSourceHandler()
-        return self._datasource_handler
+    def reset(self):
+        self._topic = Topic()
 
     def add_source(self, path: str) -> bool:
         pass
@@ -29,10 +39,10 @@ class TopicHandler:
                             , params: dict[str, object]) -> bool:
         pass
 
-    def get_topic(self):
-        if self._topic is None:
-            self._topic = Topic()
-        return self._topic
-
     def get_document(self, document_name: str) -> Document:
-        pass
+        doc = None
+        for d in self.topic.documents:
+            if d.name == document_name:
+                doc = d
+                break
+        return doc

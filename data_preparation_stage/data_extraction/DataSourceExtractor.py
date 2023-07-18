@@ -8,13 +8,17 @@ class DataSourceExtractor(ABC):
     __DATA_SOURCE_TYPE_NAME: str  # name of the extension of the file.
     _language_handler: LanguageHandler
 
-    def get_type(self) -> str:
+    def __init__(self):
+        self._language_handler = LanguageHandler()
+        self.__DATA_SOURCE_TYPE_NAME = "Abstract Type"
+
+    @property
+    def DATA_SOURCE_TYPE_NAME(self):
         return self.__DATA_SOURCE_TYPE_NAME
 
-    def get_langauge_handler(self) -> LanguageHandler:
-        if self._language_handler is None:
-            self._language_handler = LanguageHandler()
-        return self._language_handler
+    @property
+    def language_handler(self):
+        return self.language_handler
 
     @abstractmethod
     def get_text(self, path: str) -> str:

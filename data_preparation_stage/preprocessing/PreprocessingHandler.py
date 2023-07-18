@@ -3,6 +3,10 @@ from data_preparation_stage.preprocessing import DocumentProcessor
 
 
 class PreprocessingHandler:
+
+    def __init__(self):
+        pass
+
     def process(self, topic: Topic, documents_names: list[str]
                 , processing_methods_names: list[str]
                 , params: dict[str, object]) -> Topic:

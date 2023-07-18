@@ -1,4 +1,8 @@
 class LanguageHandler:
+
+    def __init__(self):
+        pass
+
     def determine_language(self,text: str) -> str:
         pass
 

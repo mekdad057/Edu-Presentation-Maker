@@ -10,6 +10,12 @@ class GenerationHandler:
     KEYPOINT_GENERATORS: list[str]
     SCRIPT_GENERATORS: list[str]
 
+    def __init__(self, language: str = "english"):
+        self.language = language
+        self.SCRIPT_GENERATORS = []
+        self.KEYPOINT_GENERATORS = []
+        self.INITIAL_GENERATOR_PARAMS_VALUES = {}
+
     def generate_content(self, presentation: Presentation, topic: Topic
                          , generators_names: list[str]) -> Presentation:
         pass

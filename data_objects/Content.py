@@ -1,4 +1,7 @@
-class Content:
+from abc import ABC
+
+
+class Content(ABC):
     data: object
     reference: str
 

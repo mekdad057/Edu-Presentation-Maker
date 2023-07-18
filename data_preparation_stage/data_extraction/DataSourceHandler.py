@@ -3,6 +3,10 @@ from data_preparation_stage.data_extraction import DataSourceExtractor
 
 
 class DataSourceHandler:
+
+    def __init__(self):
+        pass
+
     def create_document(self, extractor: DataSourceExtractor, path: str) \
             -> Document:
         pass

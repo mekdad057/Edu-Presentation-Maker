@@ -8,15 +8,22 @@ class PresentationHandler:
     _generator_handler: GenerationHandler
     _organizer: Organizer
 
+    def __init__(self):
+        self._presentation = Presentation()
+        self._generator_handler = GenerationHandler()
+        self._organizer = Organizer()
+
+    @property
+    def presentation(self):
+        return self._presentation
+
+    def reset(self):
+        self._presentation = Presentation()
+
     def create_presentation(self, topic: Topic
                             , generators_names: list[Generator]
                             , slides_number: int):
         pass
-
-    def get_presentation(self):
-        if self._presentation is None:
-            self._presentation = Presentation()
-        return self._presentation
 
     def export_presentation(self, path: str):
         pass
