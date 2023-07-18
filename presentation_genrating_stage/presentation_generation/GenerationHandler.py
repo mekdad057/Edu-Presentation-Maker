@@ -5,7 +5,7 @@ class GenerationHandler:
     language: str
     # first key is the name of the generator and the second key is the
     # parameter value
-    INITIAL_GENERATOR_PARAMS_VALUES: dict[str, dict[str, str]]
+    INITIAL_GENERATOR_PARAMS_VALUES: dict[str, dict[str, object]]
 
     KEYPOINT_GENERATORS: list[str]
     SCRIPT_GENERATORS: list[str]

@@ -26,7 +26,7 @@ class TopicHandler:
 
     def start_preprocessing(self, document_names: list[str]
                             , processing_methods_names: list[str]
-                            , params: dict[str, str]) -> bool:
+                            , params: dict[str, object]) -> bool:
         pass
 
     def get_topic(self):
