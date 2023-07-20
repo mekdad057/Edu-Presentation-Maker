@@ -29,10 +29,42 @@ class TopicHandler:
         self._topic = Topic()
 
     def add_source(self, path: str) -> bool:
-        pass
+        try:
+            self.datasource_handler.add_source(self.topic, path)
+
+            # setting the subject for the document inside the documents_subjects
+            # dictionary in topic object.
+            topic_subjects = self.topic.document_subjects
+            subject = len(topic_subjects) + 1
+            for doc in self.topic.documents:
+                if doc.path == path:
+                    topic_subjects[doc] = subject
+                break
+            return True
+        except Exception as e:
+            print(e)
+            return False
 
     def add_sources(self, paths: list[str], same_subject: bool = False) -> bool:
-        pass
+        try:
+            for path in paths:
+                self.datasource_handler.add_source(self.topic, path)
+                pass
+
+            # setting the subject for the document inside the documents_subjects
+            # dictionary in topic object.
+            topic_subjects = self.topic.document_subjects
+            subject = len(topic_subjects)+1
+            for doc in self.topic.documents:
+                if doc.path in paths:
+                    topic_subjects[doc] = subject
+                    # this line makes sure that documents that has the same
+                    # subject has the same value
+                    subject += int(not same_subject)
+            return True
+        except Exception as e:
+            print(e)
+            return False
 
     def start_preprocessing(self, document_names: list[str]
                             , processing_methods_names: list[str]

@@ -23,3 +23,11 @@ class DataSourceExtractor(ABC):
     @abstractmethod
     def get_text(self, path: str) -> str:
         pass
+
+    @abstractmethod
+    def create_document(self, path: str) -> Document:
+        pass
+
+    @abstractmethod
+    def divide_paragraphs(self, doc: Document, text: str) -> Document:
+        pass
