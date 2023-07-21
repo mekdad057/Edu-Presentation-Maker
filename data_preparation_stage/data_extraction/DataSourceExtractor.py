@@ -5,20 +5,14 @@ from utils import LanguageHandler
 
 
 class DataSourceExtractor(ABC):
-    __DATA_SOURCE_TYPE_NAME: str  # name of the extension of the file.
     _language_handler: LanguageHandler
 
     def __init__(self):
         self._language_handler = LanguageHandler()
-        self.__DATA_SOURCE_TYPE_NAME = "Abstract Type"
-
-    @property
-    def DATA_SOURCE_TYPE_NAME(self):
-        return self.__DATA_SOURCE_TYPE_NAME
 
     @property
     def language_handler(self):
-        return self.language_handler
+        return self._language_handler
 
     @abstractmethod
     def get_text(self, path: str) -> str:

@@ -2,8 +2,10 @@ import os
 
 from data_objects import Topic, Document
 from data_preparation_stage.data_extraction import DataSourceExtractor
+from data_preparation_stage.data_extraction.HtmlTrafilaturaExtractor import \
+    HtmlTrafilaturaExtractor
 from utils import is_path_or_url, download_to_working, copy_file_to_working, \
-    InvalidPathError
+    InvalidPathError, get_file_name
 
 
 class DataSourceHandler:
@@ -13,7 +15,7 @@ class DataSourceHandler:
 
     def create_document(self, extractor: DataSourceExtractor, path: str) \
             -> Document:
-        pass
+        return extractor.create_document(path)
 
     def add_source(self, topic: Topic, path: str) -> Topic:
         doc = None
@@ -28,15 +30,14 @@ class DataSourceHandler:
             working_path = copy_file_to_working(path)
         else:
             raise InvalidPathError(f"path: {path}:\nis invalid")
-        # use the suitable extractor
-        file_name = working_path.split(os.path.sep)[-1]
+
+        # use suitable extractor to create the content
+        file_name = get_file_name(working_path)
 
         if self.is_pdf(file_name):
-            pass
+            pass  # todo : add pdf extractor
         elif self.is_web_page(file_name):
-            pass
-            # doc = self.create_document(ex, working_path)
-            # todo: come here and complete the extraction code.
+            doc = self.create_document(HtmlTrafilaturaExtractor(), working_path)
 
         # add doc to Topic and return it.
         if doc is None:

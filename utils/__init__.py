@@ -2,8 +2,9 @@ import os
 import shutil
 
 import requests
-import urllib.parse
+from urllib.parse import unquote, urlparse
 
+from unidecode import unidecode
 
 from .LanguageHandler import LanguageHandler
 from .Errors import InvalidPathError
@@ -20,8 +21,10 @@ def download_to_working(url: str) -> str:
 
     # If the GET request is successful, the status code will be 200
     if response.status_code == 200:
-        # Get the file name from the URL
+        # Get the file name from the URL and decode it
         file_name = url.split("/")[-1]
+        file_name = unquote(file_name)
+        file_name = unidecode(file_name)
 
         # If the file is an HTML file
         if 'text/html' in response.headers['content-type']:
@@ -50,7 +53,7 @@ def is_path_or_url(string) -> str:
     if os.path.exists(string):
         return "Path"
     # Check if string is a URL
-    elif urllib.parse.urlparse(string).scheme in ["http", "https"]:
+    elif urlparse(string).scheme in ["http", "https"]:
         return "URL"
     else:
         return "Unknown"
@@ -60,3 +63,7 @@ def copy_file_to_working(file_path) -> str:
     shutil.copy2(file_path, WORKING_DIR)
     file_name = file_path.split(os.path.sep)[-1]
     return WORKING_DIR + os.path.sep + file_name
+
+
+def get_file_name(working_path: str) -> str:
+    return working_path.split(os.path.sep)[-1]
