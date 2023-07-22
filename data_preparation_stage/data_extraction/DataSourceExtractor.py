@@ -23,5 +23,5 @@ class DataSourceExtractor(ABC):
         pass
 
     @abstractmethod
-    def divide_paragraphs(self, doc: Document, text: str) -> Document:
+    def divide_paragraphs(self, doc: Document, text: str):
         pass

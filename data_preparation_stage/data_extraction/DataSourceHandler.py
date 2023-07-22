@@ -17,7 +17,7 @@ class DataSourceHandler:
             -> Document:
         return extractor.create_document(path)
 
-    def add_source(self, topic: Topic, path: str) -> Topic:
+    def add_source(self, topic: Topic, path: str):
         doc = None
 
         # move the file to working directory
@@ -46,7 +46,6 @@ class DataSourceHandler:
             # todo: use a logger instead of printing messages.
         doc.path = path
         topic.documents.append(doc)
-        return topic
 
     @staticmethod
     def is_pdf(name: str) -> bool:

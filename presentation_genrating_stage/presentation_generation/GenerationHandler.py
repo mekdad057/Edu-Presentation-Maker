@@ -10,7 +10,7 @@ class GenerationHandler:
     KEYPOINT_GENERATORS: list[str]
     SCRIPT_GENERATORS: list[str]
 
-    def __init__(self, language: str = "english"):
+    def __init__(self, language: str = "all"):
         self.language = language
         self.SCRIPT_GENERATORS = []
         self.KEYPOINT_GENERATORS = []

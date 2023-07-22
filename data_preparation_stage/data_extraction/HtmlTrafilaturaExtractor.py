@@ -32,11 +32,11 @@ class HtmlTrafilaturaExtractor(DataSourceExtractor):
         doc = Document(name, path, language)
 
         # 4) dividing the extracted content to paragraphs
-        doc = self.divide_paragraphs(doc, contents)
+        self.divide_paragraphs(doc, contents)
 
         return doc
 
-    def divide_paragraphs(self, doc: Document, text: str) -> Document:
+    def divide_paragraphs(self, doc: Document, text: str):
         paragraph_min_size = 100  # in chars
         split_text = text.split('##')
 
@@ -48,13 +48,13 @@ class HtmlTrafilaturaExtractor(DataSourceExtractor):
         block = ""
         for text in cleaned_text:
             if len(block) < paragraph_min_size:
-                block = block.join(text)
+                block = block + text
             else:
                 good_text.append(block)
                 block = text
 
         if len(block) < paragraph_min_size:
-            good_text[-1].join(block)
+            good_text[-1] += block
         else:
             good_text.append(block)
 
@@ -62,5 +62,3 @@ class HtmlTrafilaturaExtractor(DataSourceExtractor):
         for st in good_text:
             p = Paragraph(st)
             doc.paragraphs.append(p)
-
-        return doc

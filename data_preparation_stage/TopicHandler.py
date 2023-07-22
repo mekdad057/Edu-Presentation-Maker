@@ -1,6 +1,7 @@
 from data_objects import Topic, Document
 from data_preparation_stage.data_extraction import DataSourceHandler
 from data_preparation_stage.preprocessing import PreprocessingHandler
+from utils.Errors import NotFoundError
 
 
 class TopicHandler:
@@ -67,9 +68,23 @@ class TopicHandler:
             return False
 
     def start_preprocessing(self, document_names: list[str]
-                            , processing_methods_names: list[str]
-                            , params: dict[str, object]) -> bool:
-        pass
+                            , processing_methods_names: list[str]) -> bool:
+        try:
+            # getting all the documents that need preprocessing
+            docs = []
+            for name in document_names:
+                doc = self.get_document(name)
+                if doc is None:
+                    raise NotFoundError(f"Document with name {name}"
+                                                f" not found")
+                else:
+                    docs.append(doc)
+            ###
+            self.processing_handler.process(docs, processing_methods_names)
+            return True
+        except Exception as e:
+            print(e)
+            return False
 
     def get_document(self, document_name: str) -> Document:
         doc = None
