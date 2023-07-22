@@ -9,8 +9,8 @@ class TopicHandler:
     _datasource_handler: DataSourceHandler
     _processing_handler: PreprocessingHandler
 
-    def __init__(self):
-        self._topic = Topic()
+    def __init__(self, title: str = ""):
+        self._topic = Topic(title)
         self._datasource_handler = DataSourceHandler()
         self._processing_handler = PreprocessingHandler()
 
@@ -26,8 +26,8 @@ class TopicHandler:
     def processing_handler(self):
         return self._processing_handler
 
-    def reset(self):
-        self._topic = Topic()
+    def reset(self, title: str = ""):
+        self._topic = Topic(title)
 
     def add_source(self, path: str) -> bool:
         try:

@@ -6,7 +6,7 @@ class Topic:
     document_subjects: dict[Document, int]
     documents: list[Document]
 
-    def __init__(self):
-        self.title = ""
+    def __init__(self, title: str = ""):
+        self.title = title
         self.document_subjects = dict()
         self.documents = list()

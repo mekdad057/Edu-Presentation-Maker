@@ -3,6 +3,8 @@ from data_preparation_stage.preprocessing import DocumentProcessor
 from data_preparation_stage.preprocessing.Normalizer import Normalizer
 from data_preparation_stage.preprocessing.PunctuationRemover import \
     PunctuationRemover
+from data_preparation_stage.preprocessing.CitationsLinksRemover import \
+    CitationsLinksRemover
 from utils.Errors import NotFoundError
 
 
@@ -33,5 +35,7 @@ class PreprocessingHandler:
             return Normalizer()
         elif name == "punctuation_remover":
             return PunctuationRemover()
+        elif name == "citations_links_remover":
+            return CitationsLinksRemover()
         else:
             raise NotFoundError(f"processor with name {name} not found")
