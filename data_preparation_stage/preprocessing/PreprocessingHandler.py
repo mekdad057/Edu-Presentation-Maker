@@ -1,5 +1,7 @@
 from data_objects import Topic, Document
 from data_preparation_stage.preprocessing import DocumentProcessor
+from data_preparation_stage.preprocessing.NonEnglishRemover import \
+    NonEnglishRemover
 from data_preparation_stage.preprocessing.Normalizer import Normalizer
 from data_preparation_stage.preprocessing.PunctuationRemover import \
     PunctuationRemover
@@ -37,5 +39,7 @@ class PreprocessingHandler:
             return PunctuationRemover()
         elif name == "citations_links_remover":
             return CitationsLinksRemover()
+        elif name == "non_english_remover":
+            return NonEnglishRemover()
         else:
             raise NotFoundError(f"processor with name {name} not found")

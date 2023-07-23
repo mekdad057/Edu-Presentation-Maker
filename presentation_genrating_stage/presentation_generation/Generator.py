@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from data_objects import Content
+from data_objects import Content, Topic
 
 
 class Generator(ABC):
@@ -14,7 +14,8 @@ class Generator(ABC):
         self._current_params_values = {}
 
     @abstractmethod
-    def get_output(self, input: str, params: dict[str, object]) -> Content:
+    def get_output(self, topic: Topic, params: dict[str, object]) \
+            -> list[Content]:
         pass
 
     @property

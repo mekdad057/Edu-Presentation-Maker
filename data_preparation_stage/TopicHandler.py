@@ -18,20 +18,12 @@ class TopicHandler:
     def topic(self):
         return self._topic
 
-    @property
-    def datasource_handler(self):
-        return self._datasource_handler
-
-    @property
-    def processing_handler(self):
-        return self._processing_handler
-
     def reset(self, title: str = ""):
         self._topic = Topic(title)
 
     def add_source(self, path: str) -> bool:
         try:
-            self.datasource_handler.add_source(self.topic, path)
+            self._datasource_handler.add_source(self.topic, path)
 
             # setting the subject for the document inside the documents_subjects
             # dictionary in topic object.
@@ -49,7 +41,7 @@ class TopicHandler:
     def add_sources(self, paths: list[str], same_subject: bool = False) -> bool:
         try:
             for path in paths:
-                self.datasource_handler.add_source(self.topic, path)
+                self._datasource_handler.add_source(self.topic, path)
                 pass
 
             # setting the subject for the document inside the documents_subjects
@@ -80,7 +72,7 @@ class TopicHandler:
                 else:
                     docs.append(doc)
             ###
-            self.processing_handler.process(docs, processing_methods_names)
+            self._processing_handler.process(docs, processing_methods_names)
             return True
         except Exception as e:
             print(e)
