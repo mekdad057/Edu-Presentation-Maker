@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 from data_objects import Document
-from utils import LanguageHandler
+from utils import LanguageHandler, get_file_name
 
 
 class DataSourceExtractor(ABC):
@@ -18,9 +18,21 @@ class DataSourceExtractor(ABC):
     def get_text(self, path: str) -> str:
         pass
 
-    @abstractmethod
     def create_document(self, path: str) -> Document:
-        pass
+        # 1) extracting contents of the page
+        contents = self.get_text(path)
+
+        # 2) evaluating attributes
+        name = get_file_name(path)
+        language = self.language_handler.determine_language(contents)
+
+        # 3) creating Document Object with the attributes
+        doc = Document(name, path, language)
+
+        # 4) dividing the extracted content to paragraphs
+        self.divide_paragraphs(doc, contents)
+
+        return doc
 
     @abstractmethod
     def divide_paragraphs(self, doc: Document, text: str):

@@ -20,22 +20,6 @@ class HtmlTrafilaturaExtractor(DataSourceExtractor):
                                                         )
         return extracted_content['text']
 
-    def create_document(self, path: str) -> Document:
-        # 1) extracting contents of the page
-        contents = self.get_text(path)
-
-        # 2) evaluating attributes
-        name = get_file_name(path)
-        language = self.language_handler.determine_language(contents)
-
-        # 3) creating Document Object with the attributes
-        doc = Document(name, path, language)
-
-        # 4) dividing the extracted content to paragraphs
-        self.divide_paragraphs(doc, contents)
-
-        return doc
-
     def divide_paragraphs(self, doc: Document, text: str):
         paragraph_min_size = 100  # in chars
         split_text = text.split('##')
