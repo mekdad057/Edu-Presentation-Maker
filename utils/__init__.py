@@ -17,7 +17,11 @@ WORKING_DIR = os.path.join(MAIN_DIR, "working")
 
 def download_to_working(url: str) -> str:  # todo: if downloaded don't download
     # Send a GET request
-    response = requests.get(url, stream=True, verify=False)
+
+    try:
+        response = requests.get(url, stream=True, verify=False)
+    except Exception as e:
+        raise Exception("Check your Connection")
 
     # If the GET request is successful, the status code will be 200
     if response.status_code == 200:

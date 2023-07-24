@@ -1,7 +1,10 @@
 import os
 
 from data_objects import Topic, Document
-from data_preparation_stage.data_extraction import DataSourceExtractor
+from data_preparation_stage.data_extraction.WikipediaExtractor\
+    import WikipediaExtractor
+from data_preparation_stage.data_extraction.DataSourceExtractor\
+    import DataSourceExtractor
 from data_preparation_stage.data_extraction.HtmlTrafilaturaExtractor import \
     HtmlTrafilaturaExtractor
 from utils import is_path_or_url, download_to_working, copy_file_to_working, \
@@ -37,7 +40,8 @@ class DataSourceHandler:
         if self.is_pdf(file_name):
             pass  # todo : add pdf extractor
         elif self.is_web_page(file_name):
-            doc = self.create_document(HtmlTrafilaturaExtractor(), working_path)
+            # FIXME : this doesn't handle pages from other websites
+            doc = self.create_document(WikipediaExtractor(), working_path)
 
         # add doc to Topic and return it.
         if doc is None:
