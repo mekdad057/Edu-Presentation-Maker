@@ -1,3 +1,5 @@
+import logging
+
 from data_objects import Topic, Document
 from data_preparation_stage.data_extraction import DataSourceHandler
 from data_preparation_stage.preprocessing import PreprocessingHandler
@@ -35,7 +37,7 @@ class TopicHandler:
                 break
             return True
         except Exception as e:
-            print(e)
+            logging.error(e)
             return False
 
     def add_sources(self, paths: list[str], same_subject: bool = False) -> bool:
@@ -56,7 +58,7 @@ class TopicHandler:
                     subject += int(not same_subject)
             return True
         except Exception as e:
-            print(e)
+            logging.error(e)
             return False
 
     def start_preprocessing(self, document_names: list[str]
@@ -67,15 +69,14 @@ class TopicHandler:
             for name in document_names:
                 doc = self.get_document(name)
                 if doc is None:
-                    raise NotFoundError(f"Document with name {name}"
-                                                f" not found")
+                    raise NotFoundError("document", name)
                 else:
                     docs.append(doc)
             ###
             self._processing_handler.process(docs, processing_methods_names)
             return True
         except Exception as e:
-            print(e)
+            logging.error(e)
             return False
 
     def get_document(self, document_name: str) -> Document:

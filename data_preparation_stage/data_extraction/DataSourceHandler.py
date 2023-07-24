@@ -47,7 +47,6 @@ class DataSourceHandler:
         if doc is None:
             raise ValueError(f"Document '{file_name}' "
                              f"extraction FAILED")
-            # todo: use a logger instead of printing messages.
         doc.path = path
         topic.documents.append(doc)
 

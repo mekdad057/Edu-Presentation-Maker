@@ -15,13 +15,12 @@ MAIN_DIR = os.path.abspath(os.path.join(os.path.dirname(
 WORKING_DIR = os.path.join(MAIN_DIR, "working")
 
 
-def download_to_working(url: str) -> str:  # todo: if downloaded don't download
+def download_to_working(url: str) -> str:
     # Send a GET request
-
     try:
         response = requests.get(url, stream=True, verify=False)
     except Exception as e:
-        raise Exception("Check your Connection")
+        raise ConnectionError("Check your Connection")
 
     # If the GET request is successful, the status code will be 200
     if response.status_code == 200:
@@ -64,9 +63,13 @@ def is_path_or_url(string) -> str:
 
 
 def copy_file_to_working(file_path) -> str:
-    shutil.copy2(file_path, WORKING_DIR)
     file_name = file_path.split(os.path.sep)[-1]
-    return WORKING_DIR + os.path.sep + file_name
+
+    # case: the file already exists in the working directory.
+    if os.path.join(WORKING_DIR, file_name) == file_path:
+        return file_path
+    shutil.copy2(file_path, WORKING_DIR)
+    return os.path.join(WORKING_DIR, file_name)
 
 
 def get_file_name(working_path: str) -> str:

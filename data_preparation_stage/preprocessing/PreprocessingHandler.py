@@ -45,4 +45,4 @@ class PreprocessingHandler:
         elif name == "new_lines_remover":
             return NewLinesRemover()
         else:
-            raise NotFoundError(f"processor with name {name} not found")
+            raise NotFoundError("processor", name)

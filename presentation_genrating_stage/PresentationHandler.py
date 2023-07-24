@@ -1,4 +1,5 @@
 import copy
+import logging
 
 from data_objects import Presentation, Topic
 from presentation_genrating_stage.presentation_generation import \
@@ -35,8 +36,8 @@ class PresentationHandler:
             # self._organizer.organize(self.presentation, topic, slides_number)
             return True
         except Exception as e:
-            print("Generation Failed")
-            print(e)
+            logging.error("Generation Failed")
+            logging.error(e)
             return False
     def export_presentation(self, path: str):
         pass
