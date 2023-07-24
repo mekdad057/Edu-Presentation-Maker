@@ -16,11 +16,13 @@ if __name__ == "__main__":
         print(repr(p.raw_data))
     print("---")
 
-    t.start_preprocessing(["List_of_English_writers.html"]
-                          , ["normalizer"
-                              , "citations_links_remover"
-                              , "non_english_remover"])
+    t.start_preprocessing(["Nuclear_fusion.html"]
+                          , ["citations_links_remover"
+                              , "non_english_remover"
+                             , "new_lines_remover"])
+    for p in t.topic.documents[0].paragraphs:
+        print(repr(p.processed_data))
+    print("---")
 
-    # print(t.topic.documents[0].paragraphs[0].processed_data)
 
 

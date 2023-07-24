@@ -1,5 +1,6 @@
 from data_objects import Topic, Document
 from data_preparation_stage.preprocessing import DocumentProcessor
+from data_preparation_stage.preprocessing.NewLinesRemover import NewLinesRemover
 from data_preparation_stage.preprocessing.NonEnglishRemover import \
     NonEnglishRemover
 from data_preparation_stage.preprocessing.Normalizer import Normalizer
@@ -41,5 +42,7 @@ class PreprocessingHandler:
             return CitationsLinksRemover()
         elif name == "non_english_remover":
             return NonEnglishRemover()
+        elif name == "new_lines_remover":
+            return NewLinesRemover()
         else:
             raise NotFoundError(f"processor with name {name} not found")
