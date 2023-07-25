@@ -5,7 +5,7 @@ from data_objects.Slide import Slide
 
 class Presentation:
     title: str
-    all_keypoints: list[KeyPoint]
+    all_keypoints: list[list[KeyPoint]]  # a list for each slide
     all_scripts: list[Script]
     slides: list[Slide]
 

@@ -3,8 +3,8 @@ from abc import ABC
 
 class Content(ABC):
     data: object
-    reference: str
+    reference: object
 
-    def __init__(self, data: object, reference: str):
+    def __init__(self, data: object, reference: object):
         self.data = data
         self.reference = reference

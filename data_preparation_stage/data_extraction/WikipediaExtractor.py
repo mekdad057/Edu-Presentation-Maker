@@ -20,7 +20,6 @@ class WikipediaExtractor(DataSourceExtractor):
         # replacing all links with the text inside of them.
         for tag in ob.find_all("a"):
             tag.replace_with(tag.get_text())
-
         return ob.__unicode__()  # to return only the text without a reference
         # on the whole html tree
 
@@ -30,9 +29,11 @@ class WikipediaExtractor(DataSourceExtractor):
         elements = soup.find_all(["h2", "p"])
 
         # getting the introduction paragraph.
-        block = "Introduction"
+        block = "Introduction#"
+        stop = 0
         for p in elements:
             if p.name != 'p':
+                stop = elements.index(p)
                 break
             else:
                 block += p.get_text()
@@ -45,14 +46,15 @@ class WikipediaExtractor(DataSourceExtractor):
         block = ""
         headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
         ignore = ["See also[edit]", "References[edit]", "Further reading[edit]"]
-        for i in range(len(elements)):
+        for i in range(stop, len(elements)):
             if elements[i].name in headings or i == len(elements)-1:
                 if block != "" and elements[i].name == 'h2':
                     paragraph = Paragraph(block)
                     doc.paragraphs.append(paragraph)
 
                 if elements[i].get_text(strip=True) not in ignore:
-                    block = elements[i].get_text(strip=True) + '\n'
+                    block = elements[i].get_text(strip=True) + '#'
+                    block = block.replace("[edit]", "")
                 else:
                     block = ""
             else:

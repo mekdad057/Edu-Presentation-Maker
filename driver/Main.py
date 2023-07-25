@@ -9,7 +9,7 @@ if __name__ == "__main__":
                         , format="%(levelname)s - %(message)s"
                         , encoding="utf-8")
 
-    t = TopicHandler("writers")
+    t = TopicHandler("testing_powerpoint")
     # link = "https://en.wikipedia.org/wiki/Nuclear_fusion"
     link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Nuclear_fusion.html"
     # link = "https://en.wikipedia.org/wiki/Fyodor_Dostoevsky"
@@ -32,6 +32,7 @@ if __name__ == "__main__":
     ph = PresentationHandler()
     ph.create_presentation(t.topic, ["sumy"], {})
 
+    ph.export_presentation()
 
 
 

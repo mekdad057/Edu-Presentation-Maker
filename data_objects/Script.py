@@ -5,6 +5,6 @@ from data_objects.Document import Document
 class Script(Content):
     reference: str
 
-    def __init__(self, text: str, path: str):
+    def __init__(self, text, path):
         super().__init__(text, path)
 

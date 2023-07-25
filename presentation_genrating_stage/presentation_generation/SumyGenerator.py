@@ -12,7 +12,7 @@ from sumy.summarizers.lex_rank import LexRankSummarizer
 class SumyGenerator(Generator):
     def __init__(self):
         super().__init__("sumy")
-        self._INITIAL_PARAMS_VALUES = {"n_sentences": 3}
+        self._INITIAL_PARAMS_VALUES = {"n_sentences": 2}
         self._current_params_values = {}
 
     def get_output(self, topic: Topic) \
@@ -30,7 +30,8 @@ class SumyGenerator(Generator):
 
                 p_keypoints = []
                 for sentence in summary:
-                    p_keypoints.append(str(sentence))
+                    keypoint = KeyPoint(str(sentence), p)
+                    p_keypoints.append(keypoint)
 
                 res.append(p_keypoints)
 

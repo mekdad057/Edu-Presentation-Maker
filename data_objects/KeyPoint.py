@@ -1,8 +1,7 @@
+from data_objects.Paragraph import Paragraph
 from data_objects.Content import Content
-from data_objects.Document import Document
-
 
 class KeyPoint(Content):
 
-    def __init__(self, text: str, path: str):
-        super().__init__(text, path)
+    def __init__(self, text: str, reference: Paragraph):
+        super().__init__(text, reference)
