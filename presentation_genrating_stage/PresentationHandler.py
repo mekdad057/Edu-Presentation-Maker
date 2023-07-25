@@ -25,13 +25,17 @@ class PresentationHandler:
 
     def create_presentation(self, topic: Topic
                             , generators_names: list[str]
-                            , slides_number: int) -> bool:
+                            , params: dict[str, dict[str, object]]
+                            , slides_number: int = -1) -> bool:
         # setting title
         try:
             self.presentation.title = topic.title
 
-            self._generator_handler.generate_content(self.presentation, topic
-                                                     , generators_names)
+            self._generator_handler.generate_content(self.presentation, topic,
+                                                     params, generators_names)
+
+            logging.debug("keypoints generated successfully")
+            logging.debug(self.presentation.all_keypoints)
 
             # self._organizer.organize(self.presentation, topic, slides_number)
             return True
@@ -39,6 +43,7 @@ class PresentationHandler:
             logging.error("Generation Failed")
             logging.error(e)
             return False
+
     def export_presentation(self, path: str):
         pass
 

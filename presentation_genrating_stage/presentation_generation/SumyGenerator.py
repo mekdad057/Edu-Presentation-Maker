@@ -1,3 +1,5 @@
+import logging
+
 from data_objects import Content, Topic, KeyPoint
 from presentation_genrating_stage.presentation_generation.Generator \
     import Generator
@@ -9,29 +11,27 @@ from sumy.summarizers.lex_rank import LexRankSummarizer
 
 class SumyGenerator(Generator):
     def __init__(self):
-        super().__init__()
-        self._Name = "Sumy"
-        self._INITIAL_PARAMS_VALUES = {"percentage": 0.25}
+        super().__init__("sumy")
+        self._INITIAL_PARAMS_VALUES = {"n_sentences": 3}
         self._current_params_values = {}
 
-    def get_output(self, topic: Topic, params: dict[str, object]) \
-            -> list[Content]:
-        res = list()
-        per = params.get("percentage",
-                         self._INITIAL_PARAMS_VALUES["percentage"])
-
+    def get_output(self, topic: Topic) \
+            -> object:
+        res = []
+        # fixme: keypoints from different documents can't be distinguished
+        #  in the result
         for doc in topic.documents:
-            summary = ""
             for p in doc.paragraphs:
-                # getting percentage from all sentences in a paragraph
-                amount = int(per * len(p.processed_data.split('.')))
-                parser = PlaintextParser.from_string(p.processed_data
-                                                     , Tokenizer("english"))
-                # getting summary of the paragraph
+                parser = PlaintextParser(p.processed_data
+                                         , Tokenizer(doc.language))
                 summarizer = LexRankSummarizer()
-                summary = summarizer(parser.document, amount)
+                summary = summarizer(parser.document
+                                     , self._current_params_values["n_sentences"])
 
-            c = KeyPoint(summary, doc.path)
-            res.append(c)
+                p_keypoints = []
+                for sentence in summary:
+                    p_keypoints.append(str(sentence))
+
+                res.append(p_keypoints)
 
         return res

@@ -29,5 +29,13 @@ if __name__ == "__main__":
         logging.debug(repr(p.processed_data))
     logging.debug("---")
 
+    ph = PresentationHandler()
+    ph.create_presentation(t.topic, ["sumy"], {})
+
+
+
+
+
+
 
 

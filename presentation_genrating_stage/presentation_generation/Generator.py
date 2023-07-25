@@ -1,3 +1,4 @@
+import logging
 from abc import ABC, abstractmethod
 
 from data_objects import Content, Topic
@@ -8,14 +9,14 @@ class Generator(ABC):
     _INITIAL_PARAMS_VALUES: dict[str, object]
     _current_params_values: dict[str, object]
 
-    def __init__(self):
-        self._NAME = "Generator"
+    def __init__(self, name: str = "generator"):
+        self._NAME = name
         self._INITIAL_PARAMS_VALUES = {}
         self._current_params_values = {}
 
     @abstractmethod
-    def get_output(self, topic: Topic, params: dict[str, object]) \
-            -> list[Content]:
+    def get_output(self, topic: Topic) \
+            -> object:
         pass
 
     @property
@@ -40,3 +41,8 @@ class Generator(ABC):
         for param in self._INITIAL_PARAMS_VALUES.keys():
             self._current_params_values[param] = \
                 params.get(param, self._INITIAL_PARAMS_VALUES[param])
+        logging.debug(self._current_params_values)
+
+    @property
+    def NAME(self):
+        return self._NAME
