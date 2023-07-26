@@ -29,7 +29,7 @@ class WikipediaExtractor(DataSourceExtractor):
         elements = soup.find_all(["h2", "p"])
 
         # getting the introduction paragraph.
-        block = "Introduction#"
+        block = "Introduction#\n"
         stop = 0
         for p in elements:
             if p.name != 'p':
@@ -45,15 +45,18 @@ class WikipediaExtractor(DataSourceExtractor):
         # and elements array looks like this: [h2,p,p,...,h2,p,p,...,h2,p,p,...]
         block = ""
         headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
-        ignore = ["See also[edit]", "References[edit]", "Further reading[edit]"]
+        ignore = ["See also", "References", "Further reading", "Honors"
+            , "Notes", "Sources"]
         for i in range(stop, len(elements)):
             if elements[i].name in headings or i == len(elements)-1:
                 if block != "" and elements[i].name == 'h2':
                     paragraph = Paragraph(block)
                     doc.paragraphs.append(paragraph)
 
-                if elements[i].get_text(strip=True) not in ignore:
-                    block = elements[i].get_text(strip=True) + '#'
+                if elements[i].get_text(strip=True) not in ignore\
+                        and elements[i].get_text(strip=True) not in \
+                        [text+"[edit]" for text in ignore]:
+                    block = elements[i].get_text(strip=True) + '#\n'
                     block = block.replace("[edit]", "")
                 else:
                     block = ""

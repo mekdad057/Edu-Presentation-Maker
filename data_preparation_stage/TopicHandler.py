@@ -37,7 +37,7 @@ class TopicHandler:
                 break
             return True
         except Exception as e:
-            logging.error(e)
+            logging.exception(e)
             return False
 
     def add_sources(self, paths: list[str], same_subject: bool = False) -> bool:
@@ -58,7 +58,7 @@ class TopicHandler:
                     subject += int(not same_subject)
             return True
         except Exception as e:
-            logging.error(e)
+            logging.exception(e)
             return False
 
     def start_preprocessing(self, document_names: list[str]
@@ -76,7 +76,7 @@ class TopicHandler:
             self._processing_handler.process(docs, processing_methods_names)
             return True
         except Exception as e:
-            logging.error(e)
+            logging.exception(e)
             return False
 
     def get_document(self, document_name: str) -> Document:

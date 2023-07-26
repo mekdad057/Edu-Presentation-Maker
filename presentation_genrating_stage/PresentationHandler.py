@@ -48,25 +48,29 @@ class PresentationHandler:
             return True
         except Exception as e:
             logging.error("Generation Failed")
-            logging.error(e)
+            logging.exception(e)
             return False
 
     def export_presentation(self, path: str = WORKING_DIR):
-        pr = pptx.Presentation()
+        try:
+            pr = pptx.Presentation()
 
-        for slide in self.presentation.slides:
-            slide_register = pr.slide_layouts[1]
-            m_slide = pr.slides.add_slide(slide_register)
-            m_slide.shapes.title.text = slide.title
-            bullet_point_box = m_slide.shapes
-            bullet_point_lvl1 = bullet_point_box.placeholders[1]
+            for slide in self.presentation.slides:
+                slide_register = pr.slide_layouts[1]
+                m_slide = pr.slides.add_slide(slide_register)
+                m_slide.shapes.title.text = slide.title
+                bullet_point_box = m_slide.shapes
+                bullet_point_lvl1 = bullet_point_box.placeholders[1]
 
-            bullet_points_text = [str(k.data) for k in slide.keypoints]
-            bullet_point_lvl1.text = "\n".join(bullet_points_text)
+                bullet_points_text = [str(k.data) for k in slide.keypoints]
+                bullet_point_lvl1.text = "\n".join(bullet_points_text)
 
-        pr.save(os.path.join(path, self.presentation.title+".pptx"))
+            pr.save(os.path.join(path, self.presentation.title+".pptx"))
 
-        logging.debug("presentation exported successfully")
+            logging.debug("presentation exported successfully")
+        except Exception as e:
+            logging.error("Exporting Process FAILED")
+            logging.error(e)
 
 
     def get_presentation(self):

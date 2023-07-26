@@ -27,7 +27,8 @@ class Generator(ABC):
     @current_params_values.setter
     def current_params_values(self, params: dict[str, object]):
         # checking if the parameters and the type of its values are correct
-        for param, value in params:
+        for param in params.keys():
+            value = params.get(param)
             if param not in self._INITIAL_PARAMS_VALUES.keys():
                 raise KeyError(f"{param} is not a parameter for this processor")
 
