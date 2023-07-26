@@ -14,6 +14,8 @@ MAIN_DIR = os.path.abspath(os.path.join(os.path.dirname(
 
 WORKING_DIR = os.path.join(MAIN_DIR, "working")
 
+RESULTS_DIR = os.path.join(MAIN_DIR, "results")
+
 
 def download_to_working(url: str) -> str:
     # Send a GET request

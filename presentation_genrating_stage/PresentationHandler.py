@@ -6,8 +6,8 @@ import pptx
 
 from data_objects import Presentation, Topic
 from presentation_genrating_stage.presentation_generation import \
-    GenerationHandler, Organizer, Generator
-from utils import WORKING_DIR
+    GenerationHandler, Organizer
+from utils import RESULTS_DIR
 
 
 class PresentationHandler:
@@ -51,7 +51,7 @@ class PresentationHandler:
             logging.exception(e)
             return False
 
-    def export_presentation(self, path: str = WORKING_DIR):
+    def export_presentation(self, path: str = RESULTS_DIR):
         try:
             pr = pptx.Presentation()
 
@@ -71,7 +71,6 @@ class PresentationHandler:
         except Exception as e:
             logging.error("Exporting Process FAILED")
             logging.error(e)
-
 
     def get_presentation(self):
         return copy.deepcopy(self.presentation)
