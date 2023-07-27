@@ -1,2 +1,2 @@
 from .PresentationHandler import PresentationHandler
-import presentation_generation
+from . import presentation_generation

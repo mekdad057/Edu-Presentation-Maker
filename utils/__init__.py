@@ -76,3 +76,26 @@ def copy_file_to_working(file_path) -> str:
 
 def get_file_name(working_path: str) -> str:
     return working_path.split(os.path.sep)[-1]
+
+
+def divide_to_subarrays(str_list: list[str], sub_size: int) -> list[list[str]]:
+    """
+    divides an array to maximum number of sub-arrays with size at least
+     equal to the given
+    :param str_list: list of strings
+    :param sub_size: the minimum size of a subarray
+    :return: list of lists represents the divided sub-arrays
+    """
+    # Calculate the size of the first subarray
+    first_sub_size = len(str_list) % sub_size
+    if first_sub_size == 0:
+        first_sub_size = sub_size
+
+    # Create the first subarray
+    subarrays = [str_list[:first_sub_size]]
+
+    # Create the remaining subarrays
+    for i in range(first_sub_size, len(str_list), sub_size):
+        subarrays.append(str_list[i:i + sub_size])
+
+    return subarrays
