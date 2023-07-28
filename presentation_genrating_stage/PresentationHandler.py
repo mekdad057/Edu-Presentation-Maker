@@ -65,12 +65,13 @@ class PresentationHandler:
                 bullet_points_text = [str(k.data) for k in slide.keypoints]
                 bullet_point_lvl1.text = "\n".join(bullet_points_text)
 
-            pr.save(os.path.join(path, self.presentation.title+".pptx"))
+            save_path = os.path.join(path, self.presentation.title+".pptx")
+            pr.save(save_path)
 
-            logging.debug("presentation exported successfully")
+            logging.debug("Presentation exported successfully")
         except Exception as e:
-            logging.error("Exporting Process FAILED")
-            logging.error(e)
+            logging.error("Exporting FAILED")
+            logging.exception(e)
 
     def get_presentation(self):
         return copy.deepcopy(self.presentation)

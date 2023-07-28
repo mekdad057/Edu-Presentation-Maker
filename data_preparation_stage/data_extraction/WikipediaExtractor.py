@@ -12,11 +12,18 @@ from utils.Errors import NotFoundError
 class WikipediaExtractor(DataSourceExtractor):
     MAX_LIMIT: int
     MIN_LIMIT: int
+    HEADINGS_TAGS: list[str]
+    TEXT_TAGS: list[str]
+    IGNORE: list[str]
 
     def __init__(self):
         super().__init__()
+        self.HEADINGS_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"]
+        self.TEXT_TAGS = ["p"]  # fixme:  what about <ul> and <ol> tags?
+        self.IGNORE = ["See also", "References", "Further reading", "Honors"
+            , "Notes", "Sources", "External links"]
         self.MAX_LIMIT = 20
-        self.MIN_LIMIT = 5
+        self.MIN_LIMIT = 7
 
     def get_text(self, path: str) -> str:
         try:
@@ -52,20 +59,22 @@ class WikipediaExtractor(DataSourceExtractor):
         # 3- merge small blocks if possible or remove them
         blocks = self.merge_small_blocks(blocks)
         # 4- make paragraphs
-        doc.paragraphs = [Paragraph(block) for block in blocks]
+        doc.paragraphs = [Paragraph(block.split("<")[0], block)
+                          for block in blocks]
 
     def divide_text_to_heading_blocks(self, text: str) -> list[str]:
         soup = BeautifulSoup(text, 'html.parser')
 
-        elements = soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6", "p"])
+        elements = soup.find_all(self.HEADINGS_TAGS + self.TEXT_TAGS)
 
         blocks = []
-
+        # todo : write a block class that has the "level" attribute in it
+        #  instead of inserting words to the original text.
         # getting the introduction block (p tags directly under h1 heading).
-        block = "Introduction|#1\n"
+        block = "Introduction<h1>\n"
         stop = 0  # to save where the first h2 heading starts
         for p in elements:
-            if p.name != 'p':
+            if p.name not in self.TEXT_TAGS:
                 stop = elements.index(p)
                 break
             else:
@@ -77,21 +86,18 @@ class WikipediaExtractor(DataSourceExtractor):
         # which are constructed like this 'h2, p, p, h3, p ,h3, p ...'
         # and elements array looks like this: [h2,p,p,...,h3,p,p,...,h2,p,p,...]
         block = ""
-        headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
-        ignore = ["See also", "References", "Further reading", "Honors"
-            , "Notes", "Sources"]
         for i in range(stop, len(elements)):
-            if elements[i].name in headings or i == len(elements) - 1:
+            if elements[i].name in self.HEADINGS_TAGS or i == len(elements) - 1:
                 if block != "":
                     blocks.append(block)
 
-                if elements[i].get_text(strip=True) not in ignore \
+                if elements[i].get_text(strip=True) not in self.IGNORE \
                         and elements[i].get_text(strip=True) not in \
-                        [text + "[edit]" for text in ignore]:
+                        [text + "[edit]" for text in self.IGNORE]:
                     # first sentence in block represent the heading
                     # for example: block = "heading_text|#3\n"
                     block = elements[i].get_text(strip=True) + \
-                            ("|#" + elements[i].name[1]) + "\n"
+                            f"<{elements[i].name}>" + "\n"
                     block = block.replace("[edit]", "")
                 else:
                     block = ""
@@ -122,13 +128,13 @@ class WikipediaExtractor(DataSourceExtractor):
         index = -1
         for b in blocks:
             index += 1
+            b_lvl = int(b.split(">")[0][-1])  # the digit in "<h3>"
             b_sentences = b.split(".")
-            if len(b_sentences) < self.MIN_LIMIT:
+            if len(b_sentences) < self.MIN_LIMIT and b_lvl != 1:
                 # find children and merge with them.
-                b_lvl = int(b.split("\n")[0][-1])  # the digit in "|h3\n"
                 for i in range(index + 1, len(blocks)):
                     # check if blocks[i] is a child
-                    cur_block_lvl = int(blocks[i].split("\n")[0][-1])
+                    cur_block_lvl = int(blocks[i].split(">")[0][-1])
                     if cur_block_lvl - 1 == b_lvl:
                         blocks[i] = b + blocks[i]
                     # if there are no more children

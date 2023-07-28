@@ -9,10 +9,10 @@ if __name__ == "__main__":
                         , format="%(levelname)s - %(message)s"
                         , encoding="utf-8")
 
-    t = TopicHandler("sorting_lsa")  # FOR TESTING CHANGE HERE
+    t = TopicHandler("khawarzmi_lsa")  # FOR TESTING CHANGE HERE
     # link = "https://en.wikipedia.org/wiki/Computer"
-    link = "https://en.wikipedia.org/wiki/Sorting_algorithm"
-    # link = "https://en.wikipedia.org/wiki/Muhammad_ibn_Musa_al-Khwarizmi"
+    # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Sorting_algorithm.html"
+    link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Muhammad_ibn_Musa_al-Khwarizmi.html"
     # link = "https://en.wikipedia.org/wiki/Nuclear_fusion"
     # link = "https://en.wikipedia.org/wiki/Algebra"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Nuclear_fusion.html"
@@ -26,8 +26,9 @@ if __name__ == "__main__":
     logging.debug("---")
 
     # FOR TESTING CHANGE HERE
-    t.start_preprocessing(["Sorting_algorithm.html"]
+    t.start_preprocessing(["Muhammad_ibn_Musa_al-Khwarizmi.html"]
                           , ["citations_links_remover"
+                              , "html_tags_remover"
                               , "non_english_remover"
                               , "new_lines_remover"])
     for p in t.topic.documents[0].paragraphs:

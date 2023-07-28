@@ -1,5 +1,6 @@
 from data_objects import Topic, Document
 from data_preparation_stage.preprocessing import DocumentProcessor
+from data_preparation_stage.preprocessing.HtmlTagsRemover import HtmlTagsRemover
 from data_preparation_stage.preprocessing.NewLinesRemover import NewLinesRemover
 from data_preparation_stage.preprocessing.NonEnglishRemover import \
     NonEnglishRemover
@@ -44,5 +45,7 @@ class PreprocessingHandler:
             return NonEnglishRemover()
         elif name == "new_lines_remover":
             return NewLinesRemover()
+        elif name == "html_tags_remover":
+            return HtmlTagsRemover()
         else:
             raise NotFoundError("processor", name)
