@@ -22,7 +22,7 @@ class WikipediaExtractor(DataSourceExtractor):
         self.TEXT_TAGS = ["p"]  # fixme:  what about <ul> and <ol> tags?
         self.IGNORE = ["See also", "References", "Further reading", "Honors"
             , "Notes", "Sources", "External links"]
-        self.MAX_LIMIT = 20
+        self.MAX_LIMIT = 22
         self.MIN_LIMIT = 7
 
     def get_text(self, path: str) -> str:
@@ -52,6 +52,10 @@ class WikipediaExtractor(DataSourceExtractor):
         :param text: the html tag that contains all the relevant text.
         :return: None
         """
+        # blocks is a list of dictionaries that hold three values:
+        #  level: the level of heading that has the text.
+        #  title: the heading
+        #  text: the actual text content directly under the heading.
         # 1- divide text to blocks
         blocks = self.divide_text_to_heading_blocks(text)
         # 2- divide long blocks
@@ -59,86 +63,86 @@ class WikipediaExtractor(DataSourceExtractor):
         # 3- merge small blocks if possible or remove them
         blocks = self.merge_small_blocks(blocks)
         # 4- make paragraphs
-        doc.paragraphs = [Paragraph(block.split("<")[0], block)
+        doc.paragraphs = [Paragraph(block["title"], block["text"])
                           for block in blocks]
 
-    def divide_text_to_heading_blocks(self, text: str) -> list[str]:
+    def divide_text_to_heading_blocks(self, text: str) -> list[dict]:
         soup = BeautifulSoup(text, 'html.parser')
 
         elements = soup.find_all(self.HEADINGS_TAGS + self.TEXT_TAGS)
 
         blocks = []
-        # todo : write a block class that has the "level" attribute in it
-        #  instead of inserting words to the original text.
         # getting the introduction block (p tags directly under h1 heading).
-        block = "Introduction<h1>\n"
+        block = {"level": 1, "title": "Introduction", "text": ""}
         stop = 0  # to save where the first h2 heading starts
         for p in elements:
             if p.name not in self.TEXT_TAGS:
                 stop = elements.index(p)
                 break
             else:
-                block += p.get_text()
+                block["text"] += p.get_text()
 
         blocks.append(block)
 
         # getting the rest of the blocks
         # which are constructed like this 'h2, p, p, h3, p ,h3, p ...'
         # and elements array looks like this: [h2,p,p,...,h3,p,p,...,h2,p,p,...]
-        block = ""
+        block = {"level": -1, "title": "", "text": ""}
         for i in range(stop, len(elements)):
-            if elements[i].name in self.HEADINGS_TAGS or i == len(elements) - 1:
-                if block != "":
+            if elements[i].name in self.HEADINGS_TAGS:
+                if block["text"] != "":
                     blocks.append(block)
+                    block = {"level": -1, "title": "", "text": ""}
 
                 if elements[i].get_text(strip=True) not in self.IGNORE \
                         and elements[i].get_text(strip=True) not in \
                         [text + "[edit]" for text in self.IGNORE]:
-                    # first sentence in block represent the heading
-                    # for example: block = "heading_text|#3\n"
-                    block = elements[i].get_text(strip=True) + \
-                            f"<{elements[i].name}>" + "\n"
-                    block = block.replace("[edit]", "")
+                    block["title"] = elements[i].get_text(strip=True).replace(
+                        "[edit]", "")
+                    block["level"] = int(elements[i].name[-1])  # ex:the 3 in h3
                 else:
-                    block = ""
+                    block["title"] = ""
             else:
-                block += elements[i].get_text()
+                block["text"] += elements[i].get_text()
+        blocks.append(block)  # appending the last heading.
         return blocks
 
-    def divide_long_blocks(self, blocks: list[str]) -> list[str]:
+    def divide_long_blocks(self, blocks: list[dict]) -> list[dict]:
         res = []
         for b in blocks:
-            b_sentences = b.split(".")
+            b_sentences = b["text"].split(".")
             if len(b_sentences) > self.MAX_LIMIT:
                 subs = divide_to_subarrays(b_sentences, self.MAX_LIMIT)
-                # adding heading for each subarray of sentences to ensure that
-                # all of them belong to the same topic
-                heading_text = b.split("\n")[0]
-                for i in range(1, len(subs)):  # starts from 1 because 0 has a heading
-                    subs[i] = [heading_text+'\n'] + subs[i]
+
                 # adding them as blocks
                 for sub in subs:
-                    res.append(".".join(sub))
+                    block = {"level": b["level"], "title": b["title"]
+                                , "text": ".".join(sub[1:])}
+
+                    res.append(block)
             else:
                 res.append(b)
         return res
 
-    def merge_small_blocks(self, blocks: list[str]) -> list[str]:
+    def merge_small_blocks(self, blocks: list[dict]) -> list[dict]:
         res = []
         index = -1
         for b in blocks:
             index += 1
-            b_lvl = int(b.split(">")[0][-1])  # the digit in "<h3>"
-            b_sentences = b.split(".")
+            b_lvl = b["level"]
+            b_sentences = b["text"].split(".")
             if len(b_sentences) < self.MIN_LIMIT and b_lvl != 1:
                 # find children and merge with them.
                 for i in range(index + 1, len(blocks)):
                     # check if blocks[i] is a child
-                    cur_block_lvl = int(blocks[i].split(">")[0][-1])
+                    cur_block_lvl = blocks[i]["level"]
                     if cur_block_lvl - 1 == b_lvl:
-                        blocks[i] = b + blocks[i]
+                        blocks[i]["text"] = b["text"] + blocks[i]["text"]
+                        blocks[i]["title"] = b["title"] + ": " \
+                                             + blocks[i]["title"]
+                        blocks[i]["level"] = b["level"]
                     # if there are no more children
-                    if cur_block_lvl <= b_lvl:
+                    elif cur_block_lvl <= b_lvl:
                         break
                 # remove b by not adding it to res
             else:
