@@ -32,7 +32,6 @@ class PunctuationRemover(DocumentProcessor):
                              """, re.VERBOSE)
 
     def process_document(self, doc: Document):
-        super().process_document(doc)
         for i in range(len(doc.paragraphs)):
             self._texts[i] = self.remove_punctuations(self._texts[i])
             doc.paragraphs[i].processed_data = \

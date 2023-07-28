@@ -1,5 +1,8 @@
-from data_objects import Topic, Document
-from data_preparation_stage.preprocessing import DocumentProcessor
+from data_objects import Document
+from data_preparation_stage.preprocessing.RepeatedWordsRemover\
+    import RepeatedWordsRemover
+from data_preparation_stage.preprocessing.DocumentProcessor\
+    import DocumentProcessor
 from data_preparation_stage.preprocessing.HtmlTagsRemover import HtmlTagsRemover
 from data_preparation_stage.preprocessing.NewLinesRemover import NewLinesRemover
 from data_preparation_stage.preprocessing.NonEnglishRemover import \
@@ -9,6 +12,7 @@ from data_preparation_stage.preprocessing.PunctuationRemover import \
     PunctuationRemover
 from data_preparation_stage.preprocessing.CitationsLinksRemover import \
     CitationsLinksRemover
+
 from utils.Errors import NotFoundError
 
 
@@ -32,6 +36,7 @@ class PreprocessingHandler:
     def process_document(self, processors: list[DocumentProcessor]
                          , document: Document):
         for processor in processors:
+            processor.load_document(document)
             processor.process_document(document)
 
     def get_processor(self, name: str) -> DocumentProcessor:
@@ -47,5 +52,7 @@ class PreprocessingHandler:
             return NewLinesRemover()
         elif name == "html_tags_remover":
             return HtmlTagsRemover()
+        elif name == "repeated_words_remover":
+            return RepeatedWordsRemover()
         else:
             raise NotFoundError("processor", name)

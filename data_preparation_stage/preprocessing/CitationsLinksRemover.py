@@ -6,11 +6,7 @@ from data_preparation_stage.preprocessing.DocumentProcessor \
 
 
 class CitationsLinksRemover(DocumentProcessor):
-    def __init__(self):
-        super().__init__()
-
     def process_document(self, doc: Document):
-        super().process_document(doc)
         for i in range(len(self._texts)):
             self._texts[i] = re.sub(r'https?://S+', '', self._texts[i])
             self._texts[i] = re.sub(r'\[.*\]', '', self._texts[i])

@@ -5,3 +5,5 @@ from .NewLinesRemover import NewLinesRemover
 from .PunctuationRemover import PunctuationRemover
 from .NonEnglishRemover import NonEnglishRemover
 from .Normalizer import Normalizer
+from .HtmlTagsRemover import HtmlTagsRemover
+from .RepeatedWordsRemover import RepeatedWordsRemover

@@ -6,12 +6,7 @@ from data_preparation_stage.preprocessing.DocumentProcessor\
 
 
 class Normalizer(DocumentProcessor):
-
-    def __init__(self):
-        super().__init__()
-
     def process_document(self, doc: Document):
-        super().process_document(doc)
         for i in range(len(doc.paragraphs)):
             if self._language == "en":
                 doc.paragraphs[i].processed_data = self._texts[i].lower()

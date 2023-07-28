@@ -1,6 +1,4 @@
-import os.path
 import logging
-import utils as u
 from data_preparation_stage import TopicHandler
 from presentation_genrating_stage import PresentationHandler
 
@@ -8,7 +6,6 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG, filename="log.log", filemode="w"
                         , format="%(levelname)s - %(message)s"
                         , encoding="utf-8")
-
     t = TopicHandler("nuclear_tuning_lsa")  # FOR TESTING CHANGE HERE
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Computer.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Sorting_algorithm.html"
