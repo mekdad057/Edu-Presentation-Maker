@@ -90,7 +90,7 @@ class WikipediaExtractor(DataSourceExtractor):
         block = {"level": -1, "title": "", "text": ""}
         for i in range(stop, len(elements)):
             if elements[i].name in self.HEADINGS_TAGS:
-                if block["text"] != "":
+                if block["level"] != -1:
                     blocks.append(block)
                     block = {"level": -1, "title": "", "text": ""}
 
