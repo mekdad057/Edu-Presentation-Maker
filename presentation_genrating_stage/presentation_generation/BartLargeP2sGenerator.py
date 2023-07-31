@@ -8,23 +8,24 @@ from presentation_genrating_stage.presentation_generation.Generator \
     import Generator
 
 
-class BartLargeCnnGenerator(Generator):
+class BartLargeP2sGenerator(Generator):
     API_TOKEN: str
     API_URL: str
     HEADERS: dict
 
     def __init__(self):
-        super().__init__("bart-large-cnn")
+        super().__init__("bart-large-paper-2-slides-summarizer")
         self._INITIAL_PARAMS_VALUES = {"max_length": 130, "min_length": 30,
                                        "do_sample": False}
         self._current_params_values = {}
-        self.API_TOKEN = "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"
-        self.API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
+        self.API_TOKEN = "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"
+        self.API_URL = "https://api-inference.huggingface.co/models/com3dian/Bart-large-paper2slides-summarizer"
         self.HEADERS = {"Authorization": f"Bearer {self.API_TOKEN}"}
 
     def get_output(self, topic: Topic) \
             -> object:
-        logging.debug(f"the summarizer used is bart-large-cnn")
+        logging.debug(f"the summarizer used is "
+                      f"bart-large-paper-2-slides-summarizer")
         res = []
         # fixme: keypoints from different documents can't be distinguished
         #  in the result

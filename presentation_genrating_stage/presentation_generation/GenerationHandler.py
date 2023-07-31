@@ -1,6 +1,8 @@
 from data_objects import Presentation, Topic, KeyPoint
 from presentation_genrating_stage.presentation_generation.BartLargeCnnGenerator import \
-    BartGenerator
+    BartLargeCnnGenerator
+from presentation_genrating_stage.presentation_generation.BartLargeP2sGenerator import \
+    BartLargeP2sGenerator
 from presentation_genrating_stage.presentation_generation.Generator \
     import Generator
 from presentation_genrating_stage.presentation_generation.SumyGenerator import \
@@ -70,6 +72,8 @@ class GenerationHandler:
             if name == "sumy":
                 generator = SumyGenerator()
             elif name == "bart-large-cnn":
-                generator = BartGenerator()
+                generator = BartLargeCnnGenerator()
+            elif name == "bart-large-paper-2-slides-summarizer":
+                generator = BartLargeP2sGenerator()
         generator.current_params_values = params.get(generator.NAME, {})
         return generator
