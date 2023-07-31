@@ -8,6 +8,7 @@ from data_objects import Presentation, Topic
 from presentation_genrating_stage.presentation_generation import \
     GenerationHandler, Organizer
 from utils import RESULTS_DIR
+from utils.Errors import NotFoundError
 
 
 class PresentationHandler:
@@ -54,6 +55,9 @@ class PresentationHandler:
     def export_presentation(self, path: str = RESULTS_DIR):
         try:
             pr = pptx.Presentation()
+            # adding title slide
+            title_slide = pr.slides.add_slide(pr.slide_layouts[0])
+            title_slide.shapes.title.text = self.presentation.title
 
             for slide in self.presentation.slides:
                 slide_register = pr.slide_layouts[1]
@@ -64,6 +68,9 @@ class PresentationHandler:
 
                 bullet_points_text = [str(k.data) for k in slide.keypoints]
                 bullet_point_lvl1.text = "\n".join(bullet_points_text)
+
+            conclusion_slide = pr.slides.add_slide(pr.slide_layouts[0])
+            conclusion_slide.shapes.title.text = "Conclusion"
 
             save_path = os.path.join(path, self.presentation.title+".pptx")
             pr.save(save_path)

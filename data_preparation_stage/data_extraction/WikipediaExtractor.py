@@ -22,8 +22,8 @@ class WikipediaExtractor(DataSourceExtractor):
         self.TEXT_TAGS = ["p"]  # fixme:  what about <ul> and <ol> tags?
         self.IGNORE = ["See also", "References", "Further reading", "Honors"
             , "Notes", "Sources", "External links"]
-        self.MAX_LIMIT = 22
-        self.MIN_LIMIT = 7
+        self.MAX_LIMIT = 20
+        self.MIN_LIMIT = 3
 
     def get_text(self, path: str) -> str:
         try:
@@ -144,6 +144,9 @@ class WikipediaExtractor(DataSourceExtractor):
                     # if there are no more children
                     elif cur_block_lvl <= b_lvl:
                         break
+                    # fixing the level of sub-children
+                    else:
+                        blocks[i]["level"] -= 1
                 # remove b by not adding it to res
             else:
                 res.append(b)

@@ -6,13 +6,13 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG, filename="log.log", filemode="w"
                         , format="%(levelname)s - %(message)s"
                         , encoding="utf-8")
-    t = TopicHandler("nuclear_tuning_lsa")  # FOR TESTING CHANGE HERE
+    t = TopicHandler("Fyodor Dostoevsky")  # FOR TESTING CHANGE HERE
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Computer.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Sorting_algorithm.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Muhammad_ibn_Musa_al-Khwarizmi.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Algebra.html"
-    link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Nuclear_fusion.html"
-    # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Fyodor_Dostoevsky.html"
+    # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Nuclear_fusion.html"
+    link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Fyodor_Dostoevsky.html"
     t.add_source(link)
 
     for p in t.topic.documents[0].paragraphs:
@@ -20,17 +20,15 @@ if __name__ == "__main__":
     logging.debug("---")
 
     # FOR TESTING CHANGE HERE
-    t.start_preprocessing(["Nuclear_fusion.html"]
+    t.start_preprocessing(["Fyodor_Dostoevsky.html"]
                           , ["citations_links_remover"
-                              , "html_tags_remover"
                               , "non_english_remover"
                               , "new_lines_remover"])
     for p in t.topic.documents[0].paragraphs:
         logging.debug(repr(p.processed_data))
     logging.debug("---")
-    sumy_sums = ["lexrank", "luhn", "lsa", "textrank", "kl-sum", "sumbasic"]
     ph = PresentationHandler()
-    ph.create_presentation(t.topic, ["sumy"],
-                           {"sumy": {"summarizer": "lsa"}})
+    ph.create_presentation(t.topic, ["bart-large-cnn"],
+                           {"bart-large-cnn": {}})
 
     ph.export_presentation()

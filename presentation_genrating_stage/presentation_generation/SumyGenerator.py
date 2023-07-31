@@ -1,6 +1,5 @@
 import logging
 
-from sumy.summarizers.edmundson import EdmundsonSummarizer
 from sumy.summarizers.kl import KLSummarizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
 from sumy.summarizers.lsa import LsaSummarizer

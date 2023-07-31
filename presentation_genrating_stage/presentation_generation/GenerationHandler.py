@@ -1,4 +1,6 @@
 from data_objects import Presentation, Topic, KeyPoint
+from presentation_genrating_stage.presentation_generation.BartLargeCnnGenerator import \
+    BartGenerator
 from presentation_genrating_stage.presentation_generation.Generator \
     import Generator
 from presentation_genrating_stage.presentation_generation.SumyGenerator import \
@@ -17,7 +19,7 @@ class GenerationHandler:
     def __init__(self, language: str = "english"):
         self.language = language
         self.SCRIPT_GENERATORS = []
-        self.KEYPOINT_GENERATORS = ["Sumy"]
+        self.KEYPOINT_GENERATORS = ["sumy", "bart-large-cnn"]
         self.INITIAL_GENERATOR_PARAMS_VALUES = {}
 
     def generate_content(self, presentation: Presentation, topic: Topic
@@ -67,5 +69,7 @@ class GenerationHandler:
         for name in generators_names:
             if name == "sumy":
                 generator = SumyGenerator()
+            elif name == "bart-large-cnn":
+                generator = BartGenerator()
         generator.current_params_values = params.get(generator.NAME, {})
         return generator

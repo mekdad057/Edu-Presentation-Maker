@@ -30,8 +30,7 @@ class PreprocessingHandler:
 
         # preprocessing started
         for doc in documents:
-            for processor in processors:
-                processor.process_document(doc)
+            self.process_document(processors, doc)
 
     def process_document(self, processors: list[DocumentProcessor]
                          , document: Document):

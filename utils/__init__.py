@@ -1,3 +1,4 @@
+import logging
 import os
 import shutil
 
@@ -49,8 +50,8 @@ def download_to_working(url: str) -> str:
                     file.write(chunk)
         return file_path
     else:
-        print("Failed to retrieve the URL due to the status code: ",
-              response.status_code)
+        logging.debug(f"Failed to retrieve the URL due to the status code: "
+                      f"{response.status_code}")
 
 
 def is_path_or_url(string) -> str:
