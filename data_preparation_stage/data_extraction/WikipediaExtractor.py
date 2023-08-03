@@ -19,7 +19,7 @@ class WikipediaExtractor(DataSourceExtractor):
     def __init__(self):
         super().__init__()
         self.HEADINGS_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"]
-        self.TEXT_TAGS = ["p"]  # fixme:  what about <ul> and <ol> tags?
+        self.TEXT_TAGS = ["p", "ul", "ol"]
         self.IGNORE = ["See also", "References", "Further reading", "Honors"
             , "Notes", "Sources", "External links"]
         self.MAX_LIMIT = 20
@@ -99,7 +99,7 @@ class WikipediaExtractor(DataSourceExtractor):
                         "[edit]", "")
                     block["level"] = int(elements[i].name[-1])  # ex:the 3 in h3
                 else:
-                    block["title"] = ""
+                    break
             else:
                 block["text"] += elements[i].get_text()
         blocks.append(block)  # appending the last heading.
