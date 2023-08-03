@@ -58,11 +58,9 @@ class WikipediaExtractor(DataSourceExtractor):
         #  text: the actual text content directly under the heading.
         # 1- divide text to blocks
         blocks = self.divide_text_to_heading_blocks(text)
-        # 2- divide long blocks
-        blocks = self.divide_long_blocks(blocks)
-        # 3- merge small blocks if possible or remove them
+        # 2- merge small blocks if possible or remove them
         blocks = self.merge_small_blocks(blocks)
-        # 4- make paragraphs
+        # 3- make paragraphs
         doc.paragraphs = [Paragraph(block["title"], block["text"])
                           for block in blocks]
 
@@ -106,23 +104,6 @@ class WikipediaExtractor(DataSourceExtractor):
                 block["text"] += elements[i].get_text()
         blocks.append(block)  # appending the last heading.
         return blocks
-
-    def divide_long_blocks(self, blocks: list[dict]) -> list[dict]:
-        res = []
-        for b in blocks:
-            b_sentences = b["text"].split(".")
-            if len(b_sentences) > self.MAX_LIMIT:
-                subs = divide_to_subarrays(b_sentences, self.MAX_LIMIT)
-
-                # adding them as blocks
-                for sub in subs:
-                    block = {"level": b["level"], "title": b["title"]
-                                , "text": ".".join(sub[1:])}
-
-                    res.append(block)
-            else:
-                res.append(b)
-        return res
 
     def merge_small_blocks(self, blocks: list[dict]) -> list[dict]:
         res = []

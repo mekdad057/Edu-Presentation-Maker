@@ -14,6 +14,7 @@ class NonEnglishRemover(DocumentProcessor):
     """
     def process_document(self, doc: Document):
         for i in range(len(self._texts)):
-            self._texts[i] = re.sub(r"[^+*\-=&%$0-9a-zA-Z.,:;?!`>()<\\/\'\"\s]"
+            self._texts[i] = re.sub(r"[^+*=&%$0-9a-zA-Z.,:;?!`>()<"
+                                    r"{}\[\]\-\\/\'\"\s]"
                                     , "", self._texts[i])
             doc.paragraphs[i].processed_data = self._texts[i]

@@ -29,38 +29,41 @@ class BartLargeCnnGenerator(Generator):
         # fixme: keypoints from different documents can't be distinguished
         #  in the result
         for doc in tqdm(topic.documents, desc="processing documents"):
-            for p in tqdm(doc.paragraphs, desc="processing paragraphs", leave=False):
-                # using api to summarize text
-                input_text = p.processed_data
+            for p in tqdm(doc.paragraphs, desc="processing paragraphs",
+                          leave=False):
+                # summarizing
+                summary = self.request_summary(p.processed_data)
 
-                request = {"inputs": input_text,
-                           "parameters": {
-                               "max_length": self.current_params_values[
-                                   "max_length"],
-                               "min_length": self.current_params_values[
-                                   "min_length"],
-                               "do_sample": self.current_params_values[
-                                   "do_sample"]
-                               }
-                           }
+                # adding keypoints
+                p_keypoints = []
+                for sentence in summary.split("."):
+                    if sentence != "":
+                        keypoint = KeyPoint(sentence, p)
+                        p_keypoints.append(keypoint)
+                res.append(p_keypoints)
 
+        return res
+
+    def request_summary(self, text: str) -> str:
+        # using api to summarize text
+
+        request = {"inputs": text,
+                   "parameters": {
+                       "max_length": self.current_params_values[
+                           "max_length"],
+                       "min_length": self.current_params_values[
+                           "min_length"],
+                       "do_sample": self.current_params_values[
+                           "do_sample"]
+                   }
+                   }
+        while True:
+            try:
                 response = requests.post(self.API_URL, headers=self.HEADERS
                                          , json=request)
-
                 if response.status_code == 200:
-                    response_json = response.json()
-                    # reading response
-                    logging.info(response_json)
-                    summary = response_json[0]["summary_text"]
+                    break
+            except Exception as e:
+                logging.exception(e)
 
-                    # adding keypoints
-                    p_keypoints = []
-                    keypoint = KeyPoint(str(summary), p)
-                    p_keypoints.append(keypoint)
-
-                    res.append(p_keypoints)
-                else:
-                    logging.debug(
-                        f"Failed to retrieve the URL due to the status code: "
-                        f"{response.status_code}")
-        return res
+        return response.json()[0]["summary_text"]
