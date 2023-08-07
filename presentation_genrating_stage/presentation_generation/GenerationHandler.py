@@ -1,4 +1,4 @@
-from data_objects import Presentation, Topic, KeyPoint
+from data_objects import Presentation, Topic
 from presentation_genrating_stage.presentation_generation.BartLargeCnnGenerator import \
     BartLargeCnnGenerator
 from presentation_genrating_stage.presentation_generation.BartLargeP2sGenerator import \

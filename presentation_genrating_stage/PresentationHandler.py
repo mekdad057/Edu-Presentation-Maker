@@ -4,12 +4,12 @@ import os.path
 
 import pptx
 
-from data_objects import Presentation, Topic
+from data_objects import Presentation, Topic, LAYOUT
 from presentation_genrating_stage.presentation_generation import \
     GenerationHandler, Organizer
-from utils import RESULTS_DIR
+from templates import TEMPLATE
+from utils import RESULTS_DIR, replace_with_image
 from utils.Errors import NotFoundError
-
 
 class PresentationHandler:
     _presentation: Presentation
@@ -52,27 +52,40 @@ class PresentationHandler:
             logging.exception(e)
             return False
 
-    def export_presentation(self, path: str = RESULTS_DIR):
+    def export_presentation(self, path: str = RESULTS_DIR
+                            , template: TEMPLATE = TEMPLATE.TEMPLATE_1):
+        # fixme: this function is getting more complicated
         try:
-            pr = pptx.Presentation()
+            pr = pptx.Presentation(template.value)
             # adding title slide
-            title_slide = pr.slides.add_slide(pr.slide_layouts[0])
+            title_slide = pr.slides[0]
             title_slide.shapes.title.text = self.presentation.title
 
             for slide in self.presentation.slides:
-                slide_register = pr.slide_layouts[1]
-                m_slide = pr.slides.add_slide(slide_register)
+                slide_layout = pr.slide_layouts[slide.layout.value]
+                m_slide = pr.slides.add_slide(slide_layout)
                 m_slide.shapes.title.text = slide.title
                 bullet_point_box = m_slide.shapes
-                bullet_point_lvl1 = bullet_point_box.placeholders[1]
+                # choosing the right placeholder for bullet points
+                if slide.layout == LAYOUT.TITLE_AND_CONTENT:
+                    holder_index = 1
+                else:
+                    holder_index = 2
+                bullet_point_lvl1 = bullet_point_box.placeholders[holder_index]
 
                 bullet_points_text = [str(k.data) for k in slide.keypoints]
                 bullet_point_lvl1.text = "\n".join(bullet_points_text)
+                # adding images if existed
+                if slide.layout == LAYOUT.PICTURE_CONTENT_WITH_CAPTION:
+                    image_box = m_slide.placeholders[13]
+                    replace_with_image(str(slide.content.data)
+                                       , image_box, m_slide)
 
-            conclusion_slide = pr.slides.add_slide(pr.slide_layouts[0])
+            conclusion_slide_layout = pr.slide_layouts[LAYOUT.TITLE.value]
+            conclusion_slide = pr.slides.add_slide(conclusion_slide_layout)
             conclusion_slide.shapes.title.text = "Conclusion"
 
-            save_path = os.path.join(path, self.presentation.title+".pptx")
+            save_path = os.path.join(path, self.presentation.title + ".pptx")
             pr.save(save_path)
 
             logging.debug("Presentation exported successfully")

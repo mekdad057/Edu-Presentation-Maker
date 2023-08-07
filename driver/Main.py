@@ -6,7 +6,7 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG, filename="log.log", filemode="w"
                         , format="%(levelname)s - %(message)s"
                         , encoding="utf-8")
-    t = TopicHandler("Sorting Algorithm")  # FOR TESTING CHANGE HERE
+    t = TopicHandler("Sorting Algorithm BBB")  # FOR TESTING CHANGE HERE
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Computer.html"
     link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Sorting_algorithm.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Muhammad_ibn_Musa_al-Khwarizmi.html"
@@ -14,7 +14,8 @@ if __name__ == "__main__":
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Nuclear_fusion.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Fyodor_Dostoevsky.html"
     t.add_source(link)
-
+    # fixme : bug, splitting sentences on . not a good idea
+    #  for example: "O(n^2.7) run time." result is : "7) run time"
     for p in t.topic.documents[0].paragraphs:
         logging.debug(repr(p.raw_data))
     logging.debug("---")

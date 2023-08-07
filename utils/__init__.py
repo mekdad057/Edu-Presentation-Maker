@@ -9,6 +9,7 @@ from unidecode import unidecode
 
 from .LanguageHandler import LanguageHandler
 from .Errors import InvalidPathError
+from .PresentationExportionUtils import replace_with_image
 
 MAIN_DIR = os.path.abspath(os.path.join(os.path.dirname(
     os.path.realpath(__file__)), '..'))
@@ -38,16 +39,19 @@ def download_to_working(url: str) -> str:
         # If the file is a PDF file
         elif 'application/pdf' in response.headers['content-type']:
             file_name = file_name + '.pdf' if '.pdf' not in file_name else file_name
+        # If the file is an image file
+        elif 'image/' in response.headers['content-type']:
+            image_extension = response.headers['content-type'].split('/')[-1]
+            file_name = file_name + '.' + image_extension\
+                if '.' + image_extension not in file_name else file_name
 
         # Create a path for the new file
         file_path = os.path.join(WORKING_DIR, file_name)
 
         # Open the file in write mode
         with open(file_path, 'wb') as file:
-            # Write the content to the file
-            for chunk in response.iter_content(chunk_size=1024):
-                if chunk:
-                    file.write(chunk)
+            shutil.copyfileobj(response.raw, file)
+
         return file_path
     else:
         logging.debug(f"Failed to retrieve the URL due to the status code: "

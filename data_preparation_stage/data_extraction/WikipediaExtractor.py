@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from data_objects import Document, Paragraph
 from data_preparation_stage.data_extraction.DataSourceExtractor \
     import DataSourceExtractor
-from utils import divide_to_subarrays
+from utils import download_to_working, get_file_name
 from utils.Errors import NotFoundError
 
 
@@ -14,6 +14,7 @@ class WikipediaExtractor(DataSourceExtractor):
     MIN_LIMIT: int
     HEADINGS_TAGS: list[str]
     TEXT_TAGS: list[str]
+    CONTENT_TAGS: list[str]
     IGNORE: list[str]
 
     def __init__(self):
@@ -22,6 +23,7 @@ class WikipediaExtractor(DataSourceExtractor):
         self.TEXT_TAGS = ["p", "ul", "ol"]
         self.IGNORE = ["See also", "References", "Further reading", "Honors"
             , "Notes", "Sources", "External links"]
+        self.CONTENT_TAGS = ["figure"]
         self.MAX_LIMIT = 20
         self.MIN_LIMIT = 3
 
@@ -40,9 +42,6 @@ class WikipediaExtractor(DataSourceExtractor):
         if ob is None:
             raise NotFoundError("Text Content", "bodyContent")
 
-        # replacing all links with the text inside of them.
-        for tag in ob.find_all("a"):
-            tag.replace_with(tag.get_text())
         return ob.__unicode__()  # to return only the text without a reference
         # on the whole html tree
 
@@ -56,27 +55,35 @@ class WikipediaExtractor(DataSourceExtractor):
         #  level: the level of heading that has the text.
         #  title: the heading
         #  text: the actual text content directly under the heading.
+        #   raw_contents: list of content tags... like img, div, a,etc.
         # 1- divide text to blocks
         blocks = self.divide_text_to_heading_blocks(text)
         # 2- merge small blocks if possible or remove them
         blocks = self.merge_small_blocks(blocks)
         # 3- make paragraphs
-        doc.paragraphs = [Paragraph(block["title"], block["text"])
+        doc.paragraphs = [Paragraph(block["title"]
+                                    , block["text"], block["contents_paths"])
                           for block in blocks]
 
     def divide_text_to_heading_blocks(self, text: str) -> list[dict]:
         soup = BeautifulSoup(text, 'html.parser')
 
-        elements = soup.find_all(self.HEADINGS_TAGS + self.TEXT_TAGS)
+        elements = soup.find_all(self.HEADINGS_TAGS + self.TEXT_TAGS
+                                 + self.CONTENT_TAGS)
 
         blocks = []
         # getting the introduction block (p tags directly under h1 heading).
-        block = {"level": 1, "title": "Introduction", "text": ""}
+        block = {"level": 1, "title": "Introduction", "text": ""
+                 , "contents_paths": []}
         stop = 0  # to save where the first h2 heading starts
         for p in elements:
-            if p.name not in self.TEXT_TAGS:
+            if p.name not in self.TEXT_TAGS + self.CONTENT_TAGS:
                 stop = elements.index(p)
                 break
+            elif p.name in self.CONTENT_TAGS:
+                extracted = self.extract_content(p)
+                if extracted is not None:
+                    block["contents_paths"].append(extracted)
             else:
                 block["text"] += p.get_text()
 
@@ -85,12 +92,13 @@ class WikipediaExtractor(DataSourceExtractor):
         # getting the rest of the blocks
         # which are constructed like this 'h2, p, p, h3, p ,h3, p ...'
         # and elements array looks like this: [h2,p,p,...,h3,p,p,...,h2,p,p,...]
-        block = {"level": -1, "title": "", "text": ""}
+        block = {"level": -1, "title": "", "text": "", "contents_paths": []}
         for i in range(stop, len(elements)):
             if elements[i].name in self.HEADINGS_TAGS:
                 if block["level"] != -1:
                     blocks.append(block)
-                    block = {"level": -1, "title": "", "text": ""}
+                    block = {"level": -1, "title": "", "text": ""
+                             , "contents_paths": []}
 
                 if elements[i].get_text(strip=True) not in self.IGNORE \
                         and elements[i].get_text(strip=True) not in \
@@ -100,6 +108,10 @@ class WikipediaExtractor(DataSourceExtractor):
                     block["level"] = int(elements[i].name[-1])  # ex:the 3 in h3
                 else:
                     break
+            elif elements[i].name in self.CONTENT_TAGS:
+                extracted = self.extract_content(elements[i])
+                if extracted is not None:
+                    block["contents_paths"].append(extracted)
             else:
                 block["text"] += elements[i].get_text()
         blocks.append(block)  # appending the last heading.
@@ -122,6 +134,8 @@ class WikipediaExtractor(DataSourceExtractor):
                         blocks[i]["title"] = b["title"] + ": " \
                                              + blocks[i]["title"]
                         blocks[i]["level"] = b["level"]
+                        blocks[i]["contents_paths"] = \
+                            b["contents_paths"] + blocks[i]["contents_paths"]
                     # if there are no more children
                     elif cur_block_lvl <= b_lvl:
                         break
@@ -132,3 +146,23 @@ class WikipediaExtractor(DataSourceExtractor):
             else:
                 res.append(b)
         return res
+
+    def extract_content(self, tag) -> str:
+        """
+        download content used in the wikipedia page, usually photos :param
+        tag: reference to that tag contains the content usually <img>
+        :return: path to the content downloaded in the working folder or None
+        if the content is invalid
+        """
+        url = tag.img["src"]
+
+        if "http" not in url:
+            url = "https:" + url
+        path = ""
+        while True:
+            try:
+                path = download_to_working(url)
+                break
+            except Exception as e:
+                pass
+        return path
