@@ -3,13 +3,17 @@ import logging
 import os.path
 
 import pptx
+from pptx.util import Pt
 
 from data_objects import Presentation, Topic, LAYOUT
 from presentation_genrating_stage.presentation_generation import \
     GenerationHandler, Organizer
 from templates import TEMPLATE
-from utils import RESULTS_DIR, replace_with_image
+from utils import RESULTS_DIR
 from utils.Errors import NotFoundError
+from utils.PresentationExportionUtils import replace_with_image, \
+    CONTENT_PLACEHOLDER_IDX, DEFAULT_BULLET_POINT_FONT_SIZE
+
 
 class PresentationHandler:
     _presentation: Presentation
@@ -60,24 +64,28 @@ class PresentationHandler:
             # adding title slide
             title_slide = pr.slides[0]
             title_slide.shapes.title.text = self.presentation.title
-
+            # adding rest of slides
             for slide in self.presentation.slides:
                 slide_layout = pr.slide_layouts[slide.layout.value]
                 m_slide = pr.slides.add_slide(slide_layout)
                 m_slide.shapes.title.text = slide.title
-                bullet_point_box = m_slide.shapes
                 # choosing the right placeholder for bullet points
                 if slide.layout == LAYOUT.TITLE_AND_CONTENT:
                     holder_index = 1
                 else:
                     holder_index = 2
-                bullet_point_lvl1 = bullet_point_box.placeholders[holder_index]
+                bullet_point_box = m_slide.shapes.placeholders[holder_index]
 
                 bullet_points_text = [str(k.data) for k in slide.keypoints]
-                bullet_point_lvl1.text = "\n".join(bullet_points_text)
+                bullet_point_box.text = "\n".join(bullet_points_text)
+                # setting font size which is necessay for counting the number
+                # of lines the text takes.
+                for p in bullet_point_box.text_frame.paragraphs:
+                    for r in p.runs:
+                        r.font.size = Pt(DEFAULT_BULLET_POINT_FONT_SIZE)
                 # adding images if existed
                 if slide.layout == LAYOUT.PICTURE_CONTENT_WITH_CAPTION:
-                    image_box = m_slide.placeholders[13]
+                    image_box = m_slide.placeholders[CONTENT_PLACEHOLDER_IDX]
                     replace_with_image(str(slide.content.data)
                                        , image_box, m_slide)
 

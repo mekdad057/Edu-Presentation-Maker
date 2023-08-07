@@ -1,5 +1,6 @@
 import logging
 import os
+import re
 import shutil
 
 import requests
@@ -7,9 +8,10 @@ from urllib.parse import unquote, urlparse
 
 from unidecode import unidecode
 
+from . import PresentationExportionUtils
 from .LanguageHandler import LanguageHandler
 from .Errors import InvalidPathError
-from .PresentationExportionUtils import replace_with_image
+import utils.PresentationExportionUtils
 
 MAIN_DIR = os.path.abspath(os.path.join(os.path.dirname(
     os.path.realpath(__file__)), '..'))
@@ -104,3 +106,18 @@ def divide_to_subarrays(str_list: list[str], sub_size: int) -> list[list[str]]:
         subarrays.append(str_list[i:i + sub_size])
 
     return subarrays
+
+
+def split_text_to_sentences(text: str) -> list[str]:
+    """
+    splits text on periods, and differentiate between periods
+     and decimal numbers
+    :param text: text to split
+    :return: a list of sentences
+    """
+    split_res = re.split(r"(?<!\d)\.(?!\d)\s*", text)
+    res = []
+    for snt in split_res:
+        if len(snt) > 0:
+            res.append(snt)
+    return res

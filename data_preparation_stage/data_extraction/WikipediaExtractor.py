@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from data_objects import Document, Paragraph
 from data_preparation_stage.data_extraction.DataSourceExtractor \
     import DataSourceExtractor
-from utils import download_to_working, get_file_name
+from utils import download_to_working, get_file_name, split_text_to_sentences
 from utils.Errors import NotFoundError
 
 
@@ -123,7 +123,7 @@ class WikipediaExtractor(DataSourceExtractor):
         for b in blocks:
             index += 1
             b_lvl = b["level"]
-            b_sentences = b["text"].split(".")
+            b_sentences = split_text_to_sentences(b["text"])
             if len(b_sentences) < self.MIN_LIMIT and b_lvl != 1:
                 # find children and merge with them.
                 for i in range(index + 1, len(blocks)):

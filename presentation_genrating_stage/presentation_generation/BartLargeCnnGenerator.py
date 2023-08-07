@@ -6,6 +6,7 @@ from tqdm import tqdm
 from data_objects import Topic, KeyPoint
 from presentation_genrating_stage.presentation_generation.Generator \
     import Generator
+from utils import split_text_to_sentences
 
 
 class BartLargeCnnGenerator(Generator):
@@ -28,19 +29,21 @@ class BartLargeCnnGenerator(Generator):
         res = []
         # fixme: keypoints from different documents can't be distinguished
         #  in the result
-        for doc in tqdm(topic.documents, desc="processing documents"):
-            for p in tqdm(doc.paragraphs, desc="processing paragraphs",
-                          leave=False):
-                # summarizing
-                summary = self.request_summary(p.processed_data)
+        with tqdm(topic.documents, desc="processing documents") as doc_to_process:
+            for doc in doc_to_process:
+                with tqdm(doc.paragraphs, desc="processing paragraphs"
+                          , leave=False) as paragraphs_to_process:
+                    for p in paragraphs_to_process:
+                        # summarizing
+                        summary = self.request_summary(p.processed_data)
 
-                # adding keypoints
-                p_keypoints = []
-                for sentence in summary.split("."):
-                    if sentence != "":
-                        keypoint = KeyPoint(sentence, p)
-                        p_keypoints.append(keypoint)
-                res.append(p_keypoints)
+                        # adding keypoints
+                        p_keypoints = []
+                        for sentence in split_text_to_sentences(summary):
+                            if sentence != "":
+                                keypoint = KeyPoint(sentence, p)
+                                p_keypoints.append(keypoint)
+                        res.append(p_keypoints)
 
         return res
 
@@ -61,6 +64,7 @@ class BartLargeCnnGenerator(Generator):
             try:
                 response = requests.post(self.API_URL, headers=self.HEADERS
                                          , json=request)
+                logging.debug("status code : " + response.status_code.__str__())
                 if response.status_code == 200:
                     break
             except Exception as e:

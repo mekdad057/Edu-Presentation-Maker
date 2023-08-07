@@ -6,6 +6,7 @@ from tqdm import tqdm
 from data_objects import Topic, KeyPoint
 from presentation_genrating_stage.presentation_generation.Generator \
     import Generator
+from utils import split_text_to_sentences
 
 
 class BartLargeP2sGenerator(Generator):
@@ -24,44 +25,47 @@ class BartLargeP2sGenerator(Generator):
 
     def get_output(self, topic: Topic) \
             -> object:
-        logging.debug(f"the summarizer used is "
-                      f"bart-large-paper-2-slides-summarizer")
+        logging.debug(f"the summarizer used is bart-large-p2s")
         res = []
         # fixme: keypoints from different documents can't be distinguished
         #  in the result
         for doc in tqdm(topic.documents, desc="processing documents"):
-            for p in tqdm(doc.paragraphs, desc="processing paragraphs", leave=False):
-                # using api to summarize text
-                input_text = p.processed_data
+            for p in tqdm(doc.paragraphs, desc="processing paragraphs",
+                          leave=False):
+                # summarizing
+                summary = self.request_summary(p.processed_data)
 
-                request = {"inputs": input_text,
-                           "parameters": {
-                               "max_length": self.current_params_values[
-                                   "max_length"],
-                               "min_length": self.current_params_values[
-                                   "min_length"],
-                               "do_sample": self.current_params_values[
-                                   "do_sample"]
-                               }
-                           }
+                # adding keypoints
+                p_keypoints = []
+                for sentence in split_text_to_sentences(summary):
+                    if sentence != "":
+                        keypoint = KeyPoint(sentence, p)
+                        p_keypoints.append(keypoint)
+                res.append(p_keypoints)
 
+        return res
+
+    def request_summary(self, text: str) -> str:
+        # using api to summarize text
+
+        request = {"inputs": text,
+                   "parameters": {
+                       "max_length": self.current_params_values[
+                           "max_length"],
+                       "min_length": self.current_params_values[
+                           "min_length"],
+                       "do_sample": self.current_params_values[
+                           "do_sample"]
+                   }
+                   }
+        while True:
+            try:
                 response = requests.post(self.API_URL, headers=self.HEADERS
                                          , json=request)
-
+                logging.debug("status code : " + response.status_code.__str__())
                 if response.status_code == 200:
-                    response_json = response.json()
-                    # reading response
-                    logging.info(response_json)
-                    summary = response_json[0]["summary_text"]
+                    break
+            except Exception as e:
+                logging.exception(e)
 
-                    # adding keypoints
-                    p_keypoints = []
-                    keypoint = KeyPoint(str(summary), p)
-                    p_keypoints.append(keypoint)
-
-                    res.append(p_keypoints)
-                else:
-                    logging.debug(
-                        f"Failed to retrieve the URL due to the status code: "
-                        f"{response.status_code}")
-        return res
+        return response.json()[0]["summary_text"]
