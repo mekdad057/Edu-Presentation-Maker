@@ -5,8 +5,8 @@ from data_preparation_stage.preprocessing.DocumentProcessor\
     import DocumentProcessor
 from data_preparation_stage.preprocessing.HtmlTagsRemover import HtmlTagsRemover
 from data_preparation_stage.preprocessing.NewLinesRemover import NewLinesRemover
-from data_preparation_stage.preprocessing.NonEnglishRemover import \
-    NonEnglishRemover
+from data_preparation_stage.preprocessing.NonEnglishMathSafeRemover import \
+    NonEnglishMathSafeRemover
 from data_preparation_stage.preprocessing.Normalizer import Normalizer
 from data_preparation_stage.preprocessing.PunctuationRemover import \
     PunctuationRemover
@@ -46,7 +46,7 @@ class PreprocessingHandler:
         elif name == "citations_links_remover":
             return CitationsLinksRemover()
         elif name == "non_english_remover":
-            return NonEnglishRemover()
+            return NonEnglishMathSafeRemover()
         elif name == "new_lines_remover":
             return NewLinesRemover()
         elif name == "html_tags_remover":

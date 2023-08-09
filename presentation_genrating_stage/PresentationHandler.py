@@ -5,25 +5,32 @@ import os.path
 import pptx
 from pptx.util import Pt
 
-from data_objects import Presentation, Topic, LAYOUT
+from data_objects import Presentation, Topic, LAYOUT, Slide
 from presentation_genrating_stage.presentation_generation import \
     GenerationHandler, Organizer
 from templates import TEMPLATE
-from utils import RESULTS_DIR
+from utils import RESULTS_DIR, divide_bullet_point
 from utils.Errors import NotFoundError
 from utils.PresentationExportionUtils import replace_with_image, \
-    CONTENT_PLACEHOLDER_IDX, DEFAULT_BULLET_POINT_FONT_SIZE
+    CONTENT_PLACEHOLDER_IDX, DEFAULT_BULLET_POINT_FONT_SIZE, \
+    NUM_OF_LINES_PER_SLIDE, estimate_line_count
 
 
 class PresentationHandler:
     _presentation: Presentation
     _generator_handler: GenerationHandler
     _organizer: Organizer
+    _BULLET_POINT_CHARACTERS_NUM_LIMIT: int
+    _BULLET_POINTS_DELIMITERS: list[str]
 
     def __init__(self):
         self._presentation = Presentation()
         self._generator_handler = GenerationHandler()
         self._organizer = Organizer()
+        self._BULLET_POINTS_DELIMITERS = ["while", "because", "hence"
+                                          , "but", "where", "originally"
+                                          , "including", "such", "primarily"]
+        self._BULLET_POINT_CHARACTERS_NUM_LIMIT = 125
 
     @property
     def presentation(self):
@@ -64,31 +71,12 @@ class PresentationHandler:
             # adding title slide
             title_slide = pr.slides[0]
             title_slide.shapes.title.text = self.presentation.title
+
             # adding rest of slides
             for slide in self.presentation.slides:
-                slide_layout = pr.slide_layouts[slide.layout.value]
-                m_slide = pr.slides.add_slide(slide_layout)
-                m_slide.shapes.title.text = slide.title
-                # choosing the right placeholder for bullet points
-                if slide.layout == LAYOUT.TITLE_AND_CONTENT:
-                    holder_index = 1
-                else:
-                    holder_index = 2
-                bullet_point_box = m_slide.shapes.placeholders[holder_index]
+                self.export_slide(slide, pr)
 
-                bullet_points_text = [str(k.data) for k in slide.keypoints]
-                bullet_point_box.text = "\n".join(bullet_points_text)
-                # setting font size which is necessay for counting the number
-                # of lines the text takes.
-                for p in bullet_point_box.text_frame.paragraphs:
-                    for r in p.runs:
-                        r.font.size = Pt(DEFAULT_BULLET_POINT_FONT_SIZE)
-                # adding images if existed
-                if slide.layout == LAYOUT.PICTURE_CONTENT_WITH_CAPTION:
-                    image_box = m_slide.placeholders[CONTENT_PLACEHOLDER_IDX]
-                    replace_with_image(str(slide.content.data)
-                                       , image_box, m_slide)
-
+            # adding conclusion slide
             conclusion_slide_layout = pr.slide_layouts[LAYOUT.TITLE.value]
             conclusion_slide = pr.slides.add_slide(conclusion_slide_layout)
             conclusion_slide.shapes.title.text = "Conclusion"
@@ -103,3 +91,80 @@ class PresentationHandler:
 
     def get_presentation(self):
         return copy.deepcopy(self.presentation)
+
+    def export_slide(self, slide: Slide, presentation_to_export):
+        bullet_points_text = [str(k.data) for k in slide.keypoints]
+        # handling first slide
+        slide_layout = presentation_to_export.slide_layouts[slide.layout.value]
+        m_slide = presentation_to_export.slides.add_slide(slide_layout)
+        m_slide.shapes.title.text = slide.title
+        # choosing the right placeholder for bullet points
+        if slide.layout == LAYOUT.TITLE_AND_CONTENT:
+            holder_index = 1
+        else:
+            holder_index = 2
+        bullet_point_box = m_slide.shapes.placeholders[holder_index]
+        # adding images if existed to each exported slide
+        if slide.layout == LAYOUT.PICTURE_CONTENT_WITH_CAPTION:
+            image_box = m_slide.placeholders[CONTENT_PLACEHOLDER_IDX]
+            replace_with_image(str(slide.content.data)
+                               , image_box, m_slide)
+        if len(bullet_points_text) > 0:
+            self._insert_bullet_point(bullet_point_box, bullet_points_text[0])
+        # handling rest of slides
+        for bullet_point in bullet_points_text[1:]:
+            # if there is overflow or the deck is empty
+            if estimate_line_count(bullet_point_box) > NUM_OF_LINES_PER_SLIDE:
+                slide_layout = presentation_to_export.slide_layouts[
+                    slide.layout.value]
+                m_slide = presentation_to_export.slides.add_slide(slide_layout)
+                m_slide.shapes.title.text = slide.title
+                # choosing the right placeholder for bullet points
+                if slide.layout == LAYOUT.TITLE_AND_CONTENT:
+                    holder_index = 1
+                else:
+                    holder_index = 2
+                bullet_point_box = m_slide.shapes.placeholders[holder_index]
+                # adding images if existed to each exported slide
+                if slide.layout == LAYOUT.PICTURE_CONTENT_WITH_CAPTION:
+                    image_box = m_slide.placeholders[CONTENT_PLACEHOLDER_IDX]
+                    replace_with_image(str(slide.content.data)
+                                       , image_box, m_slide)
+            if bullet_point_box is not None:
+                self._insert_bullet_point(bullet_point_box,
+                                          bullet_point)
+
+    def _get_paragraph(self, box):
+        """
+        in python-pptx, paragraphs is not initially empty, it has one
+        empty paragraph and this function to handle this case :param
+        self: :param box: a shape that has a text_frame :return: adds new
+        paragraph and returned it or use the already existing one
+        """
+        if len(box.text_frame.paragraphs[0].text) == 0:
+            return box.text_frame.paragraphs[0]
+        else:
+            return box.text_frame.add_paragraph()
+
+    def _insert_bullet_point(self, box, bullet_point: str):
+        # divide bullet point.
+        bullets = []
+        if len(bullet_point) > self._BULLET_POINT_CHARACTERS_NUM_LIMIT:
+            bullets = divide_bullet_point(bullet_point
+                                          , self._BULLET_POINTS_DELIMITERS)
+        else:
+            bullets.append(bullet_point)
+        # add bullet point with first level 1 and rest level 2
+        for idx, bullet in enumerate(bullets):
+            paragraph = self._get_paragraph(box)
+            paragraph.text = bullet
+            if idx == 0:
+                paragraph.level = 0
+            else:
+                paragraph.level = 1
+
+        # adjusting the font which is important for counting the font later.
+        for p in box.text_frame.paragraphs:
+            for r in p.runs:
+                r.font.size = Pt(DEFAULT_BULLET_POINT_FONT_SIZE)
+

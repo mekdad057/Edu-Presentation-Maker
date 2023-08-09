@@ -1,6 +1,7 @@
 import logging
 
 from bs4 import BeautifulSoup
+from tqdm import tqdm
 
 from data_objects import Document, Paragraph
 from data_preparation_stage.data_extraction.DataSourceExtractor \
@@ -10,7 +11,6 @@ from utils.Errors import NotFoundError
 
 
 class WikipediaExtractor(DataSourceExtractor):
-    MAX_LIMIT: int
     MIN_LIMIT: int
     HEADINGS_TAGS: list[str]
     TEXT_TAGS: list[str]
@@ -20,12 +20,11 @@ class WikipediaExtractor(DataSourceExtractor):
     def __init__(self):
         super().__init__()
         self.HEADINGS_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"]
-        self.TEXT_TAGS = ["p", "ul", "ol"]
+        self.TEXT_TAGS = ["p", "li"]
         self.IGNORE = ["See also", "References", "Further reading", "Honors"
             , "Notes", "Sources", "External links"]
         self.CONTENT_TAGS = ["figure"]
-        self.MAX_LIMIT = 20
-        self.MIN_LIMIT = 3
+        self.MIN_LIMIT = 1
 
     def get_text(self, path: str) -> str:
         try:
@@ -76,6 +75,7 @@ class WikipediaExtractor(DataSourceExtractor):
         block = {"level": 1, "title": "Introduction", "text": ""
                  , "contents_paths": []}
         stop = 0  # to save where the first h2 heading starts
+        pbar = tqdm(total=len(elements), desc="extracting elements:")
         for p in elements:
             if p.name not in self.TEXT_TAGS + self.CONTENT_TAGS:
                 stop = elements.index(p)
@@ -86,6 +86,7 @@ class WikipediaExtractor(DataSourceExtractor):
                     block["contents_paths"].append(extracted)
             else:
                 block["text"] += p.get_text()
+            pbar.update(1)
 
         blocks.append(block)
 
@@ -114,7 +115,10 @@ class WikipediaExtractor(DataSourceExtractor):
                     block["contents_paths"].append(extracted)
             else:
                 block["text"] += elements[i].get_text()
+            pbar.update(1)
         blocks.append(block)  # appending the last heading.
+        pbar.update(len(elements) - pbar.n)
+        pbar.close()
         return blocks
 
     def merge_small_blocks(self, blocks: list[dict]) -> list[dict]:
@@ -154,7 +158,11 @@ class WikipediaExtractor(DataSourceExtractor):
         :return: path to the content downloaded in the working folder or None
         if the content is invalid
         """
-        url = tag.img["src"]
+        url = ""
+        if tag.img is not None:
+            url = tag.img["src"]
+        else:
+            return None
 
         if "http" not in url:
             url = "https:" + url
@@ -162,6 +170,7 @@ class WikipediaExtractor(DataSourceExtractor):
         while True:
             try:
                 path = download_to_working(url)
+                logging.debug("status code: 200")
                 break
             except Exception as e:
                 pass

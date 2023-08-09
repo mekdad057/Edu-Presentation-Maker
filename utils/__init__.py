@@ -108,16 +108,22 @@ def divide_to_subarrays(str_list: list[str], sub_size: int) -> list[list[str]]:
     return subarrays
 
 
-def split_text_to_sentences(text: str) -> list[str]:
+def split_text_to_sentences(text: str):
     """
-    splits text on periods, and differentiate between periods
-     and decimal numbers
+    splits text on periods, also it differentiates between periods
+     in decimal numbers and in shortcuts for names
     :param text: text to split
     :return: a list of sentences
     """
-    split_res = re.split(r"(?<!\d)\.(?!\d)\s*", text)
+    split_res = re.split(r"(?<!\s\w\.\w)(?<!\s\w)\.(?!\d)\s+", text)
     res = []
     for snt in split_res:
         if len(snt) > 0:
             res.append(snt)
     return res
+
+
+def divide_bullet_point(bullet: str, with_words):
+    pattern = r",\s" + r"|,\s".join(with_words)
+    return [sentence.strip() for sentence in re.split(pattern, bullet)]
+

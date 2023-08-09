@@ -23,7 +23,6 @@ class Generator(ABC):
     def current_params_values(self):
         return self._current_params_values
 
-    # todo: this code requires testing later.
     @current_params_values.setter
     def current_params_values(self, params: dict[str, object]):
         # checking if the parameters and the type of its values are correct
