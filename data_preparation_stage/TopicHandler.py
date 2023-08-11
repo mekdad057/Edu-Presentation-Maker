@@ -53,8 +53,8 @@ class TopicHandler:
             for doc in self.topic.documents:
                 if doc.path in paths:
                     topic_subjects[doc] = subject
-                    # this line makes sure that documents that has the same
-                    # subject has the same value
+                    # this line makes sure that documents that don't have the
+                    # same subject has different values
                     subject += int(not same_subject)
             return True
         except Exception as e:

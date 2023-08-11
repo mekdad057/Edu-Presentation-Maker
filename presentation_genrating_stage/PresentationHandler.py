@@ -9,7 +9,7 @@ from data_objects import Presentation, Topic, LAYOUT, Slide
 from presentation_genrating_stage.presentation_generation import \
     GenerationHandler, Organizer
 from templates import TEMPLATE
-from utils import RESULTS_DIR, divide_bullet_point
+from utils import RESULTS_DIR, divide_sentence
 from utils.Errors import NotFoundError
 from utils.PresentationExportionUtils import replace_with_image, \
     CONTENT_PLACEHOLDER_IDX, DEFAULT_BULLET_POINT_FONT_SIZE, \
@@ -110,9 +110,11 @@ class PresentationHandler:
             replace_with_image(str(slide.content.data)
                                , image_box, m_slide)
         if len(bullet_points_text) > 0:
-            self._insert_bullet_point(bullet_point_box, bullet_points_text[0])
+            self._insert_bullet_point(bullet_point_box
+                                      , bullet_points_text[0]
+                                      , slide.keypoints[0].level)
         # handling rest of slides
-        for bullet_point in bullet_points_text[1:]:
+        for idx, bullet_point in enumerate(bullet_points_text[1:]):
             # if there is overflow or the deck is empty
             if estimate_line_count(bullet_point_box) > NUM_OF_LINES_PER_SLIDE:
                 slide_layout = presentation_to_export.slide_layouts[
@@ -131,8 +133,9 @@ class PresentationHandler:
                     replace_with_image(str(slide.content.data)
                                        , image_box, m_slide)
             if bullet_point_box is not None:
-                self._insert_bullet_point(bullet_point_box,
-                                          bullet_point)
+                self._insert_bullet_point(bullet_point_box
+                                          , bullet_point
+                                          , slide.keypoints[idx].level)
 
     def _get_paragraph(self, box):
         """
@@ -146,22 +149,25 @@ class PresentationHandler:
         else:
             return box.text_frame.add_paragraph()
 
-    def _insert_bullet_point(self, box, bullet_point: str):
+    def _insert_bullet_point(self, box, bullet_point: str, level: int = -1):
         # divide bullet point.
         bullets = []
         if len(bullet_point) > self._BULLET_POINT_CHARACTERS_NUM_LIMIT:
-            bullets = divide_bullet_point(bullet_point
-                                          , self._BULLET_POINTS_DELIMITERS)
+            bullets = divide_sentence(bullet_point
+                                      , self._BULLET_POINTS_DELIMITERS)
         else:
             bullets.append(bullet_point)
         # add bullet point with first level 1 and rest level 2
         for idx, bullet in enumerate(bullets):
             paragraph = self._get_paragraph(box)
             paragraph.text = bullet
-            if idx == 0:
-                paragraph.level = 0
+            if level == -1:
+                if idx == 0:
+                    paragraph.level = 0
+                else:
+                    paragraph.level = 1
             else:
-                paragraph.level = 1
+                paragraph.level = level
 
         # adjusting the font which is important for counting the font later.
         for p in box.text_frame.paragraphs:

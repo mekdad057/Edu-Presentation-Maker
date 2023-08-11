@@ -25,7 +25,6 @@ class DataSourceHandler:
 
         # move the file to working directory
         type_of_path = is_path_or_url(path)
-        working_path = ""
 
         if type_of_path == 'URL':
             working_path = download_to_working(path)
@@ -47,7 +46,7 @@ class DataSourceHandler:
         if doc is None:
             raise ValueError(f"Document '{file_name}' "
                              f"extraction FAILED")
-        doc.path = path
+        doc.path = path  # fixme : is this ok?
         topic.documents.append(doc)
 
     @staticmethod

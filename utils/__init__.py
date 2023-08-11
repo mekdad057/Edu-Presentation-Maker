@@ -123,7 +123,10 @@ def split_text_to_sentences(text: str):
     return res
 
 
-def divide_bullet_point(bullet: str, with_words):
+def divide_sentence(sentence: str, with_words):
     pattern = r",\s" + r"|,\s".join(with_words)
-    return [sentence.strip() for sentence in re.split(pattern, bullet)]
+    return [sentence.strip() for sentence in re.split(pattern, sentence)]
 
+
+def is_empty_sentence(sentence: str) -> bool:
+    return sentence.strip(" \n\t\r") == ""
