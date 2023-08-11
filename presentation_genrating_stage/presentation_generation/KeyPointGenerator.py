@@ -6,6 +6,7 @@ from tqdm import tqdm
 from data_objects import KeyPoint, Topic
 from presentation_genrating_stage.presentation_generation.Generator\
     import Generator
+from utils import is_sentence_empty, clear_sentence
 
 
 class KeyPointGenerator(Generator):
@@ -41,8 +42,8 @@ class KeyPointGenerator(Generator):
         keypoint_string = ""
         for char_ in paragraph.raw_data:
             if char_ == "#":
-                if keypoint_string != "":
-                    result.append(KeyPoint(keypoint_string
+                if not is_sentence_empty(keypoint_string):
+                    result.append(KeyPoint(clear_sentence(keypoint_string)
                                            , paragraph
                                            , level_counter))
                     level_counter = 0
@@ -50,8 +51,10 @@ class KeyPointGenerator(Generator):
                 level_counter += 1
             else:
                 keypoint_string += char_
-        if keypoint_string != "":
-            result.append(KeyPoint(keypoint_string, paragraph, level_counter))
+        if not is_sentence_empty(keypoint_string):
+            result.append(KeyPoint(clear_sentence(keypoint_string)
+                                   , paragraph
+                                   , level_counter))
         return result
 
     @abstractmethod

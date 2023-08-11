@@ -13,7 +13,7 @@ from utils import RESULTS_DIR, divide_sentence
 from utils.Errors import NotFoundError
 from utils.PresentationExportionUtils import replace_with_image, \
     CONTENT_PLACEHOLDER_IDX, DEFAULT_BULLET_POINT_FONT_SIZE, \
-    NUM_OF_LINES_PER_SLIDE, estimate_line_count
+    NUM_OF_LINES_PER_SLIDE, estimate_line_count, get_font_size
 
 
 class PresentationHandler:
@@ -172,5 +172,5 @@ class PresentationHandler:
         # adjusting the font which is important for counting the font later.
         for p in box.text_frame.paragraphs:
             for r in p.runs:
-                r.font.size = Pt(DEFAULT_BULLET_POINT_FONT_SIZE)
+                r.font.size = Pt(get_font_size(p.level))
 

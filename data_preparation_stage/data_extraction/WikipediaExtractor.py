@@ -189,7 +189,6 @@ class WikipediaExtractor(DataSourceExtractor):
             try:
                 # todo: move the while True to this funtion
                 path = download_to_working(url)
-                logging.debug("status code: 200")
                 break
             except Exception as e:
                 pass

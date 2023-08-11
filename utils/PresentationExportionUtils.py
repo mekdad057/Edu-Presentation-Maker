@@ -1,7 +1,7 @@
 import logging
 
 CONTENT_PLACEHOLDER_IDX = 13  # todo: insert these values inside template, because they differ from template to another
-DEFAULT_BULLET_POINT_FONT_SIZE = 18
+DEFAULT_BULLET_POINT_FONT_SIZE = 28
 NUM_OF_LINES_PER_SLIDE = 10
 
 
@@ -48,7 +48,7 @@ def estimate_line_count(shape):
     for paragraph in text_frame.paragraphs:
         # Initialize variables for this paragraph
         # indentation value 2 tabs for the bullet point
-        chars_in_line = 8*paragraph.level
+        chars_in_line = 16*paragraph.level
 
         # Iterate over each run in the paragraph
         for run in paragraph.runs:
@@ -56,7 +56,7 @@ def estimate_line_count(shape):
             font_size = run.font.size or DEFAULT_BULLET_POINT_FONT_SIZE
 
             # Estimate the width of a character
-            char_width = font_size / 1.5  # This is an approximation, actual width may vary based on the font
+            char_width = font_size / 0.75  # This is an approximation, actual width may vary based on the font
 
             # Calculate the number of characters that can fit in a line
             chars_per_line = shape_width / char_width
@@ -75,3 +75,7 @@ def estimate_line_count(shape):
         # Each paragraph is a new line
         lines += 2
     return lines
+
+
+def get_font_size(level: int = 0) -> int:
+    return DEFAULT_BULLET_POINT_FONT_SIZE - 4 * level

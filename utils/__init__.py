@@ -22,11 +22,17 @@ RESULTS_DIR = os.path.join(MAIN_DIR, "results")
 
 
 def download_to_working(url: str) -> str:
+    # checks if it already exists to return it.
+    if os.path.exists(os.path.join(WORKING_DIR, url.split("\\")[-1])):
+        return os.path.join(WORKING_DIR, url.split("\\")[-1])
+
     # Send a GET request
     try:
         response = requests.get(url, stream=True, verify=False)
     except Exception as e:
         raise ConnectionError("Check your Connection")
+
+    logging.debug("request status code: %d" % response.status_code)
 
     # If the GET request is successful, the status code will be 200
     if response.status_code == 200:
@@ -44,7 +50,7 @@ def download_to_working(url: str) -> str:
         # If the file is an image file
         elif 'image/' in response.headers['content-type']:
             image_extension = response.headers['content-type'].split('/')[-1]
-            file_name = file_name + '.' + image_extension\
+            file_name = file_name + '.' + image_extension \
                 if '.' + image_extension not in file_name else file_name
 
         # Create a path for the new file
@@ -128,5 +134,9 @@ def divide_sentence(sentence: str, with_words):
     return [sentence.strip() for sentence in re.split(pattern, sentence)]
 
 
-def is_empty_sentence(sentence: str) -> bool:
+def is_sentence_empty(sentence: str) -> bool:
     return sentence.strip(" \n\t\r") == ""
+
+
+def clear_sentence(sentence: str) -> str:
+    return sentence.strip(" \n\t\r")

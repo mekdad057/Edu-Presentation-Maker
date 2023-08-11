@@ -15,8 +15,7 @@ class Generator(ABC):
         self._current_params_values = {}
 
     @abstractmethod
-    def get_output(self, topic: Topic) \
-            -> object:
+    def get_output(self, topic: Topic) -> object:
         pass
 
     @property

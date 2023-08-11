@@ -1,23 +1,18 @@
 DEBUG - Starting new HTTPS connection (1): upload.wikimedia.org:443
-DEBUG - https://upload.wikimedia.org:443 "GET /wikipedia/commons/thumb/9/92/Python_demo_-_sortvisu.png/220px-Python_demo_-_sortvisu.png HTTP/1.1" 403 1906
-DEBUG - Failed to retrieve the URL due to the status code: 403
-DEBUG - status code: 200
+DEBUG - https://upload.wikimedia.org:443 "GET /wikipedia/commons/thumb/9/92/Python_demo_-_sortvisu.png/220px-Python_demo_-_sortvisu.png HTTP/1.1" 200 31868
+DEBUG - request status code: 200
 DEBUG - Starting new HTTPS connection (1): upload.wikimedia.org:443
-DEBUG - https://upload.wikimedia.org:443 "GET /wikipedia/commons/thumb/8/82/Sorting_stability_playing_cards.svg/220px-Sorting_stability_playing_cards.svg.png HTTP/1.1" 403 1906
-DEBUG - Failed to retrieve the URL due to the status code: 403
-DEBUG - status code: 200
+DEBUG - https://upload.wikimedia.org:443 "GET /wikipedia/commons/thumb/8/82/Sorting_stability_playing_cards.svg/220px-Sorting_stability_playing_cards.svg.png HTTP/1.1" 200 17478
+DEBUG - request status code: 200
 DEBUG - Starting new HTTPS connection (1): upload.wikimedia.org:443
-DEBUG - https://upload.wikimedia.org:443 "GET /wikipedia/commons/thumb/7/79/Sorting_playing_cards_using_stable_sort.svg/400px-Sorting_playing_cards_using_stable_sort.svg.png HTTP/1.1" 403 1906
-DEBUG - Failed to retrieve the URL due to the status code: 403
-DEBUG - status code: 200
+DEBUG - https://upload.wikimedia.org:443 "GET /wikipedia/commons/thumb/7/79/Sorting_playing_cards_using_stable_sort.svg/400px-Sorting_playing_cards_using_stable_sort.svg.png HTTP/1.1" 200 24584
+DEBUG - request status code: 200
 DEBUG - Starting new HTTPS connection (1): upload.wikimedia.org:443
-DEBUG - https://upload.wikimedia.org:443 "GET /wikipedia/commons/thumb/4/4c/Shell_sorting_algorithm_color_bars.svg/220px-Shell_sorting_algorithm_color_bars.svg.png HTTP/1.1" 403 1906
-DEBUG - Failed to retrieve the URL due to the status code: 403
-DEBUG - status code: 200
+DEBUG - https://upload.wikimedia.org:443 "GET /wikipedia/commons/thumb/4/4c/Shell_sorting_algorithm_color_bars.svg/220px-Shell_sorting_algorithm_color_bars.svg.png HTTP/1.1" 200 11390
+DEBUG - request status code: 200
 DEBUG - Starting new HTTPS connection (1): upload.wikimedia.org:443
-DEBUG - https://upload.wikimedia.org:443 "GET /wikipedia/commons/thumb/8/83/Bubblesort-edited-color.svg/220px-Bubblesort-edited-color.svg.png HTTP/1.1" 403 1906
-DEBUG - Failed to retrieve the URL due to the status code: 403
-DEBUG - status code: 200
+DEBUG - https://upload.wikimedia.org:443 "GET /wikipedia/commons/thumb/8/83/Bubblesort-edited-color.svg/220px-Bubblesort-edited-color.svg.png HTTP/1.1" 200 17125
+DEBUG - request status code: 200
 DEBUG - 'In computer science, a sorting algorithm is an algorithm that puts elements of a list into an order. The most frequently used orders are numerical order and lexicographical order, and either ascending or descending. Efficient sorting is important for optimizing the efficiency of other algorithms (such as search and merge algorithms) that require input data to be in sorted lists. Sorting is also often useful for canonicalizing data and for producing human-readable output.\nFormally, the output of any sorting algorithm must satisfy two conditions:\nThe output is in monotonic order (each element is no smaller/larger than the previous element, according to the required order).\nThe output is a permutation (a reordering, yet retaining all of the original elements) of the input.For optimum efficiency, the input data should be stored in a data structure which allows random access rather than one that allows only sequential access.\n'
 DEBUG - 'From the beginning of computing, the sorting problem has attracted a great deal of research, perhaps due to the complexity of solving it efficiently despite its simple, familiar statement. Among the authors of early sorting algorithms around 1951 was Betty Holberton, who worked on ENIAC and UNIVAC.[1][2] Bubble sort was analyzed as early as 1956.[3] Asymptotically optimal algorithms have been known since the mid-20th century\xa0–  new algorithms are still being invented, with the widely used Timsort dating to 2002, and the library sort being first published in 2006.\nComparison sorting algorithms have a fundamental requirement of Ω(n log n) comparisons (some input sequences will require a multiple of n log n comparisons, where n is the number of elements in the array to be sorted). Algorithms not based on comparisons, such as counting sort, can have better performance.\nSorting algorithms are prevalent in introductory computer science classes, where the abundance of algorithms for the problem provides a gentle introduction to a variety of core algorithm concepts, such as big O notation, divide-and-conquer algorithms, data structures such as heaps and binary trees, randomized algorithms, best, worst and average case analysis, time–space tradeoffs, and upper and lower bounds.\nSorting small arrays optimally (in fewest comparisons and swaps) or fast (i.e. taking into account machine specific details) is still an open research problem, with solutions only known for very small arrays (<20 elements). Similarly optimal (by various definitions) sorting on a parallel machine is an open research topic.\n'
 DEBUG - 'Sorting algorithms can be classified by:\n\n#Computational complexity\n##Best, worst and average case behavior in terms of the size of the list. For typical serial sorting algorithms, good behavior is O(n\xa0log\xa0n), with parallel sort in O(log2\xa0n), and bad behavior is O(n2). Ideal behavior for a serial sort is O(n), but this is not possible in the average case. Optimal parallel sorting is O(log\xa0n).##Swaps for "in-place" algorithms.#Memory usage (and use of other computer resources). In particular, some sorting algorithms are "in-place". Strictly, an in-place sort needs only O(1) memory beyond the items being sorted; sometimes O(log\xa0n) additional memory is considered "in-place".#Recursion: Some algorithms are either recursive or non-recursive, while others may be both (e.g., merge sort).#Stability: stable sorting algorithms maintain the relative order of records with equal keys (i.e., values).#Whether or not they are a comparison sort. A comparison sort examines the data only by comparing two elements with a comparison operator.#General method: insertion, exchange, selection, merging, etc. Exchange sorts include bubble sort and quicksort. Selection sorts include cycle sort and heapsort.#Whether the algorithm is serial or parallel. The remainder of this discussion almost exclusively concentrates upon serial algorithms and assumes serial operation.#Adaptability: Whether or not the presortedness of the input affects the running time.  Algorithms that take this into account are known to be adaptive.#Online: An algorithm such as Insertion Sort that is online can sort a constant stream of input.Best, worst and average case behavior in terms of the size of the list. For typical serial sorting algorithms, good behavior is O(n\xa0log\xa0n), with parallel sort in O(log2\xa0n), and bad behavior is O(n2). Ideal behavior for a serial sort is O(n), but this is not possible in the average case. Optimal parallel sorting is O(log\xa0n).\nSwaps for "in-place" algorithms.'
@@ -208,7 +203,161 @@ DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
 DEBUG - https://api-inference.huggingface.co:443 "POST /models/facebook/bart-large-cnn HTTP/1.1" 200 304
 DEBUG - status code : 200
 DEBUG - keypoints generated successfully
-DEBUG - [[<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C016F0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01780>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C017E0>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01D50>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01EA0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01FF0>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01600>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01E10>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01D80>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01690>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02080>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01FC0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02110>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01960>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C018D0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C018A0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01750>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02020>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01B40>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01C60>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01BD0>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02410>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02560>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C026B0>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01C90>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02680>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C027D0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01C30>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C022C0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C028F0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02290>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C024D0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02380>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02260>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02B00>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02B30>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02650>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C024A0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C026E0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02D10>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01570>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02DD0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02E00>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02830>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02350>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C019F0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02FB0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02EF0>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01AB0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C030D0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03100>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02050>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01CF0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03220>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02EC0>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02CB0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03340>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02E30>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02A40>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C022F0>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02FE0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03550>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03490>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02F50>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03670>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C036A0>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C015A0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C021D0>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02C20>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03850>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03880>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C035E0>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03970>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02F20>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03A30>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03A60>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02E60>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C02C50>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03B80>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C01900>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03B50>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03CA0>], [<data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03010>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03C70>, <data_objects.KeyPoint.KeyPoint object at 0x00000238D9C03DC0>]]
+DEBUG - [[<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5D780>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5D810>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5D870>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5DDE0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5DF30>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E080>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5D690>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5DEA0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5DE10>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5D720>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E110>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E050>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E1A0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5D9F0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5D960>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5D930>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5D7E0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E0B0>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5DBD0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5DCF0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5DC60>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E4A0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E5F0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E740>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5DD20>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E710>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E860>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5DCC0>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E350>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E980>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E320>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E560>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E410>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E2F0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5EB90>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5EBC0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E6E0>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E530>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E770>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5EDA0>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5D600>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5EE60>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5EE90>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E8C0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E3E0>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5DA80>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5F040>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5EF80>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5DB40>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5F160>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5F190>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E0E0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5DD80>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5F2B0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5EF50>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5ED40>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5F3D0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5EEC0>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5EAD0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E380>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5F070>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5F5E0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5F520>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5EFE0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5F700>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5F730>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5D630>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5E260>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5ECB0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5F8E0>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5F910>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5F670>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5FA00>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5EFB0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5FAC0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5FAF0>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5EEF0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5ECE0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5FC10>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5D990>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5FBE0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5FD30>], [<data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5F0A0>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5FD00>, <data_objects.KeyPoint.KeyPoint object at 0x000001DA2BD5FE50>]]
 DEBUG - presentation organized successfully
-DEBUG - [<data_objects.Slide.Slide object at 0x00000238D9C00FD0>, <data_objects.Slide.Slide object at 0x00000238D9C00130>, <data_objects.Slide.Slide object at 0x00000238D9C01000>, <data_objects.Slide.Slide object at 0x00000238D9C000A0>, <data_objects.Slide.Slide object at 0x00000238D9C00E20>, <data_objects.Slide.Slide object at 0x00000238D9C010C0>, <data_objects.Slide.Slide object at 0x00000238D9C001F0>, <data_objects.Slide.Slide object at 0x00000238D9C01060>, <data_objects.Slide.Slide object at 0x00000238D9C01330>, <data_objects.Slide.Slide object at 0x00000238D9C00CD0>, <data_objects.Slide.Slide object at 0x00000238D9C00D30>, <data_objects.Slide.Slide object at 0x00000238D9C01090>, <data_objects.Slide.Slide object at 0x00000238D9C01360>, <data_objects.Slide.Slide object at 0x00000238D9C01300>, <data_objects.Slide.Slide object at 0x00000238D9C01540>, <data_objects.Slide.Slide object at 0x00000238D9C01480>, <data_objects.Slide.Slide object at 0x00000238D9C01420>, <data_objects.Slide.Slide object at 0x00000238D9C013C0>, <data_objects.Slide.Slide object at 0x00000238D9C03DF0>, <data_objects.Slide.Slide object at 0x00000238D9C03070>, <data_objects.Slide.Slide object at 0x00000238D9C02AA0>, <data_objects.Slide.Slide object at 0x00000238D9C034F0>, <data_objects.Slide.Slide object at 0x00000238D9C02320>, <data_objects.Slide.Slide object at 0x00000238D9C01990>, <data_objects.Slide.Slide object at 0x00000238D9C037C0>, <data_objects.Slide.Slide object at 0x00000238D9C02230>, <data_objects.Slide.Slide object at 0x00000238D9C03460>, <data_objects.Slide.Slide object at 0x00000238D9C03D60>, <data_objects.Slide.Slide object at 0x00000238D9C03BE0>]
+DEBUG - [<data_objects.Slide.Slide object at 0x000001DA2BD5CC70>, <data_objects.Slide.Slide object at 0x000001DA2BD5D1B0>, <data_objects.Slide.Slide object at 0x000001DA2BD5D150>, <data_objects.Slide.Slide object at 0x000001DA2BD5C0D0>, <data_objects.Slide.Slide object at 0x000001DA2BD5C190>, <data_objects.Slide.Slide object at 0x000001DA2BD5D0F0>, <data_objects.Slide.Slide object at 0x000001DA2BD5CE80>, <data_objects.Slide.Slide object at 0x000001DA2BD5D2A0>, <data_objects.Slide.Slide object at 0x000001DA2BD5CCA0>, <data_objects.Slide.Slide object at 0x000001DA2BD5C0A0>, <data_objects.Slide.Slide object at 0x000001DA2BD5CEB0>, <data_objects.Slide.Slide object at 0x000001DA2BD5D300>, <data_objects.Slide.Slide object at 0x000001DA2BD5D3C0>, <data_objects.Slide.Slide object at 0x000001DA2BD5D5A0>, <data_objects.Slide.Slide object at 0x000001DA2BD5C1C0>, <data_objects.Slide.Slide object at 0x000001DA2BD5C250>, <data_objects.Slide.Slide object at 0x000001DA2BD5C280>, <data_objects.Slide.Slide object at 0x000001DA2BD5D540>, <data_objects.Slide.Slide object at 0x000001DA2BD5CDF0>, <data_objects.Slide.Slide object at 0x000001DA2BD5D2D0>, <data_objects.Slide.Slide object at 0x000001DA2BD5D390>, <data_objects.Slide.Slide object at 0x000001DA2BD5D570>, <data_objects.Slide.Slide object at 0x000001DA2BD5D510>, <data_objects.Slide.Slide object at 0x000001DA2BD5D480>, <data_objects.Slide.Slide object at 0x000001DA2BD5D4B0>, <data_objects.Slide.Slide object at 0x000001DA2BD5D420>, <data_objects.Slide.Slide object at 0x000001DA2BD5D450>, <data_objects.Slide.Slide object at 0x000001DA2BD5D360>, <data_objects.Slide.Slide object at 0x000001DA2BD5FE80>]
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'tIME' 119 7
+DEBUG - b'tIME' 119 7 (unknown)
+DEBUG - STREAM b'IDAT' 138 31579
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'tIME' 119 7
+DEBUG - b'tIME' 119 7 (unknown)
+DEBUG - STREAM b'IDAT' 138 31579
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'tIME' 119 7
+DEBUG - b'tIME' 119 7 (unknown)
+DEBUG - STREAM b'IDAT' 138 31579
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'tIME' 119 7
+DEBUG - b'tIME' 119 7 (unknown)
+DEBUG - STREAM b'IDAT' 138 31579
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'tIME' 119 7
+DEBUG - b'tIME' 119 7 (unknown)
+DEBUG - STREAM b'IDAT' 138 31579
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'tIME' 119 7
+DEBUG - b'tIME' 119 7 (unknown)
+DEBUG - STREAM b'IDAT' 138 31579
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'tIME' 119 7
+DEBUG - b'tIME' 119 7 (unknown)
+DEBUG - STREAM b'IDAT' 138 31579
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'bKGD' 41 6
+DEBUG - b'bKGD' 41 6 (unknown)
+DEBUG - STREAM b'IDAT' 59 8192
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'bKGD' 41 6
+DEBUG - b'bKGD' 41 6 (unknown)
+DEBUG - STREAM b'IDAT' 59 8192
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'bKGD' 41 6
+DEBUG - b'bKGD' 41 6 (unknown)
+DEBUG - STREAM b'IDAT' 59 8192
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'bKGD' 41 6
+DEBUG - b'bKGD' 41 6 (unknown)
+DEBUG - STREAM b'IDAT' 59 8192
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'bKGD' 41 6
+DEBUG - b'bKGD' 41 6 (unknown)
+DEBUG - STREAM b'IDAT' 59 8192
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'bKGD' 41 6
+DEBUG - b'bKGD' 41 6 (unknown)
+DEBUG - STREAM b'IDAT' 59 8192
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'bKGD' 41 6
+DEBUG - b'bKGD' 41 6 (unknown)
+DEBUG - STREAM b'IDAT' 59 8192
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'IDAT' 119 11157
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'IDAT' 119 11157
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'IDAT' 119 11157
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'IDAT' 119 11157
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'IDAT' 119 11157
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'tIME' 119 7
+DEBUG - b'tIME' 119 7 (unknown)
+DEBUG - STREAM b'IDAT' 138 16873
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'tIME' 119 7
+DEBUG - b'tIME' 119 7 (unknown)
+DEBUG - STREAM b'IDAT' 138 16873
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'tIME' 119 7
+DEBUG - b'tIME' 119 7 (unknown)
+DEBUG - STREAM b'IDAT' 138 16873
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'tIME' 119 7
+DEBUG - b'tIME' 119 7 (unknown)
+DEBUG - STREAM b'IDAT' 138 16873
+DEBUG - STREAM b'IHDR' 16 13
+DEBUG - STREAM b'gAMA' 41 4
+DEBUG - STREAM b'cHRM' 57 32
+DEBUG - STREAM b'bKGD' 101 6
+DEBUG - b'bKGD' 101 6 (unknown)
+DEBUG - STREAM b'tIME' 119 7
+DEBUG - b'tIME' 119 7 (unknown)
+DEBUG - STREAM b'IDAT' 138 16873
 DEBUG - Presentation exported successfully
