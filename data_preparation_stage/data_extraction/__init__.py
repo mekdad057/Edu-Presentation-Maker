@@ -2,3 +2,4 @@ from .DataSourceHandler import DataSourceHandler
 from .DataSourceExtractor import DataSourceExtractor
 from .HtmlTrafilaturaExtractor import HtmlTrafilaturaExtractor
 from .WikipediaExtractor import WikipediaExtractor
+from .WebExtractor import WebExtractor

@@ -5,12 +5,14 @@ from presentation_genrating_stage import PresentationHandler
 if __name__ == "__main__":
     # todo: add logger instead of using logging to avoid logging messages
     #  from inside packages.
+    # todo : do testing on wiki pages.!!!!!!!!!!!!!!!!!!
     logging.basicConfig(level=logging.DEBUG, filename="log.log", filemode="w"
                         , format="%(levelname)s - %(message)s"
                         , encoding="utf-8")
-    t = TopicHandler("Sorting Algorithm 3")  # FOR TESTING CHANGE HERE
+    t = TopicHandler("Alan Turing and the beginning of AI")  # FOR TESTING CHANGE HERE
+    link = "https://www.britannica.com/technology/artificial-intelligence/Expert-systems"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Computer.html"
-    link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Sorting_algorithm.html"
+    # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Sorting_algorithm.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Muhammad_ibn_Musa_al-Khwarizmi.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Algebra.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Nuclear_fusion.html"
@@ -21,7 +23,7 @@ if __name__ == "__main__":
     logging.debug("---")
 
     # FOR TESTING CHANGE HERE
-    t.start_preprocessing(["Sorting_algorithm.html"]
+    t.start_preprocessing(["Expert-systems.html"]
                           , ["citations_links_remover"
                               , "non_english_remover"
                               , "new_lines_remover"])

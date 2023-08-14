@@ -18,16 +18,16 @@ class DataSourceExtractor(ABC):
     def get_text(self, path: str) -> str:  # todo: rename this method
         pass
 
-    def create_document(self, path: str) -> Document:
-        # 1) extracting contents of the page
-        contents = self.get_text(path)
+    def create_document(self, work_path: str, real_path: str) -> Document:
+        # 1) extracting main content from the page
+        contents = self.get_text(work_path)
 
         # 2) evaluating attributes
-        name = get_file_name(path)
+        name = get_file_name(work_path)
         language = self.language_handler.determine_language(contents)
 
         # 3) creating Document Object with the attributes
-        doc = Document(name, path, language)
+        doc = Document(name, real_path, language)
 
         # 4) dividing the extracted content to paragraphs
         self.get_paragraphs(doc, contents)

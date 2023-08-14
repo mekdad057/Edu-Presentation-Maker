@@ -2,6 +2,7 @@ import os
 
 from data_objects import Topic, Document
 from data_preparation_stage.data_extraction.PdfExtractor import PdfExtractor
+from data_preparation_stage.data_extraction.WebExtractor import WebExtractor
 from data_preparation_stage.data_extraction.WikipediaExtractor\
     import WikipediaExtractor
 from data_preparation_stage.data_extraction.DataSourceExtractor\
@@ -20,9 +21,9 @@ class DataSourceHandler:
         self.WEB_EXTENSIONS = ["html", "htm"]
         self.PDF_EXTENSIONS = ["pdf"]
 
-    def create_document(self, extractor: DataSourceExtractor, path: str) \
-            -> Document:
-        return extractor.create_document(path)
+    def create_document(self, extractor: DataSourceExtractor, work_path: str
+                        , real_path: str) -> Document:
+        return extractor.create_document(work_path, real_path)
 
     def add_source(self, topic: Topic, path: str):
         doc = None
@@ -40,11 +41,11 @@ class DataSourceHandler:
         # use suitable extractor to create the content
         file_name = get_file_name(working_path)
 
+        # todo : how to select depending on path?
         if self.is_pdf(file_name):
-            doc = self.create_document(PdfExtractor(), working_path)
+            doc = self.create_document(PdfExtractor(), working_path, path)
         elif self.is_web_page(file_name):
-            # FIXME : this doesn't handle pages from other websites
-            doc = self.create_document(WikipediaExtractor(), working_path)
+            doc = self.create_document(WebExtractor(), working_path, path)
 
         # add doc to Topic and return it.
         if doc is None:

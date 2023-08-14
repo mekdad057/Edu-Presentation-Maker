@@ -46,7 +46,7 @@ class WikipediaExtractor(DataSourceExtractor):
 
         soup = BeautifulSoup(data, 'html.parser')
         # the element of the page that contain all relevant text
-        ob = soup.find(id="bodyContent")
+        ob = soup.find("div", class_="mw-parser-output")
 
         if ob is None:
             raise NotFoundError("Text Content", "bodyContent")
@@ -54,7 +54,7 @@ class WikipediaExtractor(DataSourceExtractor):
         return ob.__unicode__()  # to return only the text without a reference
         # on the whole html tree
 
-    def divide_paragraphs(self, doc: Document, text: str):
+    def get_paragraphs(self, doc: Document, text: str):
         """
         :param doc: the document which the paragraphs will be added to.
         :param text: the html tag that contains all the relevant text.
