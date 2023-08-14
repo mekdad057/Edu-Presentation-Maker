@@ -30,10 +30,10 @@ class DataSourceExtractor(ABC):
         doc = Document(name, path, language)
 
         # 4) dividing the extracted content to paragraphs
-        self.divide_paragraphs(doc, contents)
+        self.get_paragraphs(doc, contents)
 
         return doc
 
     @abstractmethod
-    def divide_paragraphs(self, doc: Document, text: str):
+    def get_paragraphs(self, doc: Document, text: str):
         pass

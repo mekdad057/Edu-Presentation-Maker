@@ -20,7 +20,7 @@ class HtmlTrafilaturaExtractor(DataSourceExtractor):
                                                         )
         return extracted_content['text']
 
-    def divide_paragraphs(self, doc: Document, text: str):
+    def get_paragraphs(self, doc: Document, text: str):
         paragraph_min_size = 100  # in chars
         split_text = text.split('##')
 

@@ -1,6 +1,7 @@
 import os
 
 from data_objects import Topic, Document
+from data_preparation_stage.data_extraction.PdfExtractor import PdfExtractor
 from data_preparation_stage.data_extraction.WikipediaExtractor\
     import WikipediaExtractor
 from data_preparation_stage.data_extraction.DataSourceExtractor\
@@ -12,9 +13,12 @@ from utils import is_path_or_url, download_to_working, copy_file_to_working, \
 
 
 class DataSourceHandler:
+    WEB_EXTENSIONS: list[str]
+    PDF_EXTENSIONS: list[str]
 
     def __init__(self):
-        pass
+        self.WEB_EXTENSIONS = ["html", "htm"]
+        self.PDF_EXTENSIONS = ["pdf"]
 
     def create_document(self, extractor: DataSourceExtractor, path: str) \
             -> Document:
@@ -37,7 +41,7 @@ class DataSourceHandler:
         file_name = get_file_name(working_path)
 
         if self.is_pdf(file_name):
-            pass  # todo : add pdf extractor
+            doc = self.create_document(PdfExtractor(), working_path)
         elif self.is_web_page(file_name):
             # FIXME : this doesn't handle pages from other websites
             doc = self.create_document(WikipediaExtractor(), working_path)
@@ -49,14 +53,14 @@ class DataSourceHandler:
         doc.path = path  # fixme : is this ok?
         topic.documents.append(doc)
 
-    @staticmethod
-    def is_pdf(name: str) -> bool:
-        return False
+    def is_pdf(self, name: str) -> bool:
+        if name.split('.')[-1] in self.PDF_EXTENSIONS:
+            return True
+        else:
+            return False
 
-    @staticmethod
-    def is_web_page(name: str) -> bool:
-        extensions = ['html', 'htm']
-        if name.split('.')[-1] in extensions:
+    def is_web_page(self, name: str) -> bool:
+        if name.split('.')[-1] in self.WEB_EXTENSIONS:
             return True
         else:
             return False
