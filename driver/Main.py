@@ -9,8 +9,9 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG, filename="log.log", filemode="w"
                         , format="%(levelname)s - %(message)s"
                         , encoding="utf-8")
-    t = TopicHandler("Alan Turing and the beginning of AI")  # FOR TESTING CHANGE HERE
-    link = "https://www.britannica.com/technology/artificial-intelligence/Expert-systems"
+    t = TopicHandler("Artificial Intelligence")  # FOR TESTING CHANGE HERE
+    link = "https://www.ibm.com/topics/artificial-intelligence"
+    # link = "https://www.britannica.com/technology/artificial-intelligence/Alan-Turing-and-the-beginning-of-AI"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Computer.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Sorting_algorithm.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Muhammad_ibn_Musa_al-Khwarizmi.html"
@@ -23,7 +24,7 @@ if __name__ == "__main__":
     logging.debug("---")
 
     # FOR TESTING CHANGE HERE
-    t.start_preprocessing(["Expert-systems.html"]
+    t.start_preprocessing(["artificial-intelligence.html"]
                           , ["citations_links_remover"
                               , "non_english_remover"
                               , "new_lines_remover"])

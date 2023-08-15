@@ -42,8 +42,10 @@ def download_to_working(url: str) -> str:
         file_name = unidecode(file_name)
 
         # If the file is an HTML file
+        is_text = False
         if 'text/html' in response.headers['content-type']:
             file_name = file_name + '.html' if '.html' not in file_name else file_name
+            is_text = True
         # If the file is a PDF file
         elif 'application/pdf' in response.headers['content-type']:
             file_name = file_name + '.pdf' if '.pdf' not in file_name else file_name
@@ -57,8 +59,12 @@ def download_to_working(url: str) -> str:
         file_path = os.path.join(WORKING_DIR, file_name)
 
         # Open the file in write mode
-        with open(file_path, 'wb') as file:
-            shutil.copyfileobj(response.raw, file)
+        if is_text:  # to handle encoding problems
+            with open(file_path, 'w', encoding=response.encoding) as file:
+                file.write(response.text)
+        else:
+            with open(file_path, 'wb') as file:
+                shutil.copyfileobj(response.raw, file)
 
         return file_path
     else:
