@@ -9,8 +9,11 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG, filename="log.log", filemode="w"
                         , format="%(levelname)s - %(message)s"
                         , encoding="utf-8")
-    t = TopicHandler("Artificial Intelligence")  # FOR TESTING CHANGE HERE
-    link = "https://www.ibm.com/topics/artificial-intelligence"
+    t = TopicHandler("Transistor")  # FOR TESTING CHANGE HERE
+
+    # fixme : document names comes from the link which is not always valid!
+    link = "https://www.techtarget.com/whatis/definition/transistor#:~:text=A%20transistor%20is%20a%20miniature,which%20can%20carry%20a%20current."
+    # link = "https://www.ibm.com/topics/artificial-intelligence"
     # link = "https://www.britannica.com/technology/artificial-intelligence/Alan-Turing-and-the-beginning-of-AI"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Computer.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Sorting_algorithm.html"
@@ -44,3 +47,14 @@ if __name__ == "__main__":
     # ph.create_presentation(t.topic, ["bart-large-paper-2-slides-summarizer"],
     #                        {"bart-large-paper-2-slides-summarizer": {}})
     # ph.export_presentation()
+
+    # todo: code smells : 1- using strings for encoding, use ENUMs instead.
+    # todo: code smells: 2- repeated code, abstract what's repeated
+    # todo: code smells: 3- not using built-in functions, ex: list-comprehension
+    # todo: code smells: 4- using vague names
+    # todo: code smells: 5- using isinstance! causes problems and many if-else
+    # todo: code smells: 6- methods with multiple responsibilities!, use <SRP>
+    # todo: code smells: 7- adding try-except without handling the exception
+    # todo: code smells: 8- don't use built-in errors, use custom error and pass
+    #  information to it
+    

@@ -1,71 +1,12 @@
-DEBUG - Starting new HTTPS connection (1): www.ibm.com:443
-DEBUG - https://www.ibm.com:443 "GET /topics/artificial-intelligence HTTP/1.1" 200 12609
+DEBUG - Starting new HTTPS connection (1): www.techtarget.com:443
+DEBUG - https://www.techtarget.com:443 "GET /whatis/definition/transistor HTTP/1.1" 200 None
 DEBUG - request status code: 200
-DEBUG - Removing unlikely candidate - dds-card-group-item>dds-card-cta-footer.bx--card__footer-icon-size
-DEBUG - Removing unlikely candidate - dds-card-group-item>dds-card-cta-footer.bx--card__footer-icon-size
-DEBUG - Removing unlikely candidate - dds-card-group-item>dds-card-cta-footer.bx--card__footer-icon-size
-DEBUG - Removing unlikely candidate - #container-e9b80bd4f1.cmp-container>.footer
-DEBUG - Removing unlikely candidate - .footer>dds-footer-container.cmp-footer
-DEBUG - Branch  3.360 .bx--grid.bx--no-gutter>dds-leadspace link density 0.000 ->  3.360
-DEBUG - Branch  6.680 .theme.theme-g100>.bx--grid.bx--no-gutter link density 0.000 ->  6.680
-DEBUG - Branch 124.960 dds-content-block-copy>#rich-text-1701b9da14.cms-richtext link density 0.031 -> 121.029
-DEBUG - Branch 34.980 dds-content-block-simple>dds-content-block-copy link density 0.031 -> 33.880
-DEBUG - Branch  2.920 .aside-card>dds-card-cta link density 0.000 ->  2.920
-DEBUG - Branch  6.460 div{01}>.aside-card link density 0.000 ->  6.460
-DEBUG - Branch  2.390 dds-link-list>dds-link-list-item-card link density 0.000 ->  2.390
-DEBUG - Branch  3.010 div{01}>dds-link-list link density 0.000 ->  3.010
-DEBUG - Branch  3.630 dds-link-list>dds-link-list-item-card link density 0.000 ->  3.630
-DEBUG - Branch 78.000 dds-content-block-copy>#rich-text-632b35523f.cms-richtext link density 0.000 -> 78.000
-DEBUG - Branch 11.500 dds-content-block-simple.simple-narrative-container>dds-content-block-copy link density 0.000 -> 11.500
-DEBUG - Branch 88.820 dds-content-block-copy>#rich-text-e55f4a419f.cms-richtext link density 0.000 -> 88.820
-DEBUG - Branch 16.910 dds-content-block-simple.simple-narrative-container>dds-content-block-copy link density 0.000 -> 16.910
-DEBUG - Branch 103.340 dds-content-block-copy>#rich-text-dbf5867191.cms-richtext link density 0.010 -> 102.295
-DEBUG - Branch 24.170 dds-content-block-simple.simple-narrative-container>dds-content-block-copy link density 0.010 -> 23.926
-DEBUG - Branch 59.090 dds-content-block-copy>#rich-text-7c7b1f5ecc.cms-richtext link density 0.016 -> 58.120
-DEBUG - Branch  2.045 dds-content-block-simple.simple-narrative-container>dds-content-block-copy link density 0.016 ->  2.011
-DEBUG - Branch 59.720 dds-content-block-copy>#rich-text-fbe92b35ef.cms-richtext link density 0.000 -> 59.720
-DEBUG - Branch  2.360 dds-content-block-simple.simple-narrative-container>dds-content-block-copy link density 0.000 ->  2.360
-DEBUG - Branch 58.130 dds-content-item-horizontal-copy>#rich-text-3e9a33213d.cms-richtext link density 0.000 -> 58.130
-DEBUG - Branch  1.565 dds-content-item-horizontal>dds-content-item-horizontal-copy link density 0.000 ->  1.565
-DEBUG - Branch 59.160 dds-content-item-horizontal-copy>#rich-text-354918220d.cms-richtext link density 0.000 -> 59.160
-DEBUG - Branch  2.080 dds-content-item-horizontal>dds-content-item-horizontal-copy link density 0.000 ->  2.080
-DEBUG - Branch 59.570 dds-content-item-horizontal-copy>#rich-text-5f1c42f9e6.cms-richtext link density 0.000 -> 59.570
-DEBUG - Branch  2.285 dds-content-item-horizontal>dds-content-item-horizontal-copy link density 0.000 ->  2.285
-DEBUG - Branch  9.120 dds-card-group-item>.bx--card__copy link density 0.000 ->  9.120
-DEBUG - Branch  2.060 dds-card-group>dds-card-group-item link density 0.000 ->  2.060
-DEBUG - Branch  9.120 dds-card-group-item>.bx--card__copy link density 0.000 ->  9.120
-DEBUG - Branch  2.060 dds-card-group>dds-card-group-item link density 0.000 ->  2.060
-DEBUG - Branch  8.030 dds-card-group-item>.bx--card__copy link density 0.000 ->  8.030
-DEBUG - Branch  1.515 dds-card-group>dds-card-group-item link density 0.000 ->  1.515
-DEBUG - Branch 61.000 dds-content-block-paragraph>#rich-text-f4f414e4d4.cms-richtext link density 0.000 -> 61.000
-DEBUG - Branch  3.000 dds-content-block-copy>dds-content-block-paragraph link density 0.000 ->  3.000
-DEBUG - Top 5 : 121.029 dds-content-block-copy>#rich-text-1701b9da14.cms-richtext
-DEBUG - Top 5 : 102.295 dds-content-block-copy>#rich-text-dbf5867191.cms-richtext
-DEBUG - Top 5 : 88.820 dds-content-block-copy>#rich-text-e55f4a419f.cms-richtext
-DEBUG - Top 5 : 78.000 dds-content-block-copy>#rich-text-632b35523f.cms-richtext
-DEBUG - Top 5 : 61.000 dds-content-block-paragraph>#rich-text-f4f414e4d4.cms-richtext
-DEBUG - Not removing #rich-text-1701b9da14.cms-richtext>ul of length 57:  Systems that think rationally Systems t...
-DEBUG - Not removing #rich-text-1701b9da14.cms-richtext>ul of length 59:  Systems that think like humans Systems ...
-INFO - type of dense tag: <class 'str'>
-DEBUG - 'While a number of definitions of artificial intelligence (AI) have surfaced over the last few decades, John McCarthy offers the following definition in this 2004\xa0paper\xa0(PDF, 127 KB) (link resides outside IBM), " It is the science and engineering of making intelligent machines, especially intelligent computer programs.It is related to the similar task of using computers to understand human intelligence, but AI does not have to confine itself to methods that are biologically observable."However, decades before this definition, the birth of the artificial intelligence conversation was denoted by Alan Turing\'s seminal work, "Computing Machinery and Intelligence" (PDF, 92 KB) (link resides outside of IBM), which was published in 1950.In this paper, Turing, often referred to as the "father of computer science", asks the following question, "Can machines think?"\xa0 From there, he offers a test, now famously known as the "Turing Test", where a human interrogator would try to distinguish between a computer and human text response.While this test has undergone much scrutiny since its publish, it remains an important part of the history of AI as well as an ongoing concept within philosophy as it utilizes ideas around linguistics.Stuart Russell and Peter Norvig then proceeded to publish,\xa0Artificial Intelligence: A Modern Approach\xa0(link resides outside IBM), becoming one of the leading textbooks in the study of AI.In it, they delve into four potential goals or definitions of AI, which differentiates computer systems on the basis of rationality and thinking vs.acting:Human approach:Ideal approach:Alan Turing’s definition would have fallen under the category of “systems that act like humans.”At its simplest form, artificial intelligence is a field, which combines computer science and robust datasets, to enable problem-solving'
-DEBUG - 'It also encompasses sub-fields of machine learning and deep learning, which are frequently mentioned in conjunction with artificial intelligence.These disciplines are comprised of AI algorithms which seek to create expert systems which make predictions or classifications based on input data.Over the years, artificial intelligence has gone through many cycles of hype, but even to\r\nskeptics, the release of OpenAI’s ChatGPT seems to mark a turning point.The last time generative AI loomed this large, the breakthroughs were in computer vision, but now the leap forward is in natural language\xa0processing.And it’s not just language: Generative models can also learn the grammar of software code, molecules, natural images, and a variety of other data types.The applications for this technology are growing every day, and we’re just starting to\r\nexplore the possibilities.But as the hype around the use of AI in business takes off,\r\nconversations around ethics become critically important.To read more on where IBM stands within the conversation around\xa0AI ethics, read more\xa0here.'
-DEBUG - ---
-DEBUG - 'artificial-intelligence'
-DEBUG - False
-DEBUG - 'While a number of definitions of artificial intelligence (AI) have surfaced over the last few decades, John McCarthy offers the following definition in this 2004\xa0paper\xa0(PDF, 127 KB) (link resides outside IBM), " It is the science and engineering of making intelligent machines, especially intelligent computer programs.It is related to the similar task of using computers to understand human intelligence, but AI does not have to confine itself to methods that are biologically observable."However, decades before this definition, the birth of the artificial intelligence conversation was denoted by Alan Turing\'s seminal work, "Computing Machinery and Intelligence" (PDF, 92 KB) (link resides outside of IBM), which was published in 1950.In this paper, Turing, often referred to as the "father of computer science", asks the following question, "Can machines think?"\xa0 From there, he offers a test, now famously known as the "Turing Test", where a human interrogator would try to distinguish between a computer and human text response.While this test has undergone much scrutiny since its publish, it remains an important part of the history of AI as well as an ongoing concept within philosophy as it utilizes ideas around linguistics.Stuart Russell and Peter Norvig then proceeded to publish,\xa0Artificial Intelligence: A Modern Approach\xa0(link resides outside IBM), becoming one of the leading textbooks in the study of AI.In it, they delve into four potential goals or definitions of AI, which differentiates computer systems on the basis of rationality and thinking vs.acting:Human approach:Ideal approach:Alan Turings definition would have fallen under the category of systems that act like humans.At its simplest form, artificial intelligence is a field, which combines computer science and robust datasets, to enable problem-solving'
-DEBUG - 'artificial-intelligence'
-DEBUG - False
-DEBUG - 'It also encompasses sub-fields of machine learning and deep learning, which are frequently mentioned in conjunction with artificial intelligence.These disciplines are comprised of AI algorithms which seek to create expert systems which make predictions or classifications based on input data.Over the years, artificial intelligence has gone through many cycles of hype, but even to\r skeptics, the release of OpenAIs ChatGPT seems to mark a turning point.The last time generative AI loomed this large, the breakthroughs were in computer vision, but now the leap forward is in natural language\xa0processing.And its not just language: Generative models can also learn the grammar of software code, molecules, natural images, and a variety of other data types.The applications for this technology are growing every day, and were just starting to\r explore the possibilities.But as the hype around the use of AI in business takes off,\r conversations around ethics become critically important.To read more on where IBM stands within the conversation around\xa0AI ethics, read more\xa0here.'
-DEBUG - ---
-DEBUG - {'max_length': 130, 'min_length': 30, 'do_sample': False}
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/facebook/bart-large-cnn HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/facebook/bart-large-cnn HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - keypoints generated successfully
-DEBUG - [[<data_objects.KeyPoint.KeyPoint object at 0x0000024F03F31810>, <data_objects.KeyPoint.KeyPoint object at 0x0000024F03F318A0>], [<data_objects.KeyPoint.KeyPoint object at 0x0000024F03F31C90>, <data_objects.KeyPoint.KeyPoint object at 0x0000024F03F31F30>]]
-DEBUG - presentation organized successfully
-DEBUG - [<data_objects.Slide.Slide object at 0x0000024F0592CF70>, <data_objects.Slide.Slide object at 0x0000024F03F31240>]
-DEBUG - Presentation exported successfully
+ERROR - [Errno 22] Invalid argument: 'C:\\Users\\VISION\\Desktop 2\\PROJECT_FORTH_YEAR\\Edu-Presentation-Maker\\working\\transistor#:~:text=A transistor is a miniature,which can carry a current..html'
+Traceback (most recent call last):
+  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\data_preparation_stage\TopicHandler.py", line 28, in add_source
+    self._datasource_handler.add_source(self.topic, path)
+  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\data_preparation_stage\data_extraction\DataSourceHandler.py", line 35, in add_source
+    working_path = download_to_working(path)
+  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\utils\__init__.py", line 63, in download_to_working
+    with open(file_path, 'w', encoding=response.encoding) as file:
+OSError: [Errno 22] Invalid argument: 'C:\\Users\\VISION\\Desktop 2\\PROJECT_FORTH_YEAR\\Edu-Presentation-Maker\\working\\transistor#:~:text=A transistor is a miniature,which can carry a current..html'
