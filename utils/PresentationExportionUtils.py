@@ -2,7 +2,7 @@ import logging
 
 CONTENT_PLACEHOLDER_IDX = 13  # todo: insert these values inside template, because they differ from template to another
 DEFAULT_BULLET_POINT_FONT_SIZE = 28
-NUM_OF_LINES_PER_SLIDE = 10
+NUM_OF_LINES_PER_SLIDE = 12
 
 
 def replace_with_image(img, shape, slide):

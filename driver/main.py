@@ -9,10 +9,11 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG, filename="log.log", filemode="w"
                         , format="%(levelname)s - %(message)s"
                         , encoding="utf-8")
-    t = TopicHandler("Transistor")  # FOR TESTING CHANGE HERE
+    t = TopicHandler("Artificial Intelligence and Computational complexity")  # FOR TESTING CHANGE HERE
 
-    # fixme : document names comes from the link which is not always valid!
-    link = "https://www.techtarget.com/whatis/definition/transistor#:~:text=A%20transistor%20is%20a%20miniature,which%20can%20carry%20a%20current."
+    link = "https://en.wikibooks.org/wiki/Artificial_Intelligence_for_Computational_Sustainability%3A_A_Lab_Companion%2FMachine_Learning_for_Prediction"
+    # link = "https://www.aps.org/programs/outreach/physicsquest/past/falling-physics.cfm#:~:text=When%20something%20falls%2C%20it%20falls,is%20a%20type%20of%20acceleration."
+    # link = "https://www.techtarget.com/whatis/definition/transistor#:~:text=A%20transistor%20is%20a%20miniature,which%20can%20carry%20a%20current."
     # link = "https://www.ibm.com/topics/artificial-intelligence"
     # link = "https://www.britannica.com/technology/artificial-intelligence/Alan-Turing-and-the-beginning-of-AI"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Computer.html"
@@ -22,12 +23,13 @@ if __name__ == "__main__":
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Nuclear_fusion.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Fyodor_Dostoevsky.html"
     t.add_source(link)
+    doc_name = t.topic.documents[0].name
     for p in t.topic.documents[0].paragraphs:
         logging.debug(repr(p.raw_data))
     logging.debug("---")
 
     # FOR TESTING CHANGE HERE
-    t.start_preprocessing(["artificial-intelligence.html"]
+    t.start_preprocessing([doc_name]
                           , ["citations_links_remover"
                               , "non_english_remover"
                               , "new_lines_remover"])

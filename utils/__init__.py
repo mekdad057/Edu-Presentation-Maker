@@ -37,9 +37,7 @@ def download_to_working(url: str) -> str:
     # If the GET request is successful, the status code will be 200
     if response.status_code == 200:
         # Get the file name from the URL and decode it
-        file_name = url.split("/")[-1]
-        file_name = unquote(file_name)
-        file_name = unidecode(file_name)
+        file_name = get_valid_name(url)
 
         # If the file is an HTML file
         is_text = False
@@ -57,6 +55,7 @@ def download_to_working(url: str) -> str:
 
         # Create a path for the new file
         file_path = os.path.join(WORKING_DIR, file_name)
+        file_path = uniquify(file_path)
 
         # Open the file in write mode
         if is_text:  # to handle encoding problems
@@ -95,6 +94,28 @@ def copy_file_to_working(file_path) -> str:
 
 def get_file_name(working_path: str) -> str:
     return working_path.split(os.path.sep)[-1]
+
+
+def get_valid_name(url):
+    base_filename = url.rsplit("/", 1)[1]
+    base_filename = unquote(base_filename)
+    base_filename = unidecode(base_filename)
+    import re
+
+    filename = re.sub(r'[^\w\-_.]', '', base_filename)
+
+    return filename
+
+
+def uniquify(path):
+    filename, extension = os.path.splitext(path)
+    counter = 1
+
+    while os.path.exists(path):
+        path = filename + "_" + str(counter) + extension
+        counter += 1
+
+    return path
 
 
 def divide_to_subarrays(str_list: list[str], sub_size: int) -> list[list[str]]:

@@ -23,7 +23,7 @@ class DataSourceExtractor(ABC):
         contents = self.get_text(work_path)
 
         # 2) evaluating attributes
-        name = get_file_name(work_path)
+        name = self.get_doc_name(work_path)
         language = self.language_handler.determine_language(contents)
 
         # 3) creating Document Object with the attributes
@@ -37,3 +37,7 @@ class DataSourceExtractor(ABC):
     @abstractmethod
     def get_paragraphs(self, doc: Document, text: str):
         pass
+
+    @abstractmethod
+    def get_doc_name(self, work_path) -> str:
+        return get_file_name(work_path)

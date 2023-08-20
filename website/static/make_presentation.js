@@ -71,25 +71,33 @@ async function refreshFilesList(files = null) {
     }
 
     $("#filesList").empty()
+    if (files.length != 0) {
+        $("#filesList").append(`<div class="flex-row mb-2">
+                                    <div class="col-12-lg">
+                                        <button type="button" class="btn btn-danger" onclick="removeAllFiles()">
+                                            <span class="px-4 py-2">remove all</span>
+                                        </button>
+                                    </div>
+                                </div>`)
+    };
     files.forEach(file => {
-        const fileName = file["fileName"]
-        const fileSize = file["fileSize"]
-        let div = `<div id="${fileName}" class="uploader-input-element bg-white border br-4 font-size-110 position-relative local-id-0 input-status-done">
+        const url = file["url"]
+        let div = `<div id="${url}" class="uploader-input-element bg-white border br-4 font-size-110 position-relative local-id-0 input-status-done mb-1">
                     <div class="px-3 py-2 d-flex align-items-center justify-content-between flex-row">
                         <div class="d-inline-flex py-1 pr-4 justify-content-between flex-wrap flex-sm-nowrap flex-basis-100 flex-shrink-1 ml-n2_ mb-n2 flex-grow-1-unimportant" style="min-width: 0px;">
                             <div class="d-flex align-items-center ml-2_ mb-2 overflow-hidden"><!----> <!----> 
-                                <span title="${fileName}" class="overflow-hidden text-overflow-ellipsis white-space-nowrap">${fileName}</span>
+                                <span title="${url}" class="overflow-hidden text-overflow-ellipsis white-space-nowrap">${url}</span>
                             </div> 
                             <div class="ml-2_ mb-2 mt-n1 flex-sm-shrink-0 test">
-                                <span title="File size" class="badge d-inline-flex align-items-center font-weight-normal font-size-100 bg-gray-light mt-1 mr-2_"><!----> ${fileSize} MB<!----></span>
+                                <span title="File size" class="badge d-inline-flex align-items-center font-weight-normal font-size-100 bg-gray-light mt-1 mr-2_"><!----> html <!----></span>
                             </div>
                         </div> 
                         <div class="d-inline-flex align-self-baseline" style="padding-top: 0.125rem;">
                             <button title="Show more information about this file" class="btn btn-light border icon-25 p-0 mr-3 visibility-hidden">
                                 <i class="far fa-info-circle"></i>
                             </button>
-                            <button type="button" title="Remove file from task" class="btn btn-danger fs-4 fw-bold p-0" onclick="removeFile('${fileName}')">
-                                &times;
+                            <button type="button" title="Remove file from task" class="btn btn-danger fs-4 fw-bold p-0" onclick="removeFile('${url}')">
+                                <span class="p-2">remove</span>
                             </button>
                         </div>
                     </div> <!----> <!----> 
@@ -105,9 +113,9 @@ async function refreshFilesList(files = null) {
     
 }
 
-function removeFile(name) {
+function removeFile(url) {
     $.ajax({
-        data : JSON.stringify({"name": name}),
+        data : JSON.stringify({"url": url}),
         contentType: "application/json",
         type : "POST",
         url : "/remove-url",
@@ -124,5 +132,28 @@ function removeFile(name) {
             console.log(msg)
         }
     })
+    
+}
+
+
+function removeAllFiles() {
+    $.ajax({
+        type: "POST",
+        url: "/remove-all-files",
+        success: (res) =>{
+            if (res.success) {
+                toastr["success"]("URLs removed successfully")
+                $("#filesList").empty()
+            }
+            else {
+                toastr["error"](res.message)
+                refreshFilesList()
+            }
+        },
+        error: (msg) => {
+            console.log(msg)
+        }
+    });
+
     
 }

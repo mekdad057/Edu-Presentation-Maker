@@ -23,22 +23,16 @@ def add_url():
     if not validators.url(_url):
         return jsonify({"success": False, "data_sent": data
                         , "message": "URL is not valid, check your URL and try again."})
-    # processing the request
-    check, name, size_in_mb = True, "Document Name", 5.2
-    ###
 
-    filesList.append({"fileName": name, "fileSize": size_in_mb})
-    if check:
-        return jsonify({"success": True, "filesList": filesList})
-    else:
-        return jsonify({"success": False, "data_sent": data
-                        , "message": "adding URL failed, please try again."})
+    filesList.append({"url": _url})
+
+    return jsonify({"success": True, "filesList": filesList})
 
 
 @view.route("/remove-url", methods=["POST"])
 def remove_url():
     data = request.get_json()
-    name = data["name"]
+    _url = data["url"]
 
     # removing the url.
     check = True
@@ -46,7 +40,7 @@ def remove_url():
 
     if check:
         global filesList
-        filesList = [file for file in filesList if file["fileName"] != name]
+        filesList = [file for file in filesList if file["url"] != name]
         return jsonify({"success": True, "filesList": filesList})
     else:
         return jsonify({"success": False, "message": "Url Doesn't Exist"})
@@ -55,3 +49,10 @@ def remove_url():
 @view.route("/get-files", methods=["GET"])
 def get_files():
     return jsonify(filesList)
+
+
+@view.route("/remove-all-files", methods=["POST"])
+def remove_all_files():
+    global filesList
+    filesList = []
+    return jsonify({"success": True})

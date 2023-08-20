@@ -10,6 +10,7 @@ from utils import download_to_working, split_text_to_sentences, \
 
 
 class WebExtractor(DataSourceExtractor):
+
     IMAGE_TAG: str
     MAX_SIZE_LIMIT: int
 
@@ -18,7 +19,6 @@ class WebExtractor(DataSourceExtractor):
         self.IMAGE_VALID_SIZE = 300
         self.IMAGE_TAG = "img"
         self.MAX_SIZE_LIMIT = 10
-
 
     def get_text(self, path: str) -> str:
         try:
@@ -155,3 +155,16 @@ class WebExtractor(DataSourceExtractor):
                 new_blocks.append(block)
         return new_blocks
 
+    def get_doc_name(self, work_path):
+        try:
+            with open(work_path, 'rb') as f:
+                data = f.read()
+        except Exception as e:
+            logging.debug("Couldn't read file in Extractor.")
+            raise e
+
+        # get title tag from html
+        title = BeautifulSoup(data, "lxml").find("title")
+        name = title.get_text()
+
+        return name
