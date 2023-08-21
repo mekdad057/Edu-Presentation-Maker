@@ -1,5 +1,9 @@
 from flask import Flask
 
+from website.Controller import Controller
+
+controller = Controller()
+
 
 def create_app():
     app = Flask(__name__)

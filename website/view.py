@@ -1,5 +1,6 @@
 import validators
 from flask import Blueprint, render_template, request, jsonify
+from website import controller
 
 view = Blueprint("view", __name__)
 
@@ -40,7 +41,7 @@ def remove_url():
 
     if check:
         global filesList
-        filesList = [file for file in filesList if file["url"] != name]
+        filesList = [file for file in filesList if file["url"] != _url]
         return jsonify({"success": True, "filesList": filesList})
     else:
         return jsonify({"success": False, "message": "Url Doesn't Exist"})
@@ -56,3 +57,14 @@ def remove_all_files():
     global filesList
     filesList = []
     return jsonify({"success": True})
+
+
+@view.route("/create-presentation", methods=["POST"])
+def create_presentation():
+    paths = [file["url"] for file in filesList]
+
+    # call_controller
+    output_file = controller.create_presentation(paths)
+
+    # send the PowerPoint file to user
+
