@@ -1,6 +1,6 @@
 import logging
-from data_preparation_stage import TopicHandler
-from presentation_genrating_stage import PresentationHandler
+from presentation_maker.data_preparation_stage import TopicHandler
+from presentation_maker.presentation_genrating_stage import PresentationHandler
 
 if __name__ == "__main__":
     # todo: add logger instead of using logging to avoid logging messages

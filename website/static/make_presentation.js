@@ -51,9 +51,17 @@ function addSubmitUrlListener() {
             error: (msg) => {
                 console.log(msg)
             }
-        })
+        });
         event.preventDefault()
-    })
+    });
+
+    $("createPresentationForm").on("submit", (event) => {
+        
+        createPresentation();
+        
+        event.preventDefault();
+
+    });
 }
 
 async function refreshFilesList(files = null) { 
@@ -81,7 +89,7 @@ async function refreshFilesList(files = null) {
                                 </div>`)
     };
     files.forEach(file => {
-        const url = file["url"]
+        const url = file
         let div = `<div id="${url}" class="uploader-input-element bg-white border br-4 font-size-110 position-relative local-id-0 input-status-done mb-1">
                     <div class="px-3 py-2 d-flex align-items-center justify-content-between flex-row">
                         <div class="d-inline-flex py-1 pr-4 justify-content-between flex-wrap flex-sm-nowrap flex-basis-100 flex-shrink-1 ml-n2_ mb-n2 flex-grow-1-unimportant" style="min-width: 0px;">
@@ -157,3 +165,25 @@ function removeAllFiles() {
 
     
 }
+
+function createPresentation() {
+    title = $("#presentationTitle").val();
+    $.ajax({
+        data: JSON.stringify({"title": title}),
+        url: "/create-presentation",
+        type: "GET",
+        contentType: "json",
+        success: (res) => {
+            if (res.success) {
+                toastr["success"]("Presentation created successfully")
+            }
+            else {
+                toastr["error"](res.message)
+            }
+        },
+        error: (msg) => {
+            console.log(msg)
+        }
+    });
+}
+

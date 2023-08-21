@@ -1,9 +1,11 @@
+import os.path
+
 from flask import Flask
 
 from website.Controller import Controller
 
 controller = Controller()
-
+WEBSITE_DIR = os.path.curdir
 
 def create_app():
     app = Flask(__name__)

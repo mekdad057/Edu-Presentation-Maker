@@ -161,7 +161,7 @@
         <div class="container" id="page_function_container">
             <div class="clearfix"></div>
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-md-8">
                     <form id="sendform" action="https://www.compress2go.com/create-zip-file#" method="post">
                         <input data-options-type="base" type="hidden" class="hidden" name="category" value="archive">
                         <input data-options-type="options" data-value-type="boolean" type="hidden" class="hidden"
@@ -178,14 +178,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group submit-btn-container">
-                            <div class="submit-btn-wrapper d-table">
-                                <button type="button" class="btn btn-lg submit-btn mb-0 white-space-nowrap mr-3 mb-3 "
-                                    id="submitBtn">
-                                    <strong class="text-uppercase convert_to">Start</strong>
-                                </button>
-                            </div>
-                        </div>
                         <noscript>
                             <div id="noscriptAlert" class="alert alert-info alert-noscript no-border-radius"
                                 role="alert">
@@ -195,6 +187,21 @@
                         </noscript>
                     </form>
                 </div>
+                <form id="createPresentationForm" class="col-md-4">
+                    <div class="form-group pt-0">
+                        <input id="presentationTitle" class="w-100 rounded border py-2 px-3 font-size-125 mb-0" type="text"  placeholder="enter title for your presentation" required/>
+                    </div>
+                    <div class="form-group pt-0">
+                        <button type="submit" class="btn btn-lg submit-btn mb-0 white-space-nowrap mr-3 mb-3"
+                            id="submitBtn">
+                            <strong class="text-uppercase">Start</strong>
+                        </button>
+                        <a class="btn btn-lg submit-btn mb-0 white-space-nowrap mr-3 mb-3"
+                            id="downloadPresentationBtn" href="/download-presentation">
+                            <strong class="text-uppercase">Download</strong>
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
