@@ -32,3 +32,6 @@ class TaskHandler:
                                                        , {generator_name: generator_params})
 
         self._presentation_handler.export_presentation(output_dir)
+
+    def get_presentation_title(self):
+        return self._topic_handler.topic.title

@@ -1,4 +1,6 @@
 from flask import Flask
+
+from website.Controller import Controller
 from website.Model import Model
 
 
@@ -14,3 +16,4 @@ def create_app():
 
 # single objects
 model = Model()
+controller = Controller(model)
