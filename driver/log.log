@@ -1,5 +1,5 @@
 DEBUG - Starting new HTTPS connection (1): en.wikibooks.org:443
-DEBUG - https://en.wikibooks.org:443 "GET /wiki/Artificial_Intelligence_for_Computational_Sustainability%3A_A_Lab_Companion%2FMachine_Learning_for_Prediction HTTP/1.1" 200 22474
+DEBUG - https://en.wikibooks.org:443 "GET /wiki/Artificial_Intelligence_for_Computational_Sustainability%3A_A_Lab_Companion%2FMachine_Learning_for_Prediction HTTP/1.1" 200 22555
 DEBUG - request status code: 200
 DEBUG - Removing unlikely candidate - #mw-content-text.mw-body-content.mw-content-ltr>.printfooter
 DEBUG - Removing unlikely candidate - #mw-head>nav#p-personal.vector-menu.mw-portlet.mw-portlet-personal.vector-user-menu-legacy
@@ -190,71 +190,13 @@ DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
 DEBUG - https://api-inference.huggingface.co:443 "POST /models/facebook/bart-large-cnn HTTP/1.1" 200 213
 DEBUG - status code : 200
 DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_genrating_stage\presentation_generation\BartLargeCnnGenerator.py", line 54, in request_summary
-    response = requests.post(self.API_URL, headers=self.HEADERS
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
 DEBUG - https://api-inference.huggingface.co:443 "POST /models/facebook/bart-large-cnn HTTP/1.1" 200 207
 DEBUG - status code : 200
 DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
 DEBUG - https://api-inference.huggingface.co:443 "POST /models/facebook/bart-large-cnn HTTP/1.1" 200 388
 DEBUG - status code : 200
 DEBUG - keypoints generated successfully
-DEBUG - [[<data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9C3A0>, <data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9C430>], [<data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9C820>, <data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9CAC0>], [<data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9CC10>, <data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9C520>], [<data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9CA30>, <data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9C670>, <data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9CDC0>], [<data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9C580>, <data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9CE80>, <data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9CEB0>], [<data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9CB50>, <data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9C640>], [<data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9C5B0>, <data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9D060>], [<data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9D090>, <data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9CDF0>], [<data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9CE20>, <data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9C8E0>], [<data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9C610>, <data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9C7F0>], [<data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9D360>, <data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9D810>], [<data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9D480>, <data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9E020>, <data_objects.KeyPoint.KeyPoint object at 0x0000018F93A9DF60>]]
+DEBUG - [[<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1F90>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1F30>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1990>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D18A0>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1720>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1D80>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1870>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1B40>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1570>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1E10>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1510>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D14B0>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1810>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1CC0>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1DE0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1240>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1300>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1480>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1540>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1A50>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1D50>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1B10>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1E70>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1450>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D1C00>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D20B0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000154550D0F10>]]
 DEBUG - presentation organized successfully
-DEBUG - [<data_objects.Slide.Slide object at 0x0000018F93A7BDF0>, <data_objects.Slide.Slide object at 0x0000018F93A7BAF0>, <data_objects.Slide.Slide object at 0x0000018F93A7BBB0>, <data_objects.Slide.Slide object at 0x0000018F93A7BB50>, <data_objects.Slide.Slide object at 0x0000018F93A7BDC0>, <data_objects.Slide.Slide object at 0x0000018F93A7BD30>, <data_objects.Slide.Slide object at 0x0000018F93A7BC70>, <data_objects.Slide.Slide object at 0x0000018F93A7BEE0>, <data_objects.Slide.Slide object at 0x0000018F93A7BE80>, <data_objects.Slide.Slide object at 0x0000018F93A7BD00>, <data_objects.Slide.Slide object at 0x0000018F93A7BEB0>, <data_objects.Slide.Slide object at 0x0000018F93A7BFD0>]
+DEBUG - [<presentation_maker.data_objects.Slide.Slide object at 0x00000154550D2500>, <presentation_maker.data_objects.Slide.Slide object at 0x00000154550D2770>, <presentation_maker.data_objects.Slide.Slide object at 0x00000154550D24D0>, <presentation_maker.data_objects.Slide.Slide object at 0x00000154550D27A0>, <presentation_maker.data_objects.Slide.Slide object at 0x00000154550D24A0>, <presentation_maker.data_objects.Slide.Slide object at 0x00000154550D2590>, <presentation_maker.data_objects.Slide.Slide object at 0x00000154550D2620>, <presentation_maker.data_objects.Slide.Slide object at 0x00000154550D2350>, <presentation_maker.data_objects.Slide.Slide object at 0x00000154550D2470>, <presentation_maker.data_objects.Slide.Slide object at 0x00000154550D2650>, <presentation_maker.data_objects.Slide.Slide object at 0x00000154550D2290>, <presentation_maker.data_objects.Slide.Slide object at 0x00000154550D22C0>]
 DEBUG - Presentation exported successfully
