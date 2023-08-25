@@ -1,11 +1,11 @@
 import re
 
 from presentation_maker.data_objects import Document
-from presentation_maker.data_preparation_stage.preprocessing.DocumentProcessor \
-    import DocumentProcessor
+from presentation_maker.data_preparation_stage.text_preprocessing.Processor \
+    import Processor
 
 
-class NonEnglishMathSafeRemover(DocumentProcessor):
+class NonEnglishMathSafeRemover(Processor):
     """
     removes any strange characters to English Language.
 

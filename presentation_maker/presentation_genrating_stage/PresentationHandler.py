@@ -16,14 +16,14 @@ from presentation_maker.utils.PresentationExportionUtils import replace_with_ima
 
 class PresentationHandler:
     _presentation: Presentation
-    _generator_handler: GenerationHandler
+    _generation_handler: GenerationHandler
     _organizer: Organizer
     _BULLET_POINT_CHARACTERS_NUM_LIMIT: int
     _BULLET_POINTS_DELIMITERS: list[str]
 
     def __init__(self):
         self._presentation = Presentation()
-        self._generator_handler = GenerationHandler()
+        self._generation_handler = GenerationHandler()
         self._organizer = Organizer()
         self._BULLET_POINTS_DELIMITERS = ["while", "because", "hence"
                                           , "but", "where", "originally"
@@ -45,8 +45,8 @@ class PresentationHandler:
         try:
             self.presentation.title = topic.title
 
-            self._generator_handler.generate_content(self.presentation, topic,
-                                                     params, generators_names)
+            self._generation_handler.generate_content(self.presentation, topic,
+                                                      params, generators_names)
 
             logging.debug("keypoints generated successfully")
             logging.debug(self.presentation.all_keypoints)

@@ -1,5 +1,5 @@
 from .PreprocessingHandler import PreprocessingHandler
-from .DocumentProcessor import DocumentProcessor
+from .Processor import Processor
 from .CitationsLinksRemover import CitationsLinksRemover
 from .NewLinesRemover import NewLinesRemover
 from .PunctuationRemover import PunctuationRemover

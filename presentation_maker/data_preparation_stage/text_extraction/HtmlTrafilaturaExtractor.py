@@ -1,15 +1,15 @@
 import trafilatura
 
 from presentation_maker.data_objects import Document, Paragraph
-from presentation_maker.data_preparation_stage.data_extraction.DataSourceExtractor import \
-    DataSourceExtractor
+from presentation_maker.data_preparation_stage.text_extraction.Extractor import \
+    Extractor
 
 
-class HtmlTrafilaturaExtractor(DataSourceExtractor):
+class HtmlTrafilaturaExtractor(Extractor):
     def __init__(self):
         super().__init__()
 
-    def get_text(self, path: str) -> str:
+    def get_relevant_text(self, path: str) -> str:
         data = ""
         with open(path, 'rb') as f:
             data = f.read()

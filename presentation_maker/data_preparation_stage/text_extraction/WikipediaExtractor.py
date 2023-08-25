@@ -4,14 +4,14 @@ from bs4 import BeautifulSoup
 from tqdm import tqdm
 
 from presentation_maker.data_objects import Document, Paragraph
-from presentation_maker.data_preparation_stage.data_extraction.DataSourceExtractor \
-    import DataSourceExtractor
+from presentation_maker.data_preparation_stage.text_extraction.Extractor \
+    import Extractor
 from presentation_maker.utils import download_to_working, \
     split_text_to_sentences
 from presentation_maker.utils.Errors import NotFoundError
 
 
-class WikipediaExtractor(DataSourceExtractor):
+class WikipediaExtractor(Extractor):
     # todo: some methods has to be moved to upper classes
     MIN_LIMIT: int
     HEADINGS_TAGS: list[str]
@@ -37,7 +37,7 @@ class WikipediaExtractor(DataSourceExtractor):
         self.IMAGE_TAG = "img"
         self.MIN_LIMIT = 2
 
-    def get_text(self, path: str) -> str:
+    def get_relevant_text(self, path: str) -> str:
         try:
             with open(path, 'rb') as f:
                 data = f.read()
@@ -205,9 +205,9 @@ class WikipediaExtractor(DataSourceExtractor):
                 block["is_structured"] = True
                 block["text"] += "\n" + self.extract_list(element)
             else:
-                block["text"] += element.get_text()
+                block["text"] += element.get_relevant_text()
         else:
-            block["text"] += element.get_text()
+            block["text"] += element.get_relevant_text()
 
     def extract_list(self, element, level: int = 1) -> str:
         """
@@ -227,6 +227,6 @@ class WikipediaExtractor(DataSourceExtractor):
                 for inner_list in lists:
                     inner_list.replace_with(self.extract_list(inner_list
                                                               , level + 1))
-                result += "#"*level + list_element.get_text()
+                result += "#"*level + list_element.get_relevant_text()
         return result
 

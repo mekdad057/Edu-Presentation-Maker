@@ -1,11 +1,11 @@
 import re
 
 from presentation_maker.data_objects import Document
-from presentation_maker.data_preparation_stage.preprocessing.DocumentProcessor \
-    import DocumentProcessor
+from presentation_maker.data_preparation_stage.text_preprocessing.Processor \
+    import Processor
 
 
-class NewLinesRemover(DocumentProcessor):
+class NewLinesRemover(Processor):
     def process_document(self, doc: Document):
         for i in range(len(self._texts)):
             self._texts[i] = re.sub(r'[\n]+', ' ', self._texts[i])

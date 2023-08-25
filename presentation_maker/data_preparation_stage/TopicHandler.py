@@ -1,8 +1,8 @@
 import logging
 
 from presentation_maker.data_objects import Topic, Document
-from presentation_maker.data_preparation_stage.data_extraction import DataSourceHandler
-from presentation_maker.data_preparation_stage.preprocessing import PreprocessingHandler
+from presentation_maker.data_preparation_stage.text_extraction import DataSourceHandler
+from presentation_maker.data_preparation_stage.text_preprocessing import PreprocessingHandler
 from presentation_maker.utils.Errors import NotFoundError
 
 
@@ -64,7 +64,7 @@ class TopicHandler:
     def start_preprocessing(self, document_names: list[str]
                             , processing_methods_names: list[str]) -> bool:
         try:
-            # getting all the documents that need preprocessing
+            # getting all the documents that need text_preprocessing
             docs = []
             for name in document_names:
                 doc = self.get_document(name)

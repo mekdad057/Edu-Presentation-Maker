@@ -1,3 +1,3 @@
 from .TopicHandler import TopicHandler
-from . import data_extraction
-from . import preprocessing
+from . import text_extraction
+from . import text_preprocessing

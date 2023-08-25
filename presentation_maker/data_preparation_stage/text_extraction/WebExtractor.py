@@ -3,13 +3,13 @@ import logging
 from bs4 import BeautifulSoup, Tag
 
 from presentation_maker.data_objects import Document, Paragraph
-from presentation_maker.data_preparation_stage.data_extraction.DataSourceExtractor \
-    import DataSourceExtractor
+from presentation_maker.data_preparation_stage.text_extraction.Extractor \
+    import Extractor
 from presentation_maker.utils import download_to_working, split_text_to_sentences, \
     divide_to_subarrays
 
 
-class WebExtractor(DataSourceExtractor):
+class WebExtractor(Extractor):
 
     IMAGE_TAG: str
     MAX_SIZE_LIMIT: int
@@ -20,7 +20,7 @@ class WebExtractor(DataSourceExtractor):
         self.IMAGE_TAG = "img"
         self.MAX_SIZE_LIMIT = 10
 
-    def get_text(self, path: str) -> str:
+    def get_relevant_text(self, path: str) -> str:
         try:
             with open(path, 'rb') as f:
                 data = f.read()

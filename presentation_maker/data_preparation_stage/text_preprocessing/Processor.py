@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 from presentation_maker.data_objects import Document
 
 
-class DocumentProcessor(ABC):
+class Processor(ABC):
     _language: str
     _texts: list[str]
     _loaded: bool

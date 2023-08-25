@@ -4,7 +4,7 @@ from presentation_maker.data_objects import Document
 from presentation_maker.utils import LanguageHandler, get_file_name
 
 
-class DataSourceExtractor(ABC):
+class Extractor(ABC):
     _language_handler: LanguageHandler
 
     def __init__(self):
@@ -15,12 +15,12 @@ class DataSourceExtractor(ABC):
         return self._language_handler
 
     @abstractmethod
-    def get_text(self, path: str) -> str:  # todo: rename this method
+    def get_relevant_text(self, path: str) -> str:
         pass
 
     def create_document(self, work_path: str, real_path: str) -> Document:
         # 1) extracting main content from the page
-        contents = self.get_text(work_path)
+        contents = self.get_relevant_text(work_path)
 
         # 2) evaluating attributes
         name = self.get_doc_name(work_path)

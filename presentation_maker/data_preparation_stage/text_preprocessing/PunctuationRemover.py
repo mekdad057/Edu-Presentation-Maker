@@ -2,11 +2,11 @@ import re
 import string
 
 from presentation_maker.data_objects import Document
-from presentation_maker.data_preparation_stage.preprocessing.DocumentProcessor \
-    import DocumentProcessor
+from presentation_maker.data_preparation_stage.text_preprocessing.Processor \
+    import Processor
 
 
-class PunctuationRemover(DocumentProcessor):
+class PunctuationRemover(Processor):
     __arabic_punctuations: str
     __english_punctuations: str
     __punctuations_list: str

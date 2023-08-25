@@ -1,10 +1,11 @@
 from presentation_maker.data_objects import Topic, Document
-from presentation_maker.data_preparation_stage.data_extraction.PdfExtractor import PdfExtractor
-from presentation_maker.data_preparation_stage.data_extraction.WebExtractor import WebExtractor
-from presentation_maker.data_preparation_stage.data_extraction.DataSourceExtractor \
-    import DataSourceExtractor
+from presentation_maker.data_preparation_stage.text_extraction.PdfExtractor import PdfExtractor
+from presentation_maker.data_preparation_stage.text_extraction.WebExtractor import WebExtractor
+from presentation_maker.data_preparation_stage.text_extraction.Extractor \
+    import Extractor
 from presentation_maker.utils import is_path_or_url, download_to_working, copy_file_to_working, \
     InvalidPathError, get_file_name
+from presentation_maker.utils.Errors import ExtractionError
 
 
 class DataSourceHandler:
@@ -15,7 +16,7 @@ class DataSourceHandler:
         self.WEB_EXTENSIONS = ["html", "htm"]
         self.PDF_EXTENSIONS = ["pdf"]
 
-    def create_document(self, extractor: DataSourceExtractor, work_path: str
+    def create_document(self, extractor: Extractor, work_path: str
                         , real_path: str) -> Document:
         return extractor.create_document(work_path, real_path)
 
@@ -43,9 +44,7 @@ class DataSourceHandler:
 
         # add doc to Topic and return it.
         if doc is None:
-            raise ValueError(f"Document '{file_name}' "
-                             f"extraction FAILED")
-        doc.path = path  # fixme : is this ok?
+            raise ExtractionError(file_name, path)
         topic.documents.append(doc)
 
     def is_pdf(self, name: str) -> bool:
