@@ -11,12 +11,19 @@ class Model:
     def __init__(self):
         self._task_handler = TaskHandler()
 
-    def create_presentation(self, title: str, paths: list[str]):
+    def create_presentation(self, title: str, paths: list[str]
+                            , presentation_type: str = "simple"):
+        generator_used = ""
+        if presentation_type == "simple":
+            generator_used = "bart-large-cnn"
+        elif presentation_type == "detailed":
+            generator_used = "bart-large-p2s"
+
         clear_results_folder()
-        self._task_handler.create_presentation(title, paths, RESULTS_WEB_DIR)
+        self._task_handler.create_presentation(title, paths, RESULTS_WEB_DIR, generator_used)
         return self._get_powerpoint()
 
     def _get_powerpoint(self):
-        result_path = self._task_handler.get_presentation_title()
-        return os.path.join(RESULTS_WEB_DIR, result_path + ".pptx")
+        result_name = self._task_handler.get_presentation_title()
+        return os.path.join(RESULTS_WEB_DIR, result_name + ".pptx")
 

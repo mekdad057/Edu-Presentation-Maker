@@ -24,28 +24,23 @@
 
 <body class="lang-en">
     <!---->
-
     <div id="header" class="w-100 bg-white z-index-3 position-relative header-height-60">
         <div class="container-fluid pt-0 h-100">
             <div class="row justify-content-between h-100">
-                <nav class="navbar d-flex z-index-2 px-0 py-0 position-static h-100 justify-content-between flex-grow-1-unimportant flex-grow-md-0">
-
-                    <div class="d-flex h-100 align-items-center pl-4">
+                <nav class="navbar d-flex z-index-2 px-0 py-0 position-static h-100 justify-content-between flex-grow-1-unimportant flex-grow-md-0" >
+                    <div class="d-flex h-100 align-items-center pl-4 w-100 justify-content-center">
                         <a class="navbar-brand pr-4 d-flex justify-content-start mr-0"
                             href="https://www.compress2go.com/" title="Different tools to compress all kinds of files">
-                            <img src="{{url_for('static', filename='make_presentation_files/logo_compress2go.svg')}}"
-                                width="211" height="36" alt="Compress your files online and for free"
-                                class="header-logo-responsive d-none d-sm-block">
-                            <img src="{{url_for('static', filename='make_presentation_files/favicon.ico')}}"
-                                alt="Compress your files online and for free" class="icon-30 d-sm-none">
+                            <img src="{{url_for('static', filename='logo.png')}}"
+                                width="250" height="60" alt="Compress your files online and for free"
+                                class="header-logo-responsive d-sm-block">
                         </a>
                     </div>
                 </nav>
-
             </div>
         </div>
     </div>
-
+    
     
     <div id="post-header" class="post-header">
         <div class="color-stripe row w-100 no-margin ">
@@ -61,30 +56,6 @@
     </div>
 
     <div class="">
-        <div>
-            <div tabindex="-1" class="modal align-items-center justify-content-center">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <div class="modal-title">No File Found</div> <button type="button" aria-label="Close"
-                                class="close"><span aria-hidden="true">×</span></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>No file was found at the provided link. Do you want to capture a screenshot of the link
-                                instead?</p>
-                        </div>
-                        <div class="modal-footer justify-content-between align-items-end">
-                            <div class="d-flex flex-column"><button type="button" class="btn btn-secondary"><i
-                                        class="fa fa-times"></i> Close
-                                </button></div>
-                            <div class="d-flex align-items-stretch flex-column"><button type="button"
-                                    class="btn btn-success"><i class="fa fa-camera"></i> Capture Screenshot
-                                </button></div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!---->
-        </div>
         <div class="main-content sub subcontent">
             <div id="recaptchaContainer"></div>
             <div class="container content-header">
@@ -161,7 +132,7 @@
         <div class="container" id="page_function_container">
             <div class="clearfix"></div>
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-md-8">
                     <form id="sendform" action="https://www.compress2go.com/create-zip-file#" method="post">
                         <input data-options-type="base" type="hidden" class="hidden" name="category" value="archive">
                         <input data-options-type="options" data-value-type="boolean" type="hidden" class="hidden"
@@ -172,20 +143,16 @@
                             <div class="card-header font-weight-bold">
                                 Settings
                             </div>
-
                             <div class="form-group">
-                                <p>There are currently no additional settings for this feature.</p>
+                                <div>
+                                    <input type="radio" id="detailedPresentation" name="presentationType" value="detailed">
+                                    <label for="detailedPresentation" class="mr-2">Detailed Presentation</label>
+                                    <input type="radio" id="simplePresentation" name="presentationType" value="simple">
+                                    <label for="simplePresentation" class="mr-2">Simple Presentation</label>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="form-group submit-btn-container">
-                            <div class="submit-btn-wrapper d-table">
-                                <button type="button" class="btn btn-lg submit-btn mb-0 white-space-nowrap mr-3 mb-3 "
-                                    id="submitBtn">
-                                    <strong class="text-uppercase convert_to">Start</strong>
-                                </button>
-                            </div>
-                        </div>
+                        
                         <noscript>
                             <div id="noscriptAlert" class="alert alert-info alert-noscript no-border-radius"
                                 role="alert">
@@ -194,6 +161,25 @@
                             </div>
                         </noscript>
                     </form>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group pt-0">
+                        <input id="presentationTitle" class="w-100 rounded border py-2 px-3 font-size-125 mb-0" type="text"  placeholder="enter title for your presentation" required/>
+                    </div>
+                    <div class="form-group pt-0">
+                        <button type="button" class="btn btn-lg btn-success mb-0 white-space-nowrap mr-3 mb-3"
+                            id="startBtn" onclick="startCreatingPresentation()">
+                            <strong class="text-uppercase">Start</strong>
+                        </button>
+                        <a class="btn btn-lg btn-success mb-0 white-space-nowrap mr-3 mb-3"
+                            id="downloadBtn" href="/download">
+                            <strong class="text-uppercase">Download</strong>
+                        </a>
+                        <button type="button" class="btn btn-lg btn-danger mb-0 white-space-nowrap mr-3 mb-3"
+                            id="clearBtn" onclick="clearAll()">
+                            <strong class="text-uppercase">Clear</strong>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
