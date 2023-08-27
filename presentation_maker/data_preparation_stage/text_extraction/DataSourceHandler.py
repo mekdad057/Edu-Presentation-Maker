@@ -40,7 +40,6 @@ class DataSourceHandler:
         # use suitable extractor to create the content
         file_name = get_file_name(working_path)
 
-        # todo : how to select depending on path?
         if self.is_pdf(file_name):
             doc = self.create_document(PdfExtractor(), working_path, path)
         elif self.is_web_page(file_name):

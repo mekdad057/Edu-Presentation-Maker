@@ -3,18 +3,21 @@ import logging
 import requests
 
 from presentation_maker.data_objects import KeyPoint
+from presentation_maker.presentation_genrating_stage.presentation_generation.Generator\
+    import Generator
 from presentation_maker.presentation_genrating_stage.presentation_generation.KeyPointGenerator \
     import KeyPointGenerator
 from presentation_maker.utils import split_text_to_sentences
 
 
+@Generator.register_generator("bart-large-p2s")
 class BartLargeP2sGenerator(KeyPointGenerator):
     API_TOKEN: str
     API_URL: str
     HEADERS: dict
 
     def __init__(self):
-        super().__init__("bart-large-paper-2-slides-summarizer")
+        super().__init__("bart-large-p2s")
         self._INITIAL_PARAMS_VALUES = {"max_length": 130, "min_length": 30,
                                        "do_sample": False}
         self._current_params_values = {}

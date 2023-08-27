@@ -7,6 +7,18 @@ class Processor(ABC):
     _language: str
     _texts: list[str]
     _loaded: bool
+    _registry = {}
+
+    @classmethod
+    def register_processor(cls, processor_name: str):
+        def decorator(subclass):
+            cls._registry[processor_name] = subclass
+            return subclass
+        return decorator
+
+    @classmethod
+    def registry(cls):
+        return cls._registry
 
     def __init__(self):
         self._language = ""

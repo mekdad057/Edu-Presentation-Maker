@@ -9,15 +9,15 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG, filename="log.log", filemode="w"
                         , format="%(levelname)s - %(message)s"
                         , encoding="utf-8")
-    t = TopicHandler("Alan Turing")  # FOR TESTING CHANGE HERE
+    t = TopicHandler("Sorting Algorithm WW")  # FOR TESTING CHANGE HERE
 
     # link = "https://en.wikibooks.org/wiki/Artificial_Intelligence_for_Computational_Sustainability%3A_A_Lab_Companion%2FMachine_Learning_for_Prediction"
     # link = "https://www.aps.org/programs/outreach/physicsquest/past/falling-physics.cfm#:~:text=When%20something%20falls%2C%20it%20falls,is%20a%20type%20of%20acceleration."
     # link = "https://www.techtarget.com/whatis/definition/transistor#:~:text=A%20transistor%20is%20a%20miniature,which%20can%20carry%20a%20current."
     # link = "https://www.ibm.com/topics/artificial-intelligence"
-    link = "https://www.britannica.com/technology/artificial-intelligence/Alan-Turing-and-the-beginning-of-AI"
+    # link = "https://www.britannica.com/technology/artificial-intelligence/Alan-Turing-and-the-beginning-of-AI"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Computer.html"
-    # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Sorting_algorithm.html"
+    link = r"https://en.wikipedia.org/wiki/Sorting_algorithm"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Muhammad_ibn_Musa_al-Khwarizmi.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Algebra.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Nuclear_fusion.html"
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     # FOR TESTING CHANGE HERE
     t.start_preprocessing([doc_name]
                           , ["citations_links_remover"
-                              , "non_english_remover"
+                              , "non_english_math_safe_remover"
                               , "new_lines_remover"])
     for p in t.topic.documents[0].paragraphs:
         logging.debug(repr(p.title))

@@ -43,19 +43,8 @@ class PreprocessingHandler:
             processor.process_document(document)
 
     def get_processor(self, name: str) -> Processor:
-        if name == "normalizer":
-            return Normalizer()
-        elif name == "punctuation_remover":
-            return PunctuationRemover()
-        elif name == "citations_links_remover":
-            return CitationsLinksRemover()
-        elif name == "non_english_remover":
-            return NonEnglishMathSafeRemover()
-        elif name == "new_lines_remover":
-            return NewLinesRemover()
-        elif name == "html_tags_remover":
-            return HtmlTagsRemover()
-        elif name == "repeated_words_remover":
-            return RepeatedWordsRemover()
+        processor_class = Processor.registry().get(name)
+        if processor_class:
+            return processor_class()
         else:
             raise NotFoundError("processor", name)

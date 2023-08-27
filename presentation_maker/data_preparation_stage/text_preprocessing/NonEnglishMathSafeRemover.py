@@ -5,6 +5,7 @@ from presentation_maker.data_preparation_stage.text_preprocessing.Processor \
     import Processor
 
 
+@Processor.register_processor("non_english_math_safe_remover")
 class NonEnglishMathSafeRemover(Processor):
     """
     removes any strange characters to English Language.

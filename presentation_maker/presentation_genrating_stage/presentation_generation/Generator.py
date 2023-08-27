@@ -8,6 +8,19 @@ class Generator(ABC):
     _NAME: str
     _INITIAL_PARAMS_VALUES: dict[str, object]
     _current_params_values: dict[str, object]
+    _registry = {}
+
+    @classmethod
+    def register_generator(cls, processor_name: str):
+        def decorator(subclass):
+            cls._registry[processor_name] = subclass
+            return subclass
+
+        return decorator
+
+    @classmethod
+    def registry(cls):
+        return cls._registry
 
     def __init__(self, name: str = "generator"):
         self._NAME = name

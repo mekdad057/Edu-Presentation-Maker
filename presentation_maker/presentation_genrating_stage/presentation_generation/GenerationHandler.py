@@ -7,6 +7,7 @@ from presentation_maker.presentation_genrating_stage.presentation_generation.Gen
     import Generator
 from presentation_maker.presentation_genrating_stage.presentation_generation.SumyGenerator import \
     SumyGenerator
+from presentation_maker.utils.Errors import NotFoundError
 
 
 class GenerationHandler:
@@ -27,7 +28,6 @@ class GenerationHandler:
     def generate_content(self, presentation: Presentation, topic: Topic
                          , params: dict[str, dict[str, object]]
                          , generators_names: list[str]):
-        # todo : improve validation for generators (HERE)
         # validating the choice of generators
         if len(generators_names) > 2:
             raise ValueError("Only one keypoint and one script generators "
@@ -69,11 +69,9 @@ class GenerationHandler:
                          , params: dict[str, dict[str, object]]) -> Generator:
         generator = None
         for name in generators_names:
-            if name == "sumy":
-                generator = SumyGenerator()
-            elif name == "bart-large-cnn":
-                generator = BartLargeCnnGenerator()
-            elif name == "bart-large-paper-2-slides-summarizer":
-                generator = BartLargeP2sGenerator()
+            generator_class = Generator.registry().get(name)
+            if generator_class:
+                generator = generator_class()
+
         generator.current_params_values = params.get(generator.NAME, {})
         return generator

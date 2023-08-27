@@ -6,6 +6,7 @@ from presentation_maker.data_preparation_stage.text_preprocessing.Processor \
     import Processor
 
 
+@Processor.register_processor("punctuation_remover")
 class PunctuationRemover(Processor):
     __arabic_punctuations: str
     __english_punctuations: str

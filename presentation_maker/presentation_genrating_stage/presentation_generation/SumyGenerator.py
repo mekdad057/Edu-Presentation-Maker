@@ -8,12 +8,15 @@ from sumy.summarizers.sum_basic import SumBasicSummarizer
 from sumy.summarizers.text_rank import TextRankSummarizer
 
 from presentation_maker.data_objects import KeyPoint
+from presentation_maker.presentation_genrating_stage.presentation_generation.Generator\
+    import Generator
 from presentation_maker.presentation_genrating_stage.presentation_generation.KeyPointGenerator \
     import KeyPointGenerator
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 
 
+@Generator.register_generator("sumy")
 class SumyGenerator(KeyPointGenerator):
     def __init__(self):
         super().__init__("sumy")

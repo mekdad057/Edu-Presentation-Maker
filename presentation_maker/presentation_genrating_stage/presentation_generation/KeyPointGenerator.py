@@ -4,7 +4,7 @@ from abc import abstractmethod
 from tqdm import tqdm
 
 from presentation_maker.data_objects import KeyPoint, Topic
-from presentation_maker.presentation_genrating_stage.presentation_generation.Generator \
+from presentation_maker.presentation_genrating_stage.presentation_generation.Generator\
     import Generator
 from presentation_maker.utils import is_sentence_empty, clear_sentence
 

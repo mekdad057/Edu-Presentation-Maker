@@ -5,6 +5,7 @@ from presentation_maker.data_preparation_stage.text_preprocessing.Processor \
     import Processor
 
 
+@Processor.register_processor("normalizer")
 class Normalizer(Processor):
     def process_document(self, doc: Document):
         for i in range(len(doc.paragraphs)):

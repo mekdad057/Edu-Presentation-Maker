@@ -3,6 +3,7 @@ from presentation_maker.data_preparation_stage.text_preprocessing.Processor \
     import Processor
 
 
+@Processor.register_processor("repeated_words_remover")
 class RepeatedWordsRemover(Processor):
     def process_document(self, doc: Document):
         for i in range(len(doc.paragraphs)):

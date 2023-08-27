@@ -3,11 +3,14 @@ import logging
 import requests
 
 from presentation_maker.data_objects import KeyPoint
+from presentation_maker.presentation_genrating_stage.presentation_generation.Generator\
+    import Generator
 from presentation_maker.presentation_genrating_stage.presentation_generation.KeyPointGenerator \
     import KeyPointGenerator
 from presentation_maker.utils import split_text_to_sentences
 
 
+@Generator.register_generator("bart-large-cnn")
 class BartLargeCnnGenerator(KeyPointGenerator):
     API_TOKEN: str
     API_URL: str
