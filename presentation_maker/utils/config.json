@@ -1,0 +1,10 @@
+{
+    "BartLargeCnnGenerator": {
+        "API_TOKEN": "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",
+        "API_URL": "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
+    },
+    "BartLargeP2sGenerator": {
+        "API_TOKEN": "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",
+        "API_URL": "https://api-inference.huggingface.co/models/com3dian/Bart-large-paper2slides-summarizer"
+    }
+}

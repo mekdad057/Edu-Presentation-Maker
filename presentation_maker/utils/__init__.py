@@ -9,6 +9,7 @@ from urllib.parse import unquote, urlparse
 from unidecode import unidecode
 
 from . import PresentationExportionUtils
+from .Config import Config
 from .LanguageHandler import LanguageHandler
 from .Errors import InvalidPathError
 
@@ -18,6 +19,8 @@ MAIN_DIR = os.path.abspath(os.path.join(os.path.dirname(
 WORKING_DIR = os.path.join(MAIN_DIR, "working")
 
 RESULTS_DIR = os.path.join(MAIN_DIR, "results")
+
+Config.load()
 
 
 def download_to_working(url: str) -> str:

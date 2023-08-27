@@ -7,7 +7,7 @@ from presentation_maker.presentation_genrating_stage.presentation_generation.Gen
     import Generator
 from presentation_maker.presentation_genrating_stage.presentation_generation.KeyPointGenerator \
     import KeyPointGenerator
-from presentation_maker.utils import split_text_to_sentences
+from presentation_maker.utils import split_text_to_sentences, Config
 
 
 @Generator.register_generator("bart-large-cnn")
@@ -21,8 +21,8 @@ class BartLargeCnnGenerator(KeyPointGenerator):
         self._INITIAL_PARAMS_VALUES = {"max_length": 130, "min_length": 30,
                                        "do_sample": False}
         self._current_params_values = {}
-        self.API_TOKEN = "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"
-        self.API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
+        self.API_TOKEN = Config.get("BartLargeCnnGenerator")["API_TOKEN"]
+        self.API_URL = Config.get("BartLargeCnnGenerator")["API_URL"]
         self.HEADERS = {"Authorization": f"Bearer {self.API_TOKEN}"}
 
     def _handle_unstructured_paragraph(self, paragraph):

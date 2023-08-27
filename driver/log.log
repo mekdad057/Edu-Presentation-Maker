@@ -131,21 +131,119 @@ DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
 DEBUG - https://api-inference.huggingface.co:443 "POST /models/facebook/bart-large-cnn HTTP/1.1" 200 412
 DEBUG - status code : 200
 DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/facebook/bart-large-cnn HTTP/1.1" 200 257
-DEBUG - status code : 200
+ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Traceback (most recent call last):
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
+    response.begin()
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
+    response.begin()
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_maker\presentation_genrating_stage\presentation_generation\BartLargeCnnGenerator.py", line 56, in request_summary
+    response = requests.post(self.API_URL, headers=self.HEADERS
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/facebook/bart-large-cnn HTTP/1.1" 200 388
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/facebook/bart-large-cnn HTTP/1.1" 200 201
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/facebook/bart-large-cnn HTTP/1.1" 200 320
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/facebook/bart-large-cnn HTTP/1.1" 200 378
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/facebook/bart-large-cnn HTTP/1.1" 200 414
-DEBUG - status code : 200
+ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Traceback (most recent call last):
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
+    response.begin()
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+http.client.RemoteDisconnected: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
+    response.begin()
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
+    raise RemoteDisconnected("Remote end closed connection without"
+urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_maker\presentation_genrating_stage\presentation_generation\BartLargeCnnGenerator.py", line 56, in request_summary
+    response = requests.post(self.API_URL, headers=self.HEADERS
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
 DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
