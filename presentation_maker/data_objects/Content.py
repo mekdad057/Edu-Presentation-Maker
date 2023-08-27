@@ -2,6 +2,9 @@ from abc import ABC
 
 
 class Content(ABC):
+    """
+    any type of content that can be generated or extracted.
+    """
     data: object
     reference: object
 

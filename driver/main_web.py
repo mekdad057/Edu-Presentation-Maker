@@ -1,5 +1,4 @@
 from website import create_app
-from website import controller
 app = create_app()
 
 if __name__ == '__main__':

@@ -13,7 +13,6 @@ from presentation_maker.utils.Errors import NotFoundError
 
 class WikipediaExtractor(Extractor):
 
-    # todo: some methods has to be moved to upper classes
     MIN_LIMIT: int
     HEADINGS_TAGS: list[str]
     TEXT_TAGS: list[str]
@@ -186,14 +185,10 @@ class WikipediaExtractor(Extractor):
         url = tag.get("src")
         if "http" not in url:
             url = "https:" + url
-        path = ""
-        while True:
-            try:
-                # todo: move the while True to this funtion
-                path = download_to_working(url)
-                break
-            except Exception as e:
-                pass
+
+        # this line will raise exception if you have problems with your internet
+        # connection, the exception is handled in top calling class.
+        path = download_to_working(url)
         return path
 
     def extract_text(self, block, element):

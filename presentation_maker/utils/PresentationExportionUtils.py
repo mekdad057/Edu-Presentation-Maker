@@ -1,6 +1,6 @@
 import logging
 
-CONTENT_PLACEHOLDER_IDX = 13  # todo: insert these values inside template, because they differ from template to another
+CONTENT_PLACEHOLDER_IDX = 13
 DEFAULT_BULLET_POINT_FONT_SIZE = 28
 NUM_OF_LINES_PER_SLIDE = 12
 

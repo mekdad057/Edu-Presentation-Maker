@@ -63,7 +63,6 @@ class PresentationHandler:
 
     def export_presentation(self, path: str = RESULTS_DIR
                             , template: TEMPLATE = TEMPLATE.TEMPLATE_1):
-        # fixme: this function is getting more complicated
         try:
             pr = pptx.Presentation(template.value)
             # adding title slide

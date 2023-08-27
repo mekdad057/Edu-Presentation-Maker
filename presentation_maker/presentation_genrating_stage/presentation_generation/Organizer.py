@@ -34,8 +34,6 @@ class Organizer:
 
     def choose_layout(self, source_paragraph: Paragraph) -> Slide:
         slide = None
-        # fixme: this code won't work in case of other types of content that
-        #  aren't images
         if len(source_paragraph.contents_paths) > 0:
             slide = Slide(LAYOUT.PICTURE_CONTENT_WITH_CAPTION)
         else:

@@ -2,6 +2,9 @@ from presentation_maker.data_objects.Paragraph import Paragraph
 
 
 class Document:
+    """
+    represents a single datasource
+    """
     name: str
     path: str
     language: str

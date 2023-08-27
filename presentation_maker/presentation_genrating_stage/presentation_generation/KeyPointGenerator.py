@@ -16,8 +16,6 @@ class KeyPointGenerator(Generator):
 
     def get_output(self, topic: Topic) -> object:
         res = []
-        # fixme: keypoints from different documents can't be distinguished
-        #  in the result
         for doc in tqdm(topic.documents, desc="processing documents"
                         , position=0, leave=True):
             for p in tqdm(doc.paragraphs, desc="processing paragraphs",

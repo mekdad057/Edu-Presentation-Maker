@@ -13,6 +13,10 @@ from presentation_maker.utils.Errors import ExtractionError
 
 
 class DataSourceHandler:
+    """
+    Controls which Extractor to choose, currently only supporting extracting
+     from wikipedia and other websites
+    """
     WEB_EXTENSIONS: list[str]
     PDF_EXTENSIONS: list[str]
 
@@ -25,6 +29,13 @@ class DataSourceHandler:
         return extractor.create_document(work_path, real_path)
 
     def add_source(self, topic: Topic, path: str):
+        """
+        choosing the right extractor to create a document from the source and
+        included in the topic object.
+        :param topic:
+        :param path:
+        :return:
+        """
         doc = None
 
         # move the file to working directory

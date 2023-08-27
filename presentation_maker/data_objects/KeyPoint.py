@@ -3,6 +3,10 @@ from presentation_maker.data_objects.Content import Content
 
 
 class KeyPoint(Content):
+    """
+    an extracted or generated sentence that will be turned to a bullet point
+     later in the slide.
+    """
     _level: int
 
     def __init__(self, text: str, reference: Paragraph, level: int = -1):

@@ -109,9 +109,6 @@ class WebExtractor(Extractor):
         :return: path to the content downloaded in the working folder or None
         if the content is invalid
         """
-        url = ""
-        class_ = tag.get("class")
-
         width = tag.get("width")
         height = tag.get("height")
         if width is None or height is None:
@@ -125,17 +122,19 @@ class WebExtractor(Extractor):
         url = tag.get("src")
         if "http" not in url:
             url = "https:" + url
-        path = ""
-        while True:
-            try:
-                # todo: move the while True to this funtion
-                path = download_to_working(url)
-                break
-            except Exception as e:
-                pass
+
+        # this line will raise exception if you have problems with your internet
+        # connection, the exception is handled in top calling class.
+        path = download_to_working(url)
         return path
 
     def _divide_large_blocks(self, blocks):
+        """
+        divide blocks of text that exceed in the number of sentences
+         a maximum limit MAX_SIZE_LIMIT
+        :param blocks:
+        :return:
+        """
         new_blocks = []
         for block in blocks:
             block_sentences = split_text_to_sentences(block["text"])
