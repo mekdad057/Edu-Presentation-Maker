@@ -3,3 +3,4 @@ from .Extractor import Extractor
 from .HtmlTrafilaturaExtractor import HtmlTrafilaturaExtractor
 from .WikipediaExtractor import WikipediaExtractor
 from .WebExtractor import WebExtractor
+from .PdfExtractor import PdfExtractor

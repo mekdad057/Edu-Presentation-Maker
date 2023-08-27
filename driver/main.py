@@ -9,13 +9,13 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG, filename="log.log", filemode="w"
                         , format="%(levelname)s - %(message)s"
                         , encoding="utf-8")
-    t = TopicHandler("Artificial Intelligence and Computational complexity")  # FOR TESTING CHANGE HERE
+    t = TopicHandler("Alan Turing")  # FOR TESTING CHANGE HERE
 
-    link = "https://en.wikibooks.org/wiki/Artificial_Intelligence_for_Computational_Sustainability%3A_A_Lab_Companion%2FMachine_Learning_for_Prediction"
+    # link = "https://en.wikibooks.org/wiki/Artificial_Intelligence_for_Computational_Sustainability%3A_A_Lab_Companion%2FMachine_Learning_for_Prediction"
     # link = "https://www.aps.org/programs/outreach/physicsquest/past/falling-physics.cfm#:~:text=When%20something%20falls%2C%20it%20falls,is%20a%20type%20of%20acceleration."
     # link = "https://www.techtarget.com/whatis/definition/transistor#:~:text=A%20transistor%20is%20a%20miniature,which%20can%20carry%20a%20current."
     # link = "https://www.ibm.com/topics/artificial-intelligence"
-    # link = "https://www.britannica.com/technology/artificial-intelligence/Alan-Turing-and-the-beginning-of-AI"
+    link = "https://www.britannica.com/technology/artificial-intelligence/Alan-Turing-and-the-beginning-of-AI"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Computer.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Sorting_algorithm.html"
     # link = r"C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\working\Muhammad_ibn_Musa_al-Khwarizmi.html"

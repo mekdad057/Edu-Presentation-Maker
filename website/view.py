@@ -9,7 +9,7 @@ from website.config import RESULTS_WEB_DIR
 view = Blueprint("view", __name__)
 
 files_list = []
-file_path = ""
+result_path = ""
 
 
 @view.route("/")
@@ -64,14 +64,15 @@ def get_files():
 @view.route("/remove-all-files", methods=["POST"])
 def remove_all_files():
     global files_list
-    global file_path
+    global result_path
     files_list = []
-    file_path = ""
+    result_path = ""
     return jsonify({"success": True})
 
 
 @view.route("/create-presentation", methods=["POST"])
 def create_presentation():
+    global result_path
     data = request.get_json()
     title = data.get("title", None)
     presentation_type = data.get("presentationType", None)
@@ -79,8 +80,10 @@ def create_presentation():
     if not title or not presentation_type or len(files_list) == 0:
         return jsonify({"success": False, "message": "Enter all required data."})
 
-    global file_path
-    file_path = controller.create_presentation(title, files_list, presentation_type)
+    if result_path != "":
+        return jsonify({"success": False, "message": "press Clear first."})
+
+    result_path = controller.create_presentation(title, files_list, presentation_type)
 
     return jsonify({"success": True
                     , "message": "Presentation is ready to be downloaded"
@@ -89,20 +92,20 @@ def create_presentation():
 
 @view.route("/download", methods=["GET"])
 def download():
-    if file_path == "":
+    if result_path == "":
         return jsonify({"success": False
                             , "message": "Create a Presentation First"
                         })
-    if not os.path.exists(file_path):
+    if not os.path.exists(result_path):
         return jsonify({"success": False
                            , "message": f"File Does Not Exist"
                         })
     return send_from_directory(RESULTS_WEB_DIR
-                               , os.path.basename(file_path)
+                               , os.path.basename(result_path)
                                , as_attachment=True)
 
 
 @view.route("/get-file-name")
 def get_file_name():
-    global file_path
-    return jsonify({"fileName": file_path})
+    global result_path
+    return jsonify({"fileName": result_path})

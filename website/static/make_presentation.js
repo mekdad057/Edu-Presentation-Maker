@@ -1,6 +1,7 @@
 
 
 $(document).ready(() => {
+
     refreshFilesList()
     
     setToastrOptions()
@@ -57,12 +58,11 @@ function addSubmitUrlListener() {
         event.preventDefault()
     });
 
-    $("createPresentationForm").on("submit", (event) => {
-        
-        createPresentation();
-        
+    $("#createPresentationForm").on("submit", (event) => {
         event.preventDefault();
 
+        startCreatingPresentation();
+        
     });
 }
 
@@ -169,6 +169,9 @@ function removeAllFiles() {
 }
 
 function startCreatingPresentation() {
+    progressUnit = 9 // in seconds
+    updateProgress(progressUnit)
+    const progressId = setInterval(() => updateProgress(progressUnit), progressUnit*1000);
     let title = $("#presentationTitle").val();
     let presentationType = $("input[name='presentationType']:checked").val();
     $.ajax({
@@ -181,6 +184,10 @@ function startCreatingPresentation() {
                 toastr["success"]("Presentation created successfully")
                 $("#downloadBtn").show()
                 $("#clearBtn").show()
+                $("#startBtn").toggleClass("btn-primary")
+                $("#startBtn").toggleClass("btn-success")
+                $("#startBtnText").text("Start")
+                clearInterval(progressId)
             }
             else {
                 toastr["error"](res.message)
@@ -190,6 +197,31 @@ function startCreatingPresentation() {
             console.log(msg)
         }
     });
+}
+
+function updateProgress(progressUnit) {
+    console.log("Updating Now")
+    if ($("#startBtnText").text() == "Start"){
+        $("#startBtnText").text("0%")
+    }
+    if ($("#startBtn").hasClass("btn-success")){
+        $("#startBtn").removeClass("btn-success")
+        $("#startBtn").addClass("btn-primary")
+    }
+    const filesToProgressTotalTime = ($("#filesList").children().length-1) * 4.5*60.0 // 5 min per file/url
+    let progressPercentage = $("#startBtnText").text()
+    let progressValue = parseFloat(progressPercentage.replace("%",""))/100.0
+    let progressTimeValue = progressValue*filesToProgressTotalTime/0.99
+    if(progressTimeValue < filesToProgressTotalTime){
+        progressTimeValue += progressUnit
+    }
+    else {
+        progressTimeValue = filesToProgressTotalTime
+    }
+    progressValue = 0.99*progressTimeValue/filesToProgressTotalTime
+    progressPercentage = (progressValue * 100).toFixed(2) + "%";
+    $("#startBtnText").text(progressPercentage)
+
 }
 
 

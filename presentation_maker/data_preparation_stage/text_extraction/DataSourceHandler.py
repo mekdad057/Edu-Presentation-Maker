@@ -1,6 +1,10 @@
 from presentation_maker.data_objects import Topic, Document
-from presentation_maker.data_preparation_stage.text_extraction.PdfExtractor import PdfExtractor
-from presentation_maker.data_preparation_stage.text_extraction.WebExtractor import WebExtractor
+from presentation_maker.data_preparation_stage.text_extraction.WikipediaExtractor\
+    import WikipediaExtractor
+from presentation_maker.data_preparation_stage.text_extraction.PdfExtractor\
+    import PdfExtractor
+from presentation_maker.data_preparation_stage.text_extraction.WebExtractor\
+    import WebExtractor
 from presentation_maker.data_preparation_stage.text_extraction.Extractor \
     import Extractor
 from presentation_maker.utils import is_path_or_url, download_to_working, copy_file_to_working, \
@@ -40,7 +44,10 @@ class DataSourceHandler:
         if self.is_pdf(file_name):
             doc = self.create_document(PdfExtractor(), working_path, path)
         elif self.is_web_page(file_name):
-            doc = self.create_document(WebExtractor(), working_path, path)
+            if path.find("wiki") != -1:
+                doc = self.create_document(WikipediaExtractor(), working_path, path)
+            else:
+                doc = self.create_document(WebExtractor(), working_path, path)
 
         # add doc to Topic and return it.
         if doc is None:

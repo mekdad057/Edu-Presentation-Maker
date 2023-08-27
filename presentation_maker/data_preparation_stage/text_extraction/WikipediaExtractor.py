@@ -12,6 +12,7 @@ from presentation_maker.utils.Errors import NotFoundError
 
 
 class WikipediaExtractor(Extractor):
+
     # todo: some methods has to be moved to upper classes
     MIN_LIMIT: int
     HEADINGS_TAGS: list[str]
@@ -201,13 +202,17 @@ class WikipediaExtractor(Extractor):
             if extracted is not None:
                 block["contents_paths"].append(extracted)
         elif element.name in self.STRUCTURED_TEXT_TAGS:
-            if len(split_text_to_sentences(block["text"])) <= self.MIN_LIMIT:
-                block["is_structured"] = True
-                block["text"] += "\n" + self.extract_list(element)
-            else:
-                block["text"] += element.get_relevant_text()
+            try:
+                if len(split_text_to_sentences(block["text"])) <= self.MIN_LIMIT:
+                    block["is_structured"] = True
+                    block["text"] += "\n" + self.extract_list(element)
+                else:
+                    block["text"] += element.get_text()
+            except Exception as e:
+                logging.exception(e)
+                block["text"] += element.get_text()
         else:
-            block["text"] += element.get_relevant_text()
+            block["text"] += element.get_text()
 
     def extract_list(self, element, level: int = 1) -> str:
         """
@@ -227,6 +232,8 @@ class WikipediaExtractor(Extractor):
                 for inner_list in lists:
                     inner_list.replace_with(self.extract_list(inner_list
                                                               , level + 1))
-                result += "#"*level + list_element.get_relevant_text()
+                result += "#"*level + list_element.get_text()
         return result
 
+    def get_doc_name(self, work_path) -> str:
+        return super().get_doc_name(work_path)

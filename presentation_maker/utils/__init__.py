@@ -54,7 +54,6 @@ def download_to_working(url: str) -> str:
 
         # Create a path for the new file
         file_path = os.path.join(WORKING_DIR, file_name)
-        file_path = uniquify(file_path)
 
         # Open the file in write mode
         if is_text:  # to handle encoding problems
