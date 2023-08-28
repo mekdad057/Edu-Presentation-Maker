@@ -24,7 +24,7 @@ class TaskHandler:
         doc_names = [doc.name for doc in topic.documents]
         self._topic_handler.start_preprocessing(doc_names
                                                 , ["citations_links_remover"
-                                                   , "non_english_remover"
+                                                   , "non_english_math_safe_remover"
                                                    , "new_lines_remover"])
 
         self._presentation_handler.create_presentation(topic

@@ -10,7 +10,7 @@ from presentation_maker.presentation_genrating_stage.presentation_generation.Key
 from presentation_maker.utils import split_text_to_sentences, Config
 
 
-@Generator.register_generator("bart-large-p2s")
+@Generator.register_generator("bart-large-paper-2-slides-summarizer")
 class BartLargeP2sGenerator(KeyPointGenerator):
     API_TOKEN: str
     API_URL: str

@@ -11,6 +11,7 @@ if __name__ == "__main__":
 
     link = r"https://en.wikipedia.org/wiki/Sorting_algorithm"
     # link = r"https://en.wikipedia.org/wiki/Nuclear_fission"
+    # link = r"https://en.wikipedia.org/wiki/Algebra"
     t.add_source(link)
 
     doc_name = t.topic.documents[0].name
@@ -21,8 +22,8 @@ if __name__ == "__main__":
                               , "new_lines_remover"])
 
     ph = PresentationHandler()
-    ph.create_presentation(t.topic, ["bart-large-cnn"],
-                           {"bart-large-cnn": {}})
+    ph.create_presentation(t.topic, ["bart-large-paper-2-slides-summarizer"],
+                           {"bart-large-paper-2-slides-summarizer": {}})
 
     ph.export_presentation()
     #

@@ -181,6 +181,7 @@ function startCreatingPresentation() {
         contentType: "application/json",
         success: (res) => {
             if (res.success) {
+                $("#startBtnText").text("100%")
                 toastr["success"]("Presentation created successfully")
                 $("#downloadBtn").show()
                 $("#clearBtn").show()
@@ -236,9 +237,10 @@ function clearAll() {
 function refreshControlBtns() {
     let fileName = ""
     $.ajax({
+        data: "",
         url: "/get-file-name",
         type: 'GET',
-        dataType: 'application/json',
+        dataType: 'json',
         success: function(res) {
                 fileName = res.fileName
                 if(fileName != ""){
@@ -254,7 +256,5 @@ function refreshControlBtns() {
             console.log(msg)
             }
         });
-    console.log(fileName)
-   
 
 }

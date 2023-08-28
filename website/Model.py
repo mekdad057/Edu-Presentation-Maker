@@ -17,7 +17,7 @@ class Model:
         if presentation_type == "simple":
             generator_used = "bart-large-cnn"
         elif presentation_type == "detailed":
-            generator_used = "bart-large-p2s"
+            generator_used = "bart-large-paper-2-slides-summarizer"
 
         clear_results_folder()
         self._task_handler.create_presentation(title, paths, RESULTS_WEB_DIR, generator_used)
