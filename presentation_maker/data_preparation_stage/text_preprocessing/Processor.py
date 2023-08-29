@@ -38,3 +38,7 @@ class Processor(ABC):
     @abstractmethod
     def process_document(self, doc: Document):
         pass
+
+    def unload(self):
+        self._texts = []
+        self._loaded = False

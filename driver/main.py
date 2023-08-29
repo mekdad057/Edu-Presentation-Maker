@@ -7,9 +7,11 @@ if __name__ == "__main__":
                         , format="%(levelname)s - %(message)s"
                         , encoding="utf-8")
 
-    t = TopicHandler("Sorting Algorithm")  # FOR TESTING CHANGE HERE
+    t = TopicHandler("Dijkstra")  # FOR TESTING CHANGE HERE
 
-    link = r"https://en.wikipedia.org/wiki/Sorting_algorithm"
+    # link = r"https://en.wikipedia.org/wiki/Sorting_algorithm"
+    # link = r"https://en.wikipedia.org/wiki/String_theory"
+    link = r"https://www.programiz.com/dsa/dijkstra-algorithm"
     # link = r"https://en.wikipedia.org/wiki/Nuclear_fission"
     # link = r"https://en.wikipedia.org/wiki/Algebra"
     t.add_source(link)
@@ -22,8 +24,8 @@ if __name__ == "__main__":
                               , "new_lines_remover"])
 
     ph = PresentationHandler()
-    ph.create_presentation(t.topic, ["bart-large-paper-2-slides-summarizer"],
-                           {"bart-large-paper-2-slides-summarizer": {}})
+    ph.create_presentation(t.topic, ["bart-large-cnn"],
+                           {"bart-large-cnn": {}})
 
     ph.export_presentation()
     #

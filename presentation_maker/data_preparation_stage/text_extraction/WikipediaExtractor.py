@@ -26,9 +26,9 @@ class WikipediaExtractor(Extractor):
 
     def __init__(self):
         super().__init__()
-        self.IMAGE_VALID_SIZE = 300
+        self.IMAGE_VALID_SIZE = 30000
         self.HEADINGS_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"]
-        self.STRUCTURED_TEXT_TAGS = ["ul", "ol"]
+        self.STRUCTURED_TEXT_TAGS = ["ol"]
         self.UNSTRUCTURED_TEXT_TAGS = ["p", "dd"]
         self.TEXT_TAGS = self.STRUCTURED_TEXT_TAGS + self.UNSTRUCTURED_TEXT_TAGS
         self.IGNORE = ["See also", "References", "Further reading", "Honors"
@@ -47,7 +47,7 @@ class WikipediaExtractor(Extractor):
 
         soup = BeautifulSoup(data, 'html.parser')
         # the element of the page that contain all relevant text
-        ob = soup.find("div", class_="mw-parser-output")
+        ob = soup.find(id="bodyContent")
 
         if ob is None:
             raise NotFoundError("Text Content", "bodyContent")

@@ -41,6 +41,7 @@ class PreprocessingHandler:
         for processor in processors:
             processor.load_document(document)
             processor.process_document(document)
+            processor.unload()
 
     def get_processor(self, name: str) -> Processor:
         processor_class = Processor.registry().get(name)

@@ -181,7 +181,7 @@ function startCreatingPresentation() {
         contentType: "application/json",
         success: (res) => {
             if (res.success) {
-                $("#startBtnText").text("100%")
+                completeProgress(progressUnit)
                 toastr["success"]("Presentation created successfully")
                 $("#downloadBtn").show()
                 $("#clearBtn").show()
@@ -191,7 +191,14 @@ function startCreatingPresentation() {
                 clearInterval(progressId)
             }
             else {
+                $("#startBtnText").text("0%")
                 toastr["error"](res.message)
+                $("#downloadBtn").hide()
+                $("#clearBtn").hide()
+                $("#startBtn").toggleClass("btn-primary")
+                $("#startBtn").toggleClass("btn-success")
+                $("#startBtnText").text("Start")
+                clearInterval(progressId)
             }
         },
         error: (msg) => {
@@ -209,7 +216,7 @@ function updateProgress(progressUnit) {
         $("#startBtn").removeClass("btn-success")
         $("#startBtn").addClass("btn-primary")
     }
-    const filesToProgressTotalTime = ($("#filesList").children().length-1) * 4.5*60.0 // 5 min per file/url
+    const filesToProgressTotalTime = ($("#filesList").children().length-1) * 3*60.0 // 3 min per file/url
     let progressPercentage = $("#startBtnText").text()
     let progressValue = parseFloat(progressPercentage.replace("%",""))/100.0
     let progressTimeValue = progressValue*filesToProgressTotalTime/0.99
@@ -225,11 +232,34 @@ function updateProgress(progressUnit) {
 
 }
 
+function completeProgress(progressUnit) {
+    console.log("Updating Now")
+    if ($("#startBtnText").text() == "Start"){
+        $("#startBtnText").text("0%")
+    }
+    if ($("#startBtn").hasClass("btn-success")){
+        $("#startBtn").removeClass("btn-success")
+        $("#startBtn").addClass("btn-primary")
+    }
+    const filesToProgressTotalTime = ($("#filesList").children().length-1) * 4.5*60.0 // 4.5 min per file/url
+    let progressPercentage = $("#startBtnText").text()
+    let progressValue = parseFloat(progressPercentage.replace("%",""))/100.0
+    let progressTimeValue = progressValue*filesToProgressTotalTime/0.99
+    while(progressTimeValue < filesToProgressTotalTime) {
+        setTimeout(() => {}, 1000);
+        progressTimeValue += progressUnit
+        progressValue = 0.99*progressTimeValue/filesToProgressTotalTime
+        progressPercentage = (progressValue * 100).toFixed(2) + "%";
+        $("#startBtnText").text(progressPercentage)
+    }
+    $("#startBtnText").text("100%")
+
+}
 
 function clearAll() {
     removeAllFiles()
-    $("#presentationTitle").val = ""
-    $("#remoteUrlInput").val = ""
+    $("#presentationTitle").text("")
+    $("#remoteUrlInput").text("")
     $("#downloadBtn").hide()
     $("#clearBtn").hide()
 }

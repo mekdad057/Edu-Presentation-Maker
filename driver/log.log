@@ -1,1129 +1,167 @@
-DEBUG - Starting new HTTPS connection (1): en.wikipedia.org:443
-DEBUG - https://en.wikipedia.org:443 "GET /wiki/Sorting_algorithm HTTP/1.1" 200 56115
+DEBUG - Starting new HTTPS connection (1): www.programiz.com:443
+DEBUG - https://www.programiz.com:443 "GET /dsa/dijkstra-algorithm HTTP/1.1" 200 None
 DEBUG - request status code: 200
-DEBUG - Starting new HTTPS connection (1): upload.wikimedia.org:443
-DEBUG - https://upload.wikimedia.org:443 "GET /wikipedia/commons/thumb/9/92/Python_demo_-_sortvisu.png/220px-Python_demo_-_sortvisu.png HTTP/1.1" 200 31868
-DEBUG - request status code: 200
-DEBUG - Starting new HTTPS connection (1): upload.wikimedia.org:443
-DEBUG - https://upload.wikimedia.org:443 "GET /wikipedia/commons/thumb/8/82/Sorting_stability_playing_cards.svg/220px-Sorting_stability_playing_cards.svg.png HTTP/1.1" 200 17478
-DEBUG - request status code: 200
-DEBUG - Starting new HTTPS connection (1): upload.wikimedia.org:443
-DEBUG - https://upload.wikimedia.org:443 "GET /wikipedia/commons/thumb/7/79/Sorting_playing_cards_using_stable_sort.svg/400px-Sorting_playing_cards_using_stable_sort.svg.png HTTP/1.1" 200 24584
-DEBUG - request status code: 200
-DEBUG - Starting new HTTPS connection (1): upload.wikimedia.org:443
-DEBUG - https://upload.wikimedia.org:443 "GET /wikipedia/commons/thumb/4/4c/Shell_sorting_algorithm_color_bars.svg/220px-Shell_sorting_algorithm_color_bars.svg.png HTTP/1.1" 200 11390
-DEBUG - request status code: 200
-DEBUG - Starting new HTTPS connection (1): upload.wikimedia.org:443
-DEBUG - https://upload.wikimedia.org:443 "GET /wikipedia/commons/thumb/8/83/Bubblesort-edited-color.svg/220px-Bubblesort-edited-color.svg.png HTTP/1.1" 200 17125
-DEBUG - request status code: 200
-DEBUG - {'max_length': 130, 'min_length': 30, 'do_sample': False}
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 455
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 342
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 449
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 277
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 221
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 444
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 457
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_maker\presentation_genrating_stage\presentation_generation\BartLargeP2sGenerator.py", line 56, in request_summary
-    response = requests.post(self.API_URL, headers=self.HEADERS
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_maker\presentation_genrating_stage\presentation_generation\BartLargeP2sGenerator.py", line 56, in request_summary
-    response = requests.post(self.API_URL, headers=self.HEADERS
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_maker\presentation_genrating_stage\presentation_generation\BartLargeP2sGenerator.py", line 56, in request_summary
-    response = requests.post(self.API_URL, headers=self.HEADERS
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_maker\presentation_genrating_stage\presentation_generation\BartLargeP2sGenerator.py", line 56, in request_summary
-    response = requests.post(self.API_URL, headers=self.HEADERS
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_maker\presentation_genrating_stage\presentation_generation\BartLargeP2sGenerator.py", line 56, in request_summary
-    response = requests.post(self.API_URL, headers=self.HEADERS
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_maker\presentation_genrating_stage\presentation_generation\BartLargeP2sGenerator.py", line 56, in request_summary
-    response = requests.post(self.API_URL, headers=self.HEADERS
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_maker\presentation_genrating_stage\presentation_generation\BartLargeP2sGenerator.py", line 56, in request_summary
-    response = requests.post(self.API_URL, headers=self.HEADERS
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 412
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 503 117
-DEBUG - status code : 503
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 503 117
-DEBUG - status code : 503
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 503 117
-DEBUG - status code : 503
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 503 117
-DEBUG - status code : 503
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 503 31
-DEBUG - status code : 503
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 503 31
-DEBUG - status code : 503
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_maker\presentation_genrating_stage\presentation_generation\BartLargeP2sGenerator.py", line 56, in request_summary
-    response = requests.post(self.API_URL, headers=self.HEADERS
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_maker\presentation_genrating_stage\presentation_generation\BartLargeP2sGenerator.py", line 56, in request_summary
-    response = requests.post(self.API_URL, headers=self.HEADERS
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_maker\presentation_genrating_stage\presentation_generation\BartLargeP2sGenerator.py", line 56, in request_summary
-    response = requests.post(self.API_URL, headers=self.HEADERS
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_maker\presentation_genrating_stage\presentation_generation\BartLargeP2sGenerator.py", line 56, in request_summary
-    response = requests.post(self.API_URL, headers=self.HEADERS
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_maker\presentation_genrating_stage\presentation_generation\BartLargeP2sGenerator.py", line 56, in request_summary
-    response = requests.post(self.API_URL, headers=self.HEADERS
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_maker\presentation_genrating_stage\presentation_generation\BartLargeP2sGenerator.py", line 56, in request_summary
-    response = requests.post(self.API_URL, headers=self.HEADERS
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 503 31
-DEBUG - status code : 503
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-ERROR - ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-http.client.RemoteDisconnected: Remote end closed connection without response
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 486, in send
-    resp = conn.urlopen(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
-    retries = retries.increment(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\retry.py", line 470, in increment
-    raise reraise(type(error), error, _stacktrace)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\util\util.py", line 38, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
-    response = self._make_request(
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connectionpool.py", line 536, in _make_request
-    response = conn.getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\urllib3\connection.py", line 461, in getresponse
-    httplib_response = super().getresponse()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 1375, in getresponse
-    response.begin()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 318, in begin
-    version, status, reason = self._read_status()
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\http\client.py", line 287, in _read_status
-    raise RemoteDisconnected("Remote end closed connection without"
-urllib3.exceptions.ProtocolError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\VISION\Desktop 2\PROJECT_FORTH_YEAR\Edu-Presentation-Maker\presentation_maker\presentation_genrating_stage\presentation_generation\BartLargeP2sGenerator.py", line 56, in request_summary
-    response = requests.post(self.API_URL, headers=self.HEADERS
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 115, in post
-    return request("post", url, data=data, json=json, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "C:\Users\VISION\anaconda3\envs\source_project\lib\site-packages\requests\adapters.py", line 501, in send
-    raise ConnectionError(err, request=request)
-requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - Starting new HTTPS connection (1): api-inference.huggingface.co:443
-DEBUG - https://api-inference.huggingface.co:443 "POST /models/com3dian/Bart-large-paper2slides-summarizer HTTP/1.1" 200 None
-DEBUG - status code : 200
-DEBUG - keypoints generated successfully
-DEBUG - [[<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D270>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D300>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D360>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D630>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D960>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528DB70>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D510>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528DB10>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D0F0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D990>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D3C0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528DB40>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D870>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528DD20>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D900>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D390>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D480>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D420>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D180>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D2D0>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D7E0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D690>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D840>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528E080>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528E1D0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528E320>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528E140>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D570>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528E440>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528DCF0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528E410>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528DCC0>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528D8D0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528E650>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528E680>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528FD60>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528F0D0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528EB60>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528F520>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528F130>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528F250>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528EF20>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528EB00>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528F190>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528F550>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533C0D0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533C1F0>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533C370>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533C190>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533D510>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533CB20>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533C6D0>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533C640>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533D5A0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533D6F0>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533CD60>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533C310>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533C730>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533C7C0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533CD90>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533CA00>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533E440>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533C2E0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533D0F0>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533D1E0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533EBC0>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533D7B0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533CEB0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533D660>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533E890>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533D090>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533F010>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533F040>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533ED70>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533E4A0>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533F160>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533EDA0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533EE00>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533F280>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533C670>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533C8E0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533EE30>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533F430>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533EEF0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533D150>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E533F550>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528EC80>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528FC40>], [<presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528FE50>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528F6D0>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528FF70>, <presentation_maker.data_objects.KeyPoint.KeyPoint object at 0x00000275E528FA30>]]
-DEBUG - presentation organized successfully
-DEBUG - [<presentation_maker.data_objects.Slide.Slide object at 0x00000275E528CAF0>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528C190>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528CD90>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528C340>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528C520>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528C4C0>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528CAC0>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528CC10>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528C2E0>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528C130>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528C7F0>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528CEB0>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528D090>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528C760>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528CC40>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528CC70>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528D030>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528CE80>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528CDC0>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528CEE0>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528CDF0>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528D0C0>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528CFD0>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528CF40>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528CE20>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528FA00>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528F730>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528FC10>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528CFA0>, <presentation_maker.data_objects.Slide.Slide object at 0x00000275E528CF70>]
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'tIME' 119 7
-DEBUG - b'tIME' 119 7 (unknown)
-DEBUG - STREAM b'IDAT' 138 31579
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'tIME' 119 7
-DEBUG - b'tIME' 119 7 (unknown)
-DEBUG - STREAM b'IDAT' 138 31579
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'tIME' 119 7
-DEBUG - b'tIME' 119 7 (unknown)
-DEBUG - STREAM b'IDAT' 138 31579
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'tIME' 119 7
-DEBUG - b'tIME' 119 7 (unknown)
-DEBUG - STREAM b'IDAT' 138 31579
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'tIME' 119 7
-DEBUG - b'tIME' 119 7 (unknown)
-DEBUG - STREAM b'IDAT' 138 31579
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'tIME' 119 7
-DEBUG - b'tIME' 119 7 (unknown)
-DEBUG - STREAM b'IDAT' 138 31579
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'tIME' 119 7
-DEBUG - b'tIME' 119 7 (unknown)
-DEBUG - STREAM b'IDAT' 138 31579
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'tIME' 119 7
-DEBUG - b'tIME' 119 7 (unknown)
-DEBUG - STREAM b'IDAT' 138 31579
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'tIME' 119 7
-DEBUG - b'tIME' 119 7 (unknown)
-DEBUG - STREAM b'IDAT' 138 31579
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'bKGD' 41 6
-DEBUG - b'bKGD' 41 6 (unknown)
-DEBUG - STREAM b'IDAT' 59 8192
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'bKGD' 41 6
-DEBUG - b'bKGD' 41 6 (unknown)
-DEBUG - STREAM b'IDAT' 59 8192
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'bKGD' 41 6
-DEBUG - b'bKGD' 41 6 (unknown)
-DEBUG - STREAM b'IDAT' 59 8192
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'bKGD' 41 6
-DEBUG - b'bKGD' 41 6 (unknown)
-DEBUG - STREAM b'IDAT' 59 8192
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'bKGD' 41 6
-DEBUG - b'bKGD' 41 6 (unknown)
-DEBUG - STREAM b'IDAT' 59 8192
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'bKGD' 41 6
-DEBUG - b'bKGD' 41 6 (unknown)
-DEBUG - STREAM b'IDAT' 59 8192
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'bKGD' 41 6
-DEBUG - b'bKGD' 41 6 (unknown)
-DEBUG - STREAM b'IDAT' 59 8192
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'IDAT' 119 11157
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'IDAT' 119 11157
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'IDAT' 119 11157
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'IDAT' 119 11157
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'IDAT' 119 11157
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'IDAT' 119 11157
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'IDAT' 119 11157
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'IDAT' 119 11157
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'IDAT' 119 11157
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'tIME' 119 7
-DEBUG - b'tIME' 119 7 (unknown)
-DEBUG - STREAM b'IDAT' 138 16873
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'tIME' 119 7
-DEBUG - b'tIME' 119 7 (unknown)
-DEBUG - STREAM b'IDAT' 138 16873
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'tIME' 119 7
-DEBUG - b'tIME' 119 7 (unknown)
-DEBUG - STREAM b'IDAT' 138 16873
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'tIME' 119 7
-DEBUG - b'tIME' 119 7 (unknown)
-DEBUG - STREAM b'IDAT' 138 16873
-DEBUG - STREAM b'IHDR' 16 13
-DEBUG - STREAM b'gAMA' 41 4
-DEBUG - STREAM b'cHRM' 57 32
-DEBUG - STREAM b'bKGD' 101 6
-DEBUG - b'bKGD' 101 6 (unknown)
-DEBUG - STREAM b'tIME' 119 7
-DEBUG - b'tIME' 119 7 (unknown)
-DEBUG - STREAM b'IDAT' 138 16873
-DEBUG - Presentation exported successfully
+DEBUG - Removing unlikely candidate - main.soft-bg.has-notice-bar-top>.sub-menu--backdrop
+DEBUG - Removing unlikely candidate - main.soft-bg.has-notice-bar-top>.sub-menu.sub-menu--sp.sub-menu--sp--tutorial-examples.sub-menu__mobile-head-wrap
+DEBUG - Removing unlikely candidate - .sub-menu.sub-menu--sp.sub-menu--sp--tutorial-examples.sub-menu__mobile-head-wrap>.sub-menu__wrap
+DEBUG - Removing unlikely candidate - .sub-menu__wrap>.sub-menu__head
+DEBUG - Removing unlikely candidate - .sub-menu__head>.sub-menu__tab
+DEBUG - Removing unlikely candidate - .sub-menu__tab>.sub-menu__tab__head
+DEBUG - Removing unlikely candidate - .sub-menu__tab__head>button.sub-menu__tab__node.sub-menu__tab__node--index.d-none
+DEBUG - Removing unlikely candidate - .sub-menu__tab__head>button.sub-menu__tab__node.sub-menu__tab__node--explore
+DEBUG - Removing unlikely candidate - .sub-menu__tab__body.sub-menu__tab__body--explore>a.sub-menu__tab__list-node.sub-menu__tab__list-node--active
+DEBUG - Removing unlikely candidate - .sub-menu__tab__body.sub-menu__tab__body--explore>a.sub-menu__tab__list-node
+DEBUG - Removing unlikely candidate - .sub-menu__tab__body.sub-menu__tab__body--explore>a.sub-menu__tab__list-node
+DEBUG - Removing unlikely candidate - .sub-menu__tab__body.sub-menu__tab__body--explore>a.sub-menu__tab__list-node
+DEBUG - Removing unlikely candidate - .sub-menu__tab__body.sub-menu__tab__body--explore>a.sub-menu__tab__list-node
+DEBUG - Removing unlikely candidate - .sub-menu__tab__body.sub-menu__tab__body--explore>a.sub-menu__tab__list-node
+DEBUG - Removing unlikely candidate - .sub-menu__tab__body.sub-menu__tab__body--explore>a.sub-menu__tab__list-node
+DEBUG - Removing unlikely candidate - .sub-menu__tab__body.sub-menu__tab__body--explore>a.sub-menu__tab__list-node
+DEBUG - Removing unlikely candidate - .sub-menu__tab__body.sub-menu__tab__body--explore>a.sub-menu__tab__list-node
+DEBUG - Removing unlikely candidate - .sub-menu__tab__body.sub-menu__tab__body--explore>a.sub-menu__tab__list-node
+DEBUG - Removing unlikely candidate - .sub-menu__tab__body.sub-menu__tab__body--explore>a.sub-menu__tab__list-node
+DEBUG - Removing unlikely candidate - .sub-menu__tab__body.sub-menu__tab__body--explore>a.sub-menu__tab__list-node
+DEBUG - Removing unlikely candidate - .sub-menu__tab__body.sub-menu__tab__body--explore>a.sub-menu__tab__list-node
+DEBUG - Removing unlikely candidate - .sub-menu__tab__body.sub-menu__tab__body--explore>a.sub-menu__tab__list-node
+DEBUG - Removing unlikely candidate - .sub-menu__head>button.btn.btn--skeleton.menu-hide-trigger
+DEBUG - Removing unlikely candidate - .tabbed-content__right.tabbed-content__right--explore>.sub-menu__cta.sub-menu__mobile-banner
+DEBUG - Removing unlikely candidate - .sub-menu__cta.sub-menu__mobile-banner>.d-flex.sub-menu--mobile-banner
+DEBUG - Removing unlikely candidate - .tabbed-content__right.tabbed-content__right--explore>#m-python.sub-menu__contents.sub-menu--mobile.sub-menu__contents--python
+DEBUG - Removing unlikely candidate - #m-python.sub-menu__contents.sub-menu--mobile.sub-menu__contents--python>.sub-menu__links
+DEBUG - Removing unlikely candidate - .sub-menu__links__column.sub-menu__links__column--left>.sub-menu__link
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__links__column.sub-menu__links__column--left>.sub-menu__link
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__links__column.sub-menu__links__column--right>.sub-menu__link
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - main.soft-bg.has-notice-bar-top>.sub-menu.sub-menu--pc.sub-menu--pc--pro
+DEBUG - Removing unlikely candidate - .col-sm-10>.sub-menu__wrap
+DEBUG - Removing unlikely candidate - .tabbed-content__right>#t-learning-paths.sub-menu__contents.sub-menu__contents--learning-paths
+DEBUG - Removing unlikely candidate - #t-learning-paths.sub-menu__contents.sub-menu__contents--learning-paths>.sub-menu__links
+DEBUG - Removing unlikely candidate - .sub-menu__links__column.sub-menu__links__column--right-pro>.sub-menu__link
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - main.soft-bg.has-notice-bar-top>.sub-menu.sub-menu--pc.sub-menu--pc--tutorial
+DEBUG - Removing unlikely candidate - .col-sm-10>.sub-menu__wrap
+DEBUG - Removing unlikely candidate - .tabbed-content__right>#t-python.sub-menu__contents.sub-menu__contents--python
+DEBUG - Removing unlikely candidate - #t-python.sub-menu__contents.sub-menu__contents--python>.sub-menu__cta
+DEBUG - Removing unlikely candidate - .sub-menu__cta>.d-flex.sub-menu--desktop-banner
+DEBUG - Removing unlikely candidate - #t-python.sub-menu__contents.sub-menu__contents--python>.sub-menu__links
+DEBUG - Removing unlikely candidate - .sub-menu__links__column.sub-menu__links__column--left>.sub-menu__link
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__links__column.sub-menu__links__column--right>.sub-menu__link
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - main.soft-bg.has-notice-bar-top>.sub-menu.sub-menu--pc.sub-menu--pc--examples
+DEBUG - Removing unlikely candidate - .col-sm-10>.sub-menu__wrap
+DEBUG - Removing unlikely candidate - .tabbed-content__right>#examples-python.sub-menu__contents.sub-menu__contents--python
+DEBUG - Removing unlikely candidate - #examples-python.sub-menu__contents.sub-menu__contents--python>.sub-menu__cta
+DEBUG - Removing unlikely candidate - .sub-menu__cta>.d-flex.sub-menu--desktop-banner
+DEBUG - Removing unlikely candidate - #examples-python.sub-menu__contents.sub-menu__contents--python>.sub-menu__links
+DEBUG - Removing unlikely candidate - .sub-menu__links__column.sub-menu__links__column--left>.sub-menu__link
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .sub-menu__link>.sub-menu__link__row
+DEBUG - Removing unlikely candidate - .left-bar.left-bar--large-r-margin.d-none.d-lg-block>.menu-with-accordion.mb-10x.mobile-sidebar-tab
+DEBUG - Removing unlikely candidate - .menu-with-accordion.mb-10x.mobile-sidebar-tab>ul.topmenu
+DEBUG - Removing unlikely candidate - li>h3.show-accordion--header
+DEBUG - Removing unlikely candidate - .left-bar.left-bar--large-r-margin.d-none.d-lg-block>.view.view-related-topics-sidebar-second-before-sticky-ad-.view-id-related_topics_sidebar_second_before_sticky_ad_.view-display-id-block_6.views-sidebar.view-dom-id-19012c2641b6bd9256fd79d81350dd18
+DEBUG - Removing unlikely candidate - .view-content>.card-alt.mb-10x.d-block.mobile-sidebar-tab
+DEBUG - Removing unlikely candidate - .left-bar.left-bar--large-r-margin.d-none.d-lg-block>.sticky-sidebar-advertisement.ad3
+DEBUG - Removing unlikely candidate - .block>.pagination-area
+DEBUG - Removing unlikely candidate - .pagination-area>.pagination-area__btn.pagination-area__btn--prev
+DEBUG - Removing unlikely candidate - .pagination-area__btn.pagination-area__btn--prev>a.btn.pagination-btn.d-flex.align-items-center.justify-content-end
+DEBUG - Removing unlikely candidate - .pagination-area>.pagination-area__btn.pagination-area__btn--next
+DEBUG - Removing unlikely candidate - .pagination-area__btn.pagination-area__btn--next>a.btn.btn--primary.pagination-btn.d-flex.align-items-center.justify-content-end
+DEBUG - Removing unlikely candidate - div{01}>.form-item.webform-component.webform-component-markup.webform-component--page-feedback-header
+DEBUG - Removing unlikely candidate - main.soft-bg.has-notice-bar-top>footer.footer
+DEBUG - Removing unlikely candidate - .col-sm-12>#mauticform_wrapper_generalsubscribersformmobile.sp-footer-form.d-block.d-md-none.mauticform_wrapper
+DEBUG - Removing unlikely candidate - .mauticform-innerform>.footer__form__title
+DEBUG - Removing unlikely candidate - .col-xl-4.col-lg-5.col-md-6.d-none.d-md-block>.footer__content
+DEBUG - Removing unlikely candidate - .footer__content>object.footer__logo
+DEBUG - Removing unlikely candidate - #mauticform_wrapper_generalsubscribersform.mauticform_wrapper>form#mauticform_generalsubscribersform.footer__form
+DEBUG - Removing unlikely candidate - .mauticform-innerform>.footer__form__title
+DEBUG - Removing unlikely candidate - .footer__content>.footer__vendor-btn
+DEBUG - Removing unlikely candidate - .footer__vendor-btn>.footer__vendor-btn__row
+DEBUG - Removing unlikely candidate - .footer__vendor-btn>.footer__vendor-btn__row
+DEBUG - Removing unlikely candidate - .col-lg-2.col-md-3.col-xs-6>.footer__link-area
+DEBUG - Removing unlikely candidate - .footer__link-area>h4.footer__link-area__title
+DEBUG - Removing unlikely candidate - .footer__link-area>ul.footer__links
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - .col-lg-2.col-md-3.col-xs-6>.footer__link-area
+DEBUG - Removing unlikely candidate - .footer__link-area>h4.footer__link-area__title
+DEBUG - Removing unlikely candidate - .footer__link-area>ul.footer__links
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - .col-lg-2.col-md-3.col-xs-6>.footer__link-area
+DEBUG - Removing unlikely candidate - .footer__link-area>h4.footer__link-area__title
+DEBUG - Removing unlikely candidate - .footer__link-area>ul.footer__links
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - .col-lg-2.col-md-3.col-xs-6>.footer__link-area
+DEBUG - Removing unlikely candidate - .footer__link-area>h4.footer__link-area__title
+DEBUG - Removing unlikely candidate - .footer__link-area>ul.footer__links
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - ul.footer__links>li.footer__links__nodes
+DEBUG - Removing unlikely candidate - .d-flex.justify-content-center>.footer__vendor-btn__row
+DEBUG - Removing unlikely candidate - .d-flex.justify-content-center>.footer__vendor-btn__row
+DEBUG - Removing unlikely candidate - .container>.footer__end
+DEBUG - Branch 84.420 #node-1063.node.node-algorithm.clearfix>.content link density 0.001 -> 84.298
+DEBUG - Branch 32.210 .editor-contents>#node-1063.node.node-algorithm.clearfix link density 0.001 -> 32.164
+DEBUG - Branch 111.000 .code-editor.code-editor--tabbed>#python-code.code-editor__area link density 0.000 -> 111.000
+DEBUG - Branch 121.500 .content>.code-editor.code-editor--tabbed link density 0.000 -> 121.500
+DEBUG - Branch 65.000 .code-editor.code-editor--tabbed>#java-code.code-editor__area link density 0.000 -> 65.000
+DEBUG - Branch 29.000 .code-editor.code-editor--tabbed>#c-code.code-editor__area link density 0.000 -> 29.000
+DEBUG - Branch 48.000 .code-editor.code-editor--tabbed>#cpp-code.code-editor__area link density 0.000 -> 48.000
+DEBUG - Top 5 : 121.500 .content>.code-editor.code-editor--tabbed
+DEBUG - Top 5 : 111.000 .code-editor.code-editor--tabbed>#python-code.code-editor__area
+DEBUG - Top 5 : 84.298 #node-1063.node.node-algorithm.clearfix>.content
+DEBUG - Top 5 : 65.000 .code-editor.code-editor--tabbed>#java-code.code-editor__area
+DEBUG - Top 5 : 48.000 .code-editor.code-editor--tabbed>#cpp-code.code-editor__area
+INFO - type of dense tag: <class 'str'>

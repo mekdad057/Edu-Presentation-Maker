@@ -43,6 +43,8 @@ class PresentationHandler:
                             , slides_number: int = -1) -> bool:
         # setting title
         try:
+            self.reset()
+
             self.presentation.title = topic.title
 
             self._generation_handler.generate_content(self.presentation, topic,

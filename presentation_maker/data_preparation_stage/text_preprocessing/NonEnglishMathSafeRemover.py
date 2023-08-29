@@ -18,9 +18,9 @@ class NonEnglishMathSafeRemover(Processor):
         super().__init__()
 
     def process_document(self, doc: Document):
-        for i in range(len(self._texts)):
+        for i in range(len(doc.paragraphs)):
             self._texts[i] = re.sub(r"[^&%\$0-9a-zA-Z.,:;?!`>()<"
-                                    r"{}\[\]\-\\\'\"\s"
+                                    r"{_}\[\]\-\\\'\"\s"
                                     # math symbols
                                     r"+÷×−*∗=√∞≈≠≤≥^/πe∑∆∫∂∏∪∩∈∀∃¬∧∨→↔" 
                                     r"±∞=≠~×÷!∝<≪>≫≤≥∓≅≈≡∀∁∂∛∪∜∩√∅%°℉℃∆"

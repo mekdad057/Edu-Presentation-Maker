@@ -13,10 +13,12 @@ class WebExtractor(Extractor):
 
     IMAGE_TAG: str
     MAX_SIZE_LIMIT: int
+    NAME_DELIMITERS: str
 
     def __init__(self):
         super().__init__()
-        self.IMAGE_VALID_SIZE = 300
+        self.NAME_DELIMITERS = "-|"
+        self.IMAGE_VALID_SIZE = 30000
         self.IMAGE_TAG = "img"
         self.MAX_SIZE_LIMIT = 10
 
@@ -111,10 +113,10 @@ class WebExtractor(Extractor):
         """
         width = tag.get("width")
         height = tag.get("height")
-        if width is None or height is None:
+        if width is None and height is None:
             return None
-        width = float(width)
-        height = float(height)
+        width = float(width or height)
+        height = float(height or width)
         if width * height <= self.IMAGE_VALID_SIZE:
             logging.debug("image too small %s" % str(width * height))
             return None
@@ -165,5 +167,8 @@ class WebExtractor(Extractor):
         # get title tag from html
         title = BeautifulSoup(data, "lxml").find("title")
         name = title.get_text()
+        for delimiter in self.NAME_DELIMITERS:
+            name += delimiter
+            name = name.split(delimiter)[0]
 
         return name
