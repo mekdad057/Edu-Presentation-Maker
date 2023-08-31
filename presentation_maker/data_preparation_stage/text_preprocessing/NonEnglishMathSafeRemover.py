@@ -13,7 +13,6 @@ class NonEnglishMathSafeRemover(Processor):
     keeps main characters like English letters, some Math operations,
      parenthesis, brackets, punctuation, $ % &
     """
-    LATIN_LETTERS: str
     def __init__(self):
         super().__init__()
 

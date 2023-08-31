@@ -73,7 +73,7 @@ class PresentationHandler:
 
             # adding rest of slides
             for slide in self.presentation.slides:
-                self.export_slide(slide, pr)
+                self.__export_slide(slide, pr)
 
             # adding conclusion slide
             conclusion_slide_layout = pr.slide_layouts[LAYOUT.TITLE.value]
@@ -91,7 +91,7 @@ class PresentationHandler:
     def get_presentation(self):
         return copy.deepcopy(self.presentation)
 
-    def export_slide(self, slide: Slide, presentation_to_export):
+    def __export_slide(self, slide: Slide, presentation_to_export):
         bullet_points_text = [str(k.data) for k in slide.keypoints]
         # handling first slide
         slide_layout = presentation_to_export.slide_layouts[slide.layout.value]
@@ -109,9 +109,9 @@ class PresentationHandler:
             replace_with_image(str(slide.content.data)
                                , image_box, m_slide)
         if len(bullet_points_text) > 0:
-            self._insert_bullet_point(bullet_point_box
-                                      , bullet_points_text[0]
-                                      , slide.keypoints[0].level)
+            self.__insert_bullet_point(bullet_point_box
+                                       , bullet_points_text[0]
+                                       , slide.keypoints[0].level)
         # handling rest of slides
         for idx, bullet_point in enumerate(bullet_points_text[1:]):
             # if there is overflow or the deck is empty
@@ -132,11 +132,11 @@ class PresentationHandler:
                     replace_with_image(str(slide.content.data)
                                        , image_box, m_slide)
             if bullet_point_box is not None:
-                self._insert_bullet_point(bullet_point_box
-                                          , bullet_point
-                                          , slide.keypoints[idx].level)
+                self.__insert_bullet_point(bullet_point_box
+                                           , bullet_point
+                                           , slide.keypoints[idx].level)
 
-    def _get_paragraph(self, box):
+    def __get_paragraph(self, box):
         """
         in python-pptx, paragraphs is not initially empty, it has one
         empty paragraph and this function to handle this case :param
@@ -148,7 +148,7 @@ class PresentationHandler:
         else:
             return box.text_frame.add_paragraph()
 
-    def _insert_bullet_point(self, box, bullet_point: str, level: int = -1):
+    def __insert_bullet_point(self, box, bullet_point: str, level: int = -1):
         # divide bullet point.
         bullets = []
         if len(bullet_point) > self._BULLET_POINT_CHARACTERS_NUM_LIMIT:
@@ -158,7 +158,7 @@ class PresentationHandler:
             bullets.append(bullet_point)
         # add bullet point with first level 1 and rest level 2
         for idx, bullet in enumerate(bullets):
-            paragraph = self._get_paragraph(box)
+            paragraph = self.__get_paragraph(box)
             paragraph.text = bullet
             if level == -1:
                 if idx == 0:

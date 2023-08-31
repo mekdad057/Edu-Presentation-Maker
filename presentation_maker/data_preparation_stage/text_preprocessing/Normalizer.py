@@ -13,9 +13,9 @@ class Normalizer(Processor):
                 doc.paragraphs[i].processed_data = self._texts[i].lower()
             elif self._language == "ar":
                 doc.paragraphs[i].processed_data =\
-                    self.normalize_arabic(self._texts[i])
+                    self._normalize_arabic(self._texts[i])
 
-    def normalize_arabic(self, text) -> str:
+    def _normalize_arabic(self, text) -> str:
         text = re.sub("[إأآا]", "ا", text)
         text = re.sub("ى", "ي", text)
         text = re.sub("ؤ", "ء", text)

@@ -51,9 +51,9 @@ class DataSourceHandler:
         # use suitable extractor to create the content
         file_name = get_file_name(working_path)
 
-        if self.is_pdf(file_name):
+        if self._is_pdf(file_name):
             doc = self.create_document(PdfExtractor(), working_path, path)
-        elif self.is_web_page(file_name):
+        elif self._is_web_page(file_name):
             if path.find("wiki") != -1:
                 doc = self.create_document(WikipediaExtractor(), working_path, path)
             else:
@@ -64,13 +64,13 @@ class DataSourceHandler:
             raise ExtractionError(file_name, path)
         topic.documents.append(doc)
 
-    def is_pdf(self, name: str) -> bool:
+    def _is_pdf(self, name: str) -> bool:
         if name.split('.')[-1] in self.PDF_EXTENSIONS:
             return True
         else:
             return False
 
-    def is_web_page(self, name: str) -> bool:
+    def _is_web_page(self, name: str) -> bool:
         if name.split('.')[-1] in self.WEB_EXTENSIONS:
             return True
         else:

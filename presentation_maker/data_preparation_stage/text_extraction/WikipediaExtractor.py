@@ -68,9 +68,9 @@ class WikipediaExtractor(Extractor):
         # is_structured: boolean indicates if the structure of the paragraph
         # has to be preserved
 
-        blocks = self.divide_text_to_heading_blocks(text)
+        blocks = self._divide_text_to_heading_blocks(text)
 
-        blocks = self.merge_small_blocks(blocks)
+        blocks = self._merge_small_blocks(blocks)
 
         doc.paragraphs = [Paragraph(block["title"]
                                     , block["text"]
@@ -78,7 +78,7 @@ class WikipediaExtractor(Extractor):
                                     , block["is_structured"])
                           for block in blocks]
 
-    def divide_text_to_heading_blocks(self, text: str) -> list[dict]:
+    def _divide_text_to_heading_blocks(self, text: str) -> list[dict]:
         soup = BeautifulSoup(text, 'html.parser')
 
         elements = soup.find_all(self.TEXT_TAGS
@@ -96,7 +96,7 @@ class WikipediaExtractor(Extractor):
                 stop = idx
                 break
             else:
-                self.extract_text(block, tag)
+                self._extract_text(block, tag)
             pbar.update(1)
 
         blocks.append(block)
@@ -122,14 +122,14 @@ class WikipediaExtractor(Extractor):
                 else:
                     break
             else:
-                self.extract_text(block, elements[i])
+                self._extract_text(block, elements[i])
             pbar.update(1)
         blocks.append(block)  # appending the last heading.
         pbar.update(len(elements) - pbar.n)
         pbar.close()
         return blocks
 
-    def merge_small_blocks(self, blocks: list[dict]) -> list[dict]:
+    def _merge_small_blocks(self, blocks: list[dict]) -> list[dict]:
         res = []
         index = -1
         for b in blocks:
@@ -160,7 +160,7 @@ class WikipediaExtractor(Extractor):
                 res.append(b)
         return res
 
-    def extract_content(self, tag) -> str:
+    def _extract_content(self, tag) -> str:
         """
         download content used in the wikipedia page, usually photos :param
         tag: reference to that tag contains the content usually <img>
@@ -191,16 +191,16 @@ class WikipediaExtractor(Extractor):
         path = download_to_working(url)
         return path
 
-    def extract_text(self, block, element):
+    def _extract_text(self, block, element):
         if element.name == self.IMAGE_TAG:
-            extracted = self.extract_content(element)
+            extracted = self._extract_content(element)
             if extracted is not None:
                 block["contents_paths"].append(extracted)
         elif element.name in self.STRUCTURED_TEXT_TAGS:
             try:
                 if len(split_text_to_sentences(block["text"])) <= self.MIN_LIMIT:
                     block["is_structured"] = True
-                    block["text"] += "\n" + self.extract_list(element)
+                    block["text"] += "\n" + self._extract_list(element)
                 else:
                     block["text"] += element.get_text()
             except Exception as e:
@@ -209,7 +209,7 @@ class WikipediaExtractor(Extractor):
         else:
             block["text"] += element.get_text()
 
-    def extract_list(self, element, level: int = 1) -> str:
+    def _extract_list(self, element, level: int = 1) -> str:
         """
         extracts text from list tag while preserving the structure of the list,
         iterate over list items adding a level up for each list item to be
@@ -225,10 +225,10 @@ class WikipediaExtractor(Extractor):
             if list_element.name == "li":
                 lists = list_element.find_all(self.STRUCTURED_TEXT_TAGS)
                 for inner_list in lists:
-                    inner_list.replace_with(self.extract_list(inner_list
-                                                              , level + 1))
+                    inner_list.replace_with(self._extract_list(inner_list
+                                                               , level + 1))
                 result += "#"*level + list_element.get_text()
         return result
 
-    def get_doc_name(self, work_path) -> str:
-        return super().get_doc_name(work_path)
+    def _get_doc_name(self, work_path) -> str:
+        return super()._get_doc_name(work_path)

@@ -1,18 +1,10 @@
 from abc import ABC, abstractmethod
 
 from presentation_maker.data_objects import Document
-from presentation_maker.utils import LanguageHandler, get_file_name
+from presentation_maker.utils import get_file_name
 
 
 class Extractor(ABC):
-    _language_handler: LanguageHandler
-
-    def __init__(self):
-        self._language_handler = LanguageHandler()
-
-    @property
-    def language_handler(self):
-        return self._language_handler
 
     @abstractmethod
     def get_relevant_text(self, path: str) -> str:
@@ -23,8 +15,8 @@ class Extractor(ABC):
         contents = self.get_relevant_text(work_path)
 
         # 2) evaluating attributes
-        name = self.get_doc_name(work_path)
-        language = self.language_handler.determine_language(contents)
+        name = self._get_doc_name(work_path)
+        language = "english"
 
         # 3) creating Document Object with the attributes
         doc = Document(name, real_path, language)
@@ -39,5 +31,5 @@ class Extractor(ABC):
         pass
 
     @abstractmethod
-    def get_doc_name(self, work_path) -> str:
+    def _get_doc_name(self, work_path) -> str:
         return get_file_name(work_path)

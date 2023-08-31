@@ -51,7 +51,7 @@ class WebExtractor(Extractor):
 
         for tag in dense_tags:
             if tag.name == self.IMAGE_TAG:
-                extracted = self.extract_content(tag)
+                extracted = self._extract_content(tag)
                 if extracted is not None:
                     block["contents_paths"].append(extracted)
                     if block["text"] != "":
@@ -104,7 +104,7 @@ class WebExtractor(Extractor):
                                        if tag.has_attr("class") else "None"
                                        )
 
-    def extract_content(self, tag) -> str:
+    def _extract_content(self, tag) -> str:
         """
         download content used in the wikipedia page, usually photos :param
         tag: reference to that tag contains the content usually <img>
@@ -156,7 +156,7 @@ class WebExtractor(Extractor):
                 new_blocks.append(block)
         return new_blocks
 
-    def get_doc_name(self, work_path):
+    def _get_doc_name(self, work_path):
         try:
             with open(work_path, 'rb') as f:
                 data = f.read()

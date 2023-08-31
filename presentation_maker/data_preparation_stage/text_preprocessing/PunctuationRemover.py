@@ -34,14 +34,14 @@ class PunctuationRemover(Processor):
 
     def process_document(self, doc: Document):
         for i in range(len(doc.paragraphs)):
-            self._texts[i] = self.remove_punctuations(self._texts[i])
+            self._texts[i] = self._remove_punctuations(self._texts[i])
             doc.paragraphs[i].processed_data = \
-                self.remove_diacritics(self._texts[i])
+                self._remove_diacritics(self._texts[i])
 
-    def remove_diacritics(self, text):
+    def _remove_diacritics(self, text):
         text = re.sub(self.__arabic_diacritics, '', text)
         return text
 
-    def remove_punctuations(self, text):
+    def _remove_punctuations(self, text):
         translator = str.maketrans('', '', self.__punctuations_list)
         return text.translate(translator)

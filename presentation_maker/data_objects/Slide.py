@@ -2,7 +2,6 @@ from enum import Enum
 
 from presentation_maker.data_objects.Content import Content
 from presentation_maker.data_objects.KeyPoint import KeyPoint
-from presentation_maker.data_objects.Script import Script
 
 
 class LAYOUT(Enum):
@@ -20,7 +19,6 @@ class Slide:
     number: int
     _layout: LAYOUT
     keypoints: list[KeyPoint]
-    script: Script
     content: Content
 
     def __init__(self, layout: LAYOUT):

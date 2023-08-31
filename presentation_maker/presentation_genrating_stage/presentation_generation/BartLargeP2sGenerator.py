@@ -27,7 +27,7 @@ class BartLargeP2sGenerator(KeyPointGenerator):
 
     def _handle_unstructured_paragraph(self, paragraph):
         # summarizing
-        summary = self.request_summary(paragraph.processed_data)
+        summary = self.__request_summary(paragraph.processed_data)
 
         # adding keypoints
         p_keypoints = []
@@ -38,7 +38,7 @@ class BartLargeP2sGenerator(KeyPointGenerator):
 
         return p_keypoints
 
-    def request_summary(self, text: str) -> str:
+    def __request_summary(self, text: str) -> str:
         # using api to summarize text
 
         request = {"inputs": text,

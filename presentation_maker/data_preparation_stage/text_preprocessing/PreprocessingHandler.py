@@ -22,28 +22,25 @@ from presentation_maker.utils.Errors import NotFoundError
 
 class PreprocessingHandler:
 
-    def __init__(self):
-        pass
-
     def process(self, documents: list[Document]
                     , processing_methods_names: list[str]):
         # finding all needed processors in order.
         processors = []
         for name in processing_methods_names:
-            processors.append(self.get_processor(name))
+            processors.append(self._get_processor(name))
 
         # text_preprocessing started
         for doc in documents:
-            self.process_document(processors, doc)
+            self._process_document(processors, doc)
 
-    def process_document(self, processors: list[Processor]
-                         , document: Document):
+    def _process_document(self, processors: list[Processor]
+                          , document: Document):
         for processor in processors:
             processor.load_document(document)
             processor.process_document(document)
             processor.unload()
 
-    def get_processor(self, name: str) -> Processor:
+    def _get_processor(self, name: str) -> Processor:
         processor_class = Processor.registry().get(name)
         if processor_class:
             return processor_class()
