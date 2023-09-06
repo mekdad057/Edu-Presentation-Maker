@@ -12,18 +12,14 @@ from presentation_maker.utils import split_text_to_sentences, Config
 
 @Generator.register_generator("bart-large-paper-2-slides-summarizer")
 class BartLargeP2sGenerator(KeyPointGenerator):
-    API_TOKEN: str
-    API_URL: str
-    HEADERS: dict
-
     def __init__(self):
         super().__init__("bart-large-p2s")
         self._INITIAL_PARAMS_VALUES = {"max_length": 130, "min_length": 30,
                                        "do_sample": False}
         self._current_params_values = {}
-        self.API_TOKEN = Config.get("BartLargeP2sGenerator")["API_TOKEN"]
-        self.API_URL = Config.get("BartLargeP2sGenerator")["API_URL"]
-        self.HEADERS = {"Authorization": f"Bearer {self.API_TOKEN}"}
+        self.__API_TOKEN = Config.get("BartLargeP2sGenerator")["API_TOKEN"]
+        self.__API_URL = Config.get("BartLargeP2sGenerator")["API_URL"]
+        self.__HEADERS = {"Authorization": f"Bearer {self.__API_TOKEN}"}
 
     def _handle_unstructured_paragraph(self, paragraph):
         # summarizing
@@ -53,7 +49,7 @@ class BartLargeP2sGenerator(KeyPointGenerator):
                    }
         while True:
             try:
-                response = requests.post(self.API_URL, headers=self.HEADERS
+                response = requests.post(self.__API_URL, headers=self.__HEADERS
                                          , json=request)
                 logging.debug("status code : " + response.status_code.__str__())
                 if response.status_code == 200:

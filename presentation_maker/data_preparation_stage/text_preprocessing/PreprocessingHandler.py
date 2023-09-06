@@ -3,19 +3,6 @@ from presentation_maker.data_preparation_stage.text_preprocessing.RepeatedWordsR
     import RepeatedWordsRemover
 from presentation_maker.data_preparation_stage.text_preprocessing.Processor \
     import Processor
-from presentation_maker.data_preparation_stage.text_preprocessing.HtmlTagsRemover\
-    import HtmlTagsRemover
-from presentation_maker.data_preparation_stage.text_preprocessing.NewLinesRemover\
-    import NewLinesRemover
-from presentation_maker.data_preparation_stage.text_preprocessing.NonEnglishMathSafeRemover\
-    import NonEnglishMathSafeRemover
-from presentation_maker.data_preparation_stage.text_preprocessing.Normalizer\
-    import Normalizer
-from presentation_maker.data_preparation_stage.text_preprocessing.PunctuationRemover\
-    import \
-    PunctuationRemover
-from presentation_maker.data_preparation_stage.text_preprocessing.CitationsLinksRemover\
-    import CitationsLinksRemover
 
 from presentation_maker.utils.Errors import NotFoundError
 
