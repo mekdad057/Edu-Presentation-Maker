@@ -1,7 +1,8 @@
 # Edu-Presentation-Maker
 
 a humble project to create presentations from wikipedia pages, and some possible expantion to all web pages.
-! it doesn't implement full solution to all problems related to its goal. 
+
+`it doesn't implement full solution to all problems related to its goal.`
 
 the work-flow is as follow:
 1. extract text from the page and divide it to paragraphs.
