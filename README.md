@@ -10,4 +10,3 @@ the work-flow is as follow:
 3. generate the content, and currently we're only implementing the keypoints generator.
 4.  exporting the presentation as a powerpoint file.
 
-hopefully it can help you in someway.! goodluck ^_^
